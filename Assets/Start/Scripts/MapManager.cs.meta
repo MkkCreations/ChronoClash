@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 7a5ee907811de4746afc9a79c0e41bd4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - overlayPrefab: {fileID: 5204157503019804572, guid: 7c947e6a4b4a9485cab71993b01938f5, type: 3}
+  - overlayContainer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
