@@ -8,7 +8,7 @@ public class QuitterJeu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
+    } 
 
 
 }
