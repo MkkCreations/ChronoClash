@@ -15,7 +15,7 @@ public class MouseController : MonoBehaviour
 
     private PathFinder pathFinder;
     private RangeFinder rangeFinder;
-    //private ArrowTranslator arrowTranslator;
+    private ArrowTranslator arrowTranslator;
     private List<OverlayTile> path;
     private List<OverlayTile> rangeFinderTiles;
     private bool isMoving;
@@ -24,14 +24,14 @@ public class MouseController : MonoBehaviour
     {
         pathFinder = new PathFinder();
         rangeFinder = new RangeFinder();
-        //arrowTranslator = new ArrowTranslator();
+        arrowTranslator = new ArrowTranslator();
 
         path = new List<OverlayTile>();
         isMoving = false;
         rangeFinderTiles = new List<OverlayTile>();
     }
 
-    void LateUpdate()
+    void Update()
     {
         RaycastHit2D? hit = GetFocusedOnTile();
 
@@ -45,9 +45,9 @@ public class MouseController : MonoBehaviour
             {
                 path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
 
-                /*foreach (var item in rangeFinderTiles)
+                foreach (var item in rangeFinderTiles)
                 {
-                    MapManager.Instance.map[item.grid2DLocation].SetSprite(ArrowDirection.None);
+                    MapManager.Instance.map[item.grid2DLocation].SetSprite(ArrowTranslator.ArrowDirection.None);
                 }
 
                 for (int i = 0; i < path.Count; i++)
@@ -57,18 +57,22 @@ public class MouseController : MonoBehaviour
 
                     var arrow = arrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
                     path[i].SetSprite(arrow);
-                }*/
+                }
             }
-
+         
             if (Input.GetMouseButtonDown(0))
             {
-                tile.ShowTile();
-
                 if (character == null)
                 {
                     character = Instantiate(characterPrefab).GetComponent<CharacterInfo>();
                     PositionCharacterOnLine(tile);
                     GetInRangeTiles();
+                }
+                else if (!rangeFinderTiles.Contains(tile) || character.standingOnTile == tile)
+                {
+                    isMoving = false;
+                    GetInRangeTiles();
+                    return;
                 }
                 else
                 {
@@ -76,12 +80,12 @@ public class MouseController : MonoBehaviour
                     tile.gameObject.GetComponent<OverlayTile>().HideTile();
                 }
             }
+            if (path.Count > 0 && isMoving)
+            {
+                MoveAlongPath();
+            }
         }
 
-        if (path.Count > 0 && isMoving)
-        {
-            MoveAlongPath();
-        }
     }
 
     private void MoveAlongPath()
@@ -132,8 +136,9 @@ public class MouseController : MonoBehaviour
     {
         rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), 3);
 
-        foreach (var item in rangeFinderTiles)
+        foreach (OverlayTile item in rangeFinderTiles)
         {
+            if (item.isWater()) continue;
             item.ShowTile();
         }
     }
