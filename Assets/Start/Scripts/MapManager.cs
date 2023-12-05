@@ -73,6 +73,7 @@ public class MapManager : MonoBehaviour
                         // Set the overlay tile's position to the tile's position
                         if (!map.ContainsKey(new Vector2Int(x, y)))
                         {
+
                             var overlayTile = Instantiate(overlayPrefab, overlayContainer.transform);
                             var cellWorldPosition = tm.GetCellCenterWorld(new Vector3Int(x, y, z));
                             overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z + 1);
@@ -81,6 +82,7 @@ public class MapManager : MonoBehaviour
 
                             map.Add(new Vector2Int(x, y), overlayTile.gameObject.GetComponent<OverlayTile>());
                         }
+                       
                     }
                 }
             }
