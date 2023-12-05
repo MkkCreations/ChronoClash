@@ -25,6 +25,8 @@ public class MouseController : MonoBehaviour
     void LateUpdate()
     {
         bool gamePaused = PausePanel.gameIsPaused;
+        bool gamePaused2 = ConfirmationPanel.isConfirmationActive;
+        
         // ajout de la variable booleen gameIsPaused de la classe PausePanel (by allan)
         RaycastHit2D? hit = GetFocusedOnTile();
 
@@ -33,7 +35,7 @@ public class MouseController : MonoBehaviour
             OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
             cursor.transform.position = tile.transform.position;
             cursor.GetComponent<SpriteRenderer>().sortingOrder = tile.transform.GetComponent<SpriteRenderer>().sortingOrder;
-            if (Input.GetMouseButtonDown(0) && ( !gamePaused  ) ) // mtn quand le jeu est en pause on ne peut plus bouger le joueur
+            if (Input.GetMouseButtonDown(0) && ( !gamePaused  ) &&(!gamePaused2)) // mtn quand le jeu est en pause on ne peut plus bouger le joueur
             {
                 tile.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
 

@@ -23,10 +23,12 @@ public class PausePanel : MonoBehaviour
     
     }
 
+
     void Paused()
     {
         gameIsPaused = true;
         forfeitMenuUi.SetActive(true);
+
 
     }
 
@@ -35,5 +37,6 @@ public class PausePanel : MonoBehaviour
         gameIsPaused = false;
         forfeitMenuUi.SetActive(false);
     }
+
 
 }
