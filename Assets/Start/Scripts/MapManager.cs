@@ -124,4 +124,30 @@ public class MapManager : MonoBehaviour
 
         return surroundingTiles;
     }
+
+    public OverlayTile GetTileFromMouse()
+    {
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+
+        if (hit.collider != null)
+        {
+            return hit.collider.GetComponent<OverlayTile>();
+            // raycast hit this gameobject
+        }
+        return null;
+    }
+
+    public OverlayTile GetTileFromPoint(Vector3 point)
+    {
+
+        Collider2D c = Physics2D.OverlapPoint(point);
+
+        if (c != null)
+        {
+            return c.GetComponent<OverlayTile>();
+        }
+        return null;
+    }
 }
