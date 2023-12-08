@@ -73,14 +73,15 @@ public class MapManager : MonoBehaviour
                         // Set the overlay tile's position to the tile's position
                         if (!map.ContainsKey(new Vector2Int(x, y)))
                         {
+
                             var overlayTile = Instantiate(overlayPrefab, overlayContainer.transform);
                             var cellWorldPosition = tm.GetCellCenterWorld(new Vector3Int(x, y, z));
                             overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z + 1);
                             overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tm.GetComponent<TilemapRenderer>().sortingOrder;
                             overlayTile.gameObject.GetComponent<OverlayTile>().gridLocation = new Vector3Int(x, y, z);
-
                             map.Add(new Vector2Int(x, y), overlayTile.gameObject.GetComponent<OverlayTile>());
                         }
+                       
                     }
                 }
             }
@@ -121,5 +122,31 @@ public class MapManager : MonoBehaviour
         }
 
         return surroundingTiles;
+    }
+
+    public OverlayTile GetTileFromMouse()
+    {
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+
+        if (hit.collider != null)
+        {
+            return hit.collider.GetComponent<OverlayTile>();
+            // raycast hit this gameobject
+        }
+        return null;
+    }
+
+    public OverlayTile GetTileFromPoint(Vector3 point)
+    {
+
+        Collider2D c = Physics2D.OverlapPoint(point);
+
+        if (c != null)
+        {
+            return c.GetComponent<OverlayTile>();
+        }
+        return null;
     }
 }

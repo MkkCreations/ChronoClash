@@ -3,118 +3,75 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
 
     public GameObject cursor;
-    public float speed;
-    public GameObject characterPrefab;
-    private CharacterInfo character;
-
-    private PathFinder pathFinder;
-    private RangeFinder rangeFinder;
-    private ArrowTranslator arrowTranslator;
-    private List<OverlayTile> path;
-    private List<OverlayTile> rangeFinderTiles;
-    private bool isMoving;
+    private MapManager mapManager;
+    public CharacterInfo character = null;
+    public List<CharacterInfo> unitList = new List<CharacterInfo>();
+    private bool moved = false;
 
     private void Start()
     {
-        pathFinder = new PathFinder();
-        rangeFinder = new RangeFinder();
-        arrowTranslator = new ArrowTranslator();
 
-        path = new List<OverlayTile>();
-        isMoving = false;
-        rangeFinderTiles = new List<OverlayTile>();
+        mapManager = GetComponentInChildren<MapManager>();
+
+        unitList.AddRange(GameObject.FindObjectsOfType<CharacterInfo>());
+
+        /* foreach (CharacterInfo u in unitList)
+        {
+            UpdateUnitGridPosition(u);
+        } */
+
+        character = unitList[0];
+        character.selected = true;
+        character.GetInRangeTiles();
     }
 
     void Update()
     {
+        if (moved && !character.isMoving)
+        {
+            moved = false;
+            // switch to next unit
+            character.Deselect();
+            character = unitList[(unitList.IndexOf(character) + 1) % unitList.Count];
+            character.Select();
+            character.GetInRangeTiles();
+        }
+
         RaycastHit2D? hit = GetFocusedOnTile();
 
-        if (hit.HasValue)
+        if (hit.HasValue && character && !character.isMoving)
         {
-            OverlayTile tile = hit.Value.collider.gameObject.GetComponent<OverlayTile>();
+            OverlayTile tile = hit.Value.collider.gameObject.GetComponentInChildren<OverlayTile>();
             cursor.transform.position = tile.transform.position;
             cursor.gameObject.GetComponent<SpriteRenderer>().sortingOrder = tile.transform.GetComponent<SpriteRenderer>().sortingOrder;
 
-            if (rangeFinderTiles.Contains(tile) && !isMoving)
-            {
-                path = pathFinder.FindPath(character.standingOnTile, tile, rangeFinderTiles);
+            character.tileToMove = MapManager.Instance.map[tile.grid2DLocation];
 
-                foreach (var item in rangeFinderTiles)
-                {
-                    MapManager.Instance.map[item.grid2DLocation].SetSprite(ArrowTranslator.ArrowDirection.None);
-                }
-
-                for (int i = 0; i < path.Count; i++)
-                {
-                    var previousTile = i > 0 ? path[i - 1] : character.standingOnTile;
-                    var futureTile = i < path.Count - 1 ? path[i + 1] : null;
-
-                    var arrow = arrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
-                    path[i].SetSprite(arrow);
-                }
-            }
-         
             if (Input.GetMouseButtonDown(0))
             {
-                if (character == null)
+                if (!character.rangeFinderTiles.Contains(character.tileToMove) || character.standingOnTile == character.tileToMove)
                 {
-                    character = Instantiate(characterPrefab).GetComponent<CharacterInfo>();
-                    PositionCharacterOnLine(tile);
-                    GetInRangeTiles();
-                }
-                else if (!rangeFinderTiles.Contains(tile) || character.standingOnTile == tile)
-                {
-                    isMoving = false;
-                    GetInRangeTiles();
+                    character.isMoving = false;
+                    character.GetInRangeTiles();
                     return;
                 }
                 else
                 {
-                    isMoving = true;
-                    tile.gameObject.GetComponent<OverlayTile>().HideTile();
+                    character.isMoving = true;
+                    character.tileToMove.gameObject.GetComponent<OverlayTile>().HideTile();
+                    moved = true;
                 }
             }
-            if (path.Count > 0 && isMoving)
-            {
-                MoveAlongPath();
-            }
         }
-
-    }
-
-    private void MoveAlongPath()
-    {
-        var step = speed * Time.deltaTime;
-
-        float zIndex = path[0].transform.position.z;
-        character.transform.position = Vector2.MoveTowards(character.transform.position, path[0].transform.position, step);
-        character.transform.position = new Vector3(character.transform.position.x, character.transform.position.y, zIndex);
-
-        if (Vector2.Distance(character.transform.position, path[0].transform.position) < 0.00001f)
-        {
-            PositionCharacterOnLine(path[0]);
-            path.RemoveAt(0);
-        }
-
-        if (path.Count == 0)
-        {
-            GetInRangeTiles();
-            isMoving = false;
-        }
-
-    }
-
-    private void PositionCharacterOnLine(OverlayTile tile)
-    {
-        character.transform.position = new Vector3(tile.transform.position.x, tile.transform.position.y + 0.0001f, tile.transform.position.z);
-        character.GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder;
-        character.standingOnTile = tile;
     }
 
     private static RaycastHit2D? GetFocusedOnTile()
@@ -132,14 +89,19 @@ public class MouseController : MonoBehaviour
         return null;
     }
 
-    private void GetInRangeTiles()
-    {
-        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int(character.standingOnTile.gridLocation.x, character.standingOnTile.gridLocation.y), 3);
 
-        foreach (OverlayTile item in rangeFinderTiles)
+
+    void UpdateUnitGridPosition(CharacterInfo u)
+    {
+        OverlayTile t = mapManager.GetTileFromPoint(u.transform.position);
+
+        if (t == null)
         {
-            if (item.isWater()) continue;
-            item.ShowTile();
+            Debug.LogError("Unit not on the grid", u);
+            return;
         }
+
+        u.transform.position = t.transform.position;
     }
+
 }
