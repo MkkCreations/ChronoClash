@@ -149,17 +149,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91025231}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 451566177}
-  m_Father: {fileID: 710112849}
+  m_Father: {fileID: 1920944897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29.02, y: -80.52}
+  m_AnchoredPosition: {x: -31.621687, y: -53.355583}
   m_SizeDelta: {x: 54.85, y: 16.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &91025233
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 219624451}
   - component: {fileID: 219624450}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: userfield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +548,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08276063, y: 0.63000005}
   m_AnchorMax: {x: 0.9152394, y: 0.7426706}
-  m_AnchoredPosition: {x: 0, y: -0.29999924}
+  m_AnchoredPosition: {x: 0, y: -0.30000305}
   m_SizeDelta: {x: 2.0599976, y: 0.8859997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219624450
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 418106774}
   - component: {fileID: 418106773}
   m_Layer: 5
-  m_Name: InputField (TMP) (1)
+  m_Name: passwordfield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,8 +774,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1093,8 +1093,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1920944897}
-  - {fileID: 91025232}
-  - {fileID: 859944541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1140,6 +1138,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710112845}
   m_CullTransparentMesh: 1
+--- !u!1 &823199973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 823199975}
+  - component: {fileID: 823199974}
+  m_Layer: 0
+  m_Name: LoginManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &823199974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823199973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5dd58355a4ebd47a11fc49ded7379c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userInputField: {fileID: 0}
+  passwordInputField: {fileID: 0}
+--- !u!4 &823199975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823199973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6375318, y: -1.123895, z: 2322.9976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846079615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,17 +1367,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859944540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1444674473}
-  m_Father: {fileID: 710112849}
+  m_Father: {fileID: 1920944897}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30.8, y: -80.52}
+  m_AnchoredPosition: {x: 28.198313, y: -53.355583}
   m_SizeDelta: {x: 54.85, y: 16.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &859944542
@@ -1379,7 +1423,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 859944543}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 823199974}
+        m_TargetAssemblyTypeName: LoginRequest, Assembly-CSharp
+        m_MethodName: Login
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &859944543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1430,7 +1486,7 @@ GameObject:
   - component: {fileID: 984347424}
   - component: {fileID: 984347423}
   m_Layer: 5
-  m_Name: lbl_connexion (1)
+  m_Name: lbl_usernam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1452,7 +1508,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.115737565, y: 0.7426706}
   m_AnchorMax: {x: 0.5164752, y: 0.78254056}
-  m_AnchoredPosition: {x: -0.29000092, y: -0.47999954}
+  m_AnchoredPosition: {x: -0.2899933, y: -0.47999573}
   m_SizeDelta: {x: 0.5999985, y: -0.52000046}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984347423
@@ -1586,7 +1642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21000001, y: 0.832}
   m_AnchorMax: {x: 0.7997266, y: 0.95800006}
-  m_AnchoredPosition: {x: -0.50001144, y: 0.40000153}
+  m_AnchoredPosition: {x: -0.50001526, y: 0.3999939}
   m_SizeDelta: {x: -1.2299995, y: -1.413002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1190973677
@@ -1876,7 +1932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.49999905}
+  m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272381374
@@ -2149,6 +2205,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 859944541}
+  - {fileID: 91025232}
   - {fileID: 1190973676}
   - {fileID: 984347422}
   - {fileID: 2049716624}
@@ -2302,7 +2360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.49999905}
+  m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2048873226
@@ -2331,7 +2389,7 @@ GameObject:
   - component: {fileID: 2049716626}
   - component: {fileID: 2049716625}
   m_Layer: 5
-  m_Name: lbl_connexion (2)
+  m_Name: lbl_password
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2353,7 +2411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.115737565, y: 0.5}
   m_AnchorMax: {x: 0.5164752, y: 0.5315405}
-  m_AnchoredPosition: {x: 0.29999924, y: 0.5830002}
+  m_AnchoredPosition: {x: 0.30000305, y: 0.5830002}
   m_SizeDelta: {x: 0.5999985, y: 0.47999954}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049716625
@@ -2462,3 +2520,4 @@ SceneRoots:
   - {fileID: 1421334731}
   - {fileID: 710112849}
   - {fileID: 1936904445}
+  - {fileID: 823199975}
