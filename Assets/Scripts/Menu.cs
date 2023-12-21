@@ -67,7 +67,7 @@ public class Menu : MonoBehaviourPunCallbacks
     void UpdateLobbyUI()
     {
         player1NameText.text = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
-        player2NameText.text = PhotonNetwork.PlayerList.Length == 2 ? PhotonNetwork.CurrentRoom.GetPlayer(0).NickName : "...";
+        player2NameText.text = PhotonNetwork.PlayerList.Length == 2 ? PhotonNetwork.CurrentRoom.GetPlayer(2).NickName : "...";
 
         // Set the game starting text
         if (PhotonNetwork.PlayerList.Length == 2)
