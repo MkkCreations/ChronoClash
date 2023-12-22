@@ -24,13 +24,9 @@ public class PlayerController : MonoBehaviourPun
         // If is our local player, spawn the units
 
         if (player.IsLocal)
-        {
             me = this;
-        }
         else
-        {
             enemy = this;
-        }
 
         // Set the UI player text
     }
@@ -43,6 +39,14 @@ public class PlayerController : MonoBehaviourPun
             unit.GetPhotonView().RPC("Initialize", RpcTarget.Others, false);
             unit.GetPhotonView().RPC("Initialise", photonPlayer, true);
         }
+    }
+
+    public void BeginTurn()
+    {
+        foreach (Unit unit in units)
+            unit.usedThisTurn = true;
+
+        // Update UI
     }
     
 }
