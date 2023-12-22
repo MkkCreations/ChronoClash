@@ -34,6 +34,7 @@ public class Unit : MonoBehaviourPun
             PlayerController.me.units.Add(this);
         else
             GameManager.instance.GetOtherPlayer(PlayerController.me).units.Add(this);
+
         healthFillImage.fillAmount = 1.0f;
 
         // Set sprite variant
@@ -46,20 +47,26 @@ public class Unit : MonoBehaviourPun
 
     public bool CanSelect()
     {
-        if (usedThisTurn) return false;
-        else return true;
+        if (usedThisTurn)
+            return false;
+        else
+            return true;
     }
 
     public bool CanMove(Vector3 movePos)
     {
-        if (Vector3.Distance(transform.position, movePos) <= maxMoveDistance) return true;
-        else return false;
+        if (Vector3.Distance(transform.position, movePos) <= maxMoveDistance)
+            return true;
+        else
+            return false;
     }
 
     public bool CanAttack(Vector3 attackPos)
     {
-        if (Vector3.Distance(transform.position, attackPos) <= maxAttackDistance) return true;
-        else return false;
+        if (Vector3.Distance(transform.position, attackPos) <= maxAttackDistance)
+            return true;
+        else
+            return false;
     }
 
     public void ToggleSelect(bool selected)

@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.306, y: 0.547}
+  m_AnchoredPosition: {x: 0.298, y: 0.413}
   m_SizeDelta: {x: 60, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7601637618363782677
@@ -290,7 +290,7 @@ Transform:
   m_GameObject: {fileID: 4546082980520022438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7087873, y: 0.07196674, z: 2.1556842}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -311,19 +311,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397d544205dd3486db6054f2e4adf920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHp: 0
-  maxHp: 0
-  moveSpeed: 0
-  minDamage: 0
-  maxDamage: 0
-  maxMoveDistance: 0
-  maxAttackDistance: 0
+  curHp: 10
+  maxHp: 10
+  moveSpeed: 8
+  minDamage: 5
+  maxDamage: 5
+  maxMoveDistance: 3
+  maxAttackDistance: 3
   usedThisTurn: 0
-  selectedVisual: {fileID: 0}
-  spriteVisual: {fileID: 0}
-  healthFillImage: {fileID: 0}
-  leftPlayerSprite: {fileID: 0}
-  rightPlayerSprite: {fileID: 0}
+  selectedVisual: {fileID: 6199665244918402809}
+  spriteVisual: {fileID: 4057998809280951365}
+  healthFillImage: {fileID: 708736807887132643}
+  leftPlayerSprite: {fileID: 21300000, guid: 720f836048bed4fdc972429731c162a6, type: 3}
+  rightPlayerSprite: {fileID: 21300000, guid: d9edebaea0b0948a484a719b75a53141, type: 3}
 --- !u!114 &5380970419370182850
 MonoBehaviour:
   m_ObjectHideFlags: 0

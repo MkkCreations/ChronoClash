@@ -9,13 +9,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     // instance
     public static NetworkManager instance;
 
-    private void Awake()
+    void Awake()
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    void Start()
     {
         // connect to the server
         PhotonNetwork.ConnectUsingSettings();

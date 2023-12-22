@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPun
 {
     public PlayerController leftPlayer;
     public PlayerController rightPlayer;
@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
         // Initialize the players
         leftPlayer.photonView.RPC("Initialize", RpcTarget.AllBuffered, PhotonNetwork.CurrentRoom.GetPlayer(1));
         rightPlayer.photonView.RPC("Initialize", RpcTarget.AllBuffered, PhotonNetwork.CurrentRoom.GetPlayer(2));
+
+        photonView.RPC("SetNextTurn", RpcTarget.AllBuffered);
     }
 
     [PunRPC]
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
         if (curPlayer == null)
             curPlayer = leftPlayer;
         else
-            curPlayer = curPlayer == leftPlayer ? curPlayer = rightPlayer : leftPlayer;
+            curPlayer = curPlayer == leftPlayer ? rightPlayer : leftPlayer;
 
         if (curPlayer == PlayerController.me)
             PlayerController.me.BeginTurn();

@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 62101073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0.96, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2609,7 +2609,7 @@ Transform:
   m_GameObject: {fileID: 800576588}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: -0.04, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2640,7 +2640,7 @@ Transform:
   m_GameObject: {fileID: 1004393456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: -0.04, y: 1.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2679,11 +2679,11 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 2
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!4 &1394739753
@@ -2716,8 +2716,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c511e1da4f5a4f88a9479d2a21cac57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitsToSpawn: []
-  spawnPoints: []
+  unitsToSpawn:
+  - Tank
+  - Tank
+  - Tank
+  spawnPoints:
+  - {fileID: 1004393457}
+  - {fileID: 800576589}
+  - {fileID: 62101074}
   units: []
   selectedUnit: {fileID: 0}
 --- !u!1 &1395282664
@@ -2775,6 +2781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1431224748}
   - component: {fileID: 1431224749}
+  - component: {fileID: 1431224750}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -2812,13 +2819,29 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 4
+  sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1431224750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431224747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3bd341ff7f440408168b53bdb2b3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftPlayer: {fileID: 1394739754}
+  rightPlayer: {fileID: 1540373354}
+  curPlayer: {fileID: 0}
+  postGameTime: 3
 --- !u!1 &1540373353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2849,8 +2872,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c511e1da4f5a4f88a9479d2a21cac57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitsToSpawn: []
-  spawnPoints: []
+  unitsToSpawn:
+  - Tank
+  - Tank
+  - Tank
+  spawnPoints:
+  - {fileID: 1663170218}
+  - {fileID: 586251310}
+  - {fileID: 1595106966}
   units: []
   selectedUnit: {fileID: 0}
 --- !u!114 &1540373355
@@ -2868,11 +2897,11 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 0
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 3
+  sceneViewId: 4
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!4 &1540373356
@@ -3052,9 +3081,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1805951052}
+  - {fileID: 1431224748}
   - {fileID: 1395282666}
   - {fileID: 614301750}
   - {fileID: 363226244}
   - {fileID: 1394739753}
   - {fileID: 1540373356}
-  - {fileID: 1431224748}
