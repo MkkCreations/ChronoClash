@@ -1,55 +1,57 @@
 using UnityEngine;
-using UnityEngine.Networking;
-using System.Collections;
 using UnityEngine.UI;
+using System.Threading.Tasks;
+using System.IO;
+using System.Net;
+using Newtonsoft.Json;
 
 public class LoginRequest : MonoBehaviour
 {
     public InputField userInputField;
     public InputField passwordInputField;
+    public Button button;
     private string _username;
     private string _password;
+
 
     public void Login()
     {
         _username = userInputField.text; // Récupération du nom d'utilisateur depuis l'InputField
         _password = passwordInputField.text; // Récupération du mot de passe depuis l'InputField
 
-        StartCoroutine(SendLoginRequest(_username, _password));
+        SendLoginRequest(_username, _password);
     }
 
     public class UserData
     {
         public string username;
         public string password;
+
+        public UserData(string usr, string pwd)
+        {
+            username = usr;
+            password = pwd;
+        }
     }
 
-    private IEnumerator SendLoginRequest(string username, string password)
+    private void SendLoginRequest(string username, string password)
     {
-        var user = new UserData();
-        user.username = username; // Utilisation du nom d'utilisateur passé en paramètre
-        user.password = password; // Utilisation du mot de passe passé en paramètre
 
-        string json = JsonUtility.ToJson(user);
+        var request = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:8081/api/auth/login");
+        request.ContentType = "application/json";
+        request.Method = "POST";
 
-        var req = new UnityWebRequest("http://localhost:8080/api/auth/login", "POST");
-        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
-        req.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
-        req.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-        req.SetRequestHeader("Content-Type", "application/json");
-
-        // Envoyez la requête et attendez la réponse
-        yield return req.SendWebRequest(); // Attendre la réponse de la requête
-
-        // Vérifiez la réponse de l'API.
-        if (req.result == UnityWebRequest.Result.ConnectionError ||
-            req.result == UnityWebRequest.Result.ProtocolError)
+        using (var streamWriter = new StreamWriter(request.GetRequestStream()))
         {
-            Debug.LogError("Erreur de connexion : " + req.error);
+            string json = JsonUtility.ToJson(new UserData(username, password));
+           
+            streamWriter.Write(json);
         }
-        else
+
+        var response = (HttpWebResponse)request.GetResponse();
+        using (var streamReader = new StreamReader(response.GetResponseStream()))
         {
-            Debug.Log("Authentification réussie !");
+            var result = streamReader.ReadToEnd();
         }
     }
 }
