@@ -7,6 +7,7 @@ using TMPro;
 
 public class Login : MonoBehaviour
 {
+    public static Login instance;
     public Button signinButton;
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
@@ -19,42 +20,9 @@ public class Login : MonoBehaviour
         public string password;
     }
 
-    [System.Serializable]
-    public class UserResponse
+    private void Awake()
     {
-        public string id;
-        public string name;
-        public string username;
-        public string email;
-        public string image;
-        public string role;
-        public UserLogsResponse logs;
-    }
-
-    [System.Serializable]
-    public class UserLogsResponse
-    {
-        public string id;
-        public string name;
-        public UserLogsOperationResponse operations;
-    }
-
-    [System.Serializable]
-    public class UserLogsOperationResponse
-    {
-        public string id;
-        public string type;
-        public string description;
-        public string date;
-    }
-
-    [System.Serializable]
-    public class LoginResponse
-    {
-        public UserResponse user;
-        public string accessToken;
-        public string refreshToken;
-
+        instance = this;
     }
 
     private void Start()
@@ -86,8 +54,11 @@ public class Login : MonoBehaviour
             else
             {
                 Debug.Log(request.downloadHandler.text);
-                LoginResponse user = JsonUtility.FromJson<LoginResponse>(request.downloadHandler.text);
-                Debug.Log(user.user.email);
+                User.UserData userResponse = JsonUtility.FromJson<User.UserData>(request.downloadHandler.text);
+                User.instance.user = userResponse;
+                Debug.Log(userResponse.user.email);
+
+                PanelManager.instance.GoHome();
             }
              
 ;        }
