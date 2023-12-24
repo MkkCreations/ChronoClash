@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviourPunCallbacks
 {
@@ -24,11 +26,13 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         playButton.interactable = false;
         gameStartingText.gameObject.SetActive(false);
+        SetScreen(lobbyScreen);
     }
 
     public override void OnConnectedToMaster()
     {
         playButton.interactable = true;
+        PlayRandom();
     }
 
     public void SetScreen(GameObject screen)
@@ -41,13 +45,15 @@ public class Menu : MonoBehaviourPunCallbacks
         screen.SetActive(true);
     }
 
-    public void OnUpdatePlayerNameInput(TMP_InputField nameInput)
-    {
-        PhotonNetwork.NickName = nameInput.text;
-    }
-
     public void OnPlayButton()
     {
+        PhotonNetwork.NickName = User.instance.user.user.name;
+        NetworkManager.instance.CreateOrJoinRoom();
+    }
+
+    public void PlayRandom()
+    {
+        PhotonNetwork.NickName = User.instance.user.user.name;
         NetworkManager.instance.CreateOrJoinRoom();
     }
 
@@ -90,6 +96,6 @@ public class Menu : MonoBehaviourPunCallbacks
     public void OnLeaveButton()
     {
         PhotonNetwork.LeaveRoom();
-        SetScreen(mainScreen);
+        SceneManager.LoadScene("Home");
     }
 }
