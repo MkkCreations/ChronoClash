@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviourPun
             enemy = this;
 
         // Set the UI player text
+        GameUI.instance.SetPlayerText(this);
     }
 
     void SpawnUnits()
@@ -97,6 +98,7 @@ public class PlayerController : MonoBehaviourPun
         selectedUnit.ToggleSelect(true);
 
         // Set unit info text
+        GameUI.instance.SetUnitInfoText(unitToSelect);
     }
 
     void DeSelectUnit()
@@ -105,6 +107,7 @@ public class PlayerController : MonoBehaviourPun
         selectedUnit = null;
 
         // Disable the unit info text
+        GameUI.instance.unitInfoText.gameObject.SetActive(false);
     }
 
     void SelectNextAvailableUnit()
@@ -125,6 +128,7 @@ public class PlayerController : MonoBehaviourPun
             SelectNextAvailableUnit();
 
             // Update the UI
+            GameUI.instance.UpdateWaitingUnitsText(units.FindAll(u => u.CanSelect()).Count);
         }
     }
 
@@ -137,6 +141,7 @@ public class PlayerController : MonoBehaviourPun
             SelectNextAvailableUnit();
 
             // Update the UI
+            GameUI.instance.UpdateWaitingUnitsText(units.FindAll(u => u.CanSelect()).Count);
         }
     }
 
@@ -155,6 +160,7 @@ public class PlayerController : MonoBehaviourPun
             unit.usedThisTurn = false;
 
         // Update UI
+        GameUI.instance.UpdateWaitingUnitsText(units.Count);
     }
     
 }
