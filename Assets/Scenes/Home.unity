@@ -1274,14 +1274,7 @@ MonoBehaviour:
       email: 
       image: 
       role: 
-      logs:
-        id: 
-        name: 
-        operations:
-          id: 
-          type: 
-          description: 
-          date: 
+      logs: []
     accessToken: 
     refreshToken: 
   logedIn: 0
@@ -1382,7 +1375,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 889768964}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1350080199}
+        m_TargetAssemblyTypeName: Home, Assembly-CSharp
+        m_MethodName: OnRandomRoom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &889768964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1475,7 +1480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e298a150b9f43eca5f632343ee0ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signinButton: {fileID: 1269667330}
   usernameInput: {fileID: 202558230}
   passwordInput: {fileID: 10351340}
   URL: 
@@ -2789,6 +2793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loginPanel: {fileID: 922113294}
   homePanel: {fileID: 1350080199}
+  userInstance: {fileID: 884813656}
 --- !u!4 &1813217340
 Transform:
   m_ObjectHideFlags: 0

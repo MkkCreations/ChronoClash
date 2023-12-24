@@ -8,7 +8,6 @@ using TMPro;
 public class Login : MonoBehaviour
 {
     public static Login instance;
-    public Button signinButton;
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
     public string URL;
@@ -56,7 +55,7 @@ public class Login : MonoBehaviour
                 Debug.Log(request.downloadHandler.text);
                 User.UserData userResponse = JsonUtility.FromJson<User.UserData>(request.downloadHandler.text);
                 User.instance.user = userResponse;
-                Debug.Log(userResponse.user.email);
+                User.instance.logedIn = true;
 
                 PanelManager.instance.GoHome();
             }

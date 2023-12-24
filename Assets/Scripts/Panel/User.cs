@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 [System.Serializable]
 public class User : MonoBehaviour
 {
     public static User instance;
     public UserData user;
-    public bool logedIn = User.instance.user.accessToken.Length > 0;
+    public bool logedIn = false;
 
     [System.Serializable]
     public class UserData
@@ -24,7 +26,7 @@ public class User : MonoBehaviour
         public string email;
         public string image;
         public string role;
-        public UserLogsResponse logs;
+        public List<UserLogsResponse> logs;
     }
 
     [System.Serializable]
@@ -32,7 +34,7 @@ public class User : MonoBehaviour
     {
         public string id;
         public string name;
-        public UserLogsOperationResponse operations;
+        public List<UserLogsOperationResponse> operations;
     }
 
     [System.Serializable]
@@ -47,6 +49,13 @@ public class User : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        var users = FindObjectsOfType<User>();
+        if (users.Count() > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(gameObject);
     }
 }

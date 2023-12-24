@@ -13,6 +13,12 @@ public class PanelManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        if (User.instance.logedIn)
+            GoHome();
+    }
+
     public void GoHome()
     {
         loginPanel.gameObject.SetActive(false);
