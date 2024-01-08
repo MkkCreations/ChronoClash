@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviourPun
     public Player photonPlayer;
     public string[] unitsToSpawn;
     public Transform[] spawnPoints;
+    public OverlayTile[] spawnTiles;
 
     public List<Unit> units = new List<Unit>();
     public Unit selectedUnit;
@@ -39,7 +40,8 @@ public class PlayerController : MonoBehaviourPun
     {
         for (int x = 0; x < unitsToSpawn.Length; ++x)
         {
-            GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(Mathf.RoundToInt(spawnPoints[x].position.x), Mathf.RoundToInt(spawnPoints[x].position.y)), Quaternion.identity);
+            GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(Mathf.RoundToInt(spawnTiles[x].transform.position.x), Mathf.RoundToInt(spawnTiles[x].transform.position.y)), Quaternion.identity);
+            unit.GetComponent<Unit>().standingOnTile = spawnTiles[x];
             unit.GetPhotonView().RPC("Initialize", RpcTarget.Others, false);
             unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
         }
@@ -54,6 +56,11 @@ public class PlayerController : MonoBehaviourPun
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             TrySelect(new Vector3(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y), 0));
+        }
+
+        if (selectedUnit)
+        {
+            selectedUnit.GetInRangeTiles();
         }
     }
 

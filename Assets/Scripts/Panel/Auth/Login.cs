@@ -10,6 +10,7 @@ public class Login : MonoBehaviour
     public static Login instance;
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
+    public TMP_Text errorText;
     public string URL;
 
     [System.Serializable]
@@ -46,9 +47,10 @@ public class Login : MonoBehaviour
         {
             yield return request.SendWebRequest();
 
-            if (request.result == UnityWebRequest.Result.ConnectionError)
+            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
-                Debug.Log(request.error);
+                ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(request.downloadHandler.text);
+                errorText.text = error.error;
             }
             else
             {
