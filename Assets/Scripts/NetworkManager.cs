@@ -21,11 +21,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    private void Update()
-    {
-        Debug.Log(PhotonNetwork.CountOfRooms);
-    }
-
     // Joins a random room or creates a new room
     public void CreateOrJoinRoom()
     {

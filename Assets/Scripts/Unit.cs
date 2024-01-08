@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using System.IO;
+using System.ComponentModel;
 
 public class Unit : MonoBehaviourPun
 {
@@ -45,9 +46,9 @@ public class Unit : MonoBehaviourPun
     }
 
     [PunRPC]
-    void Initialize(bool isMaine)
+    void Initialize(bool isMine)
     {
-        if (isMaine)
+        if (isMine)
             PlayerController.me.units.Add(this);
         else
             GameManager.instance.GetOtherPlayer(PlayerController.me).units.Add(this);
