@@ -221,6 +221,9 @@ MonoBehaviour:
   healthFillImage: {fileID: 6709083729799539474}
   leftPlayerSprite: {fileID: 21300000, guid: 69f7d27b3f041430386303dfb57cb422, type: 3}
   rightPlayerSprite: {fileID: 21300000, guid: 0a30d3f7b640146fca7a75577b56dbd1, type: 3}
+  standingOnTile: {fileID: 0}
+  rangeFinderTiles: []
+  path: []
 --- !u!114 &1286782850536278976
 MonoBehaviour:
   m_ObjectHideFlags: 0
