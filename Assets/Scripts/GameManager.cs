@@ -30,9 +30,8 @@ public class GameManager : MonoBehaviourPun
     void SetPlayers()
     {
         // Set the owners of the two player's photon views
-        
-        leftPlayer.photonView.TransferOwnership(3);
-        rightPlayer.photonView.TransferOwnership(4);
+        leftPlayer.photonView.TransferOwnership(1);
+        rightPlayer.photonView.TransferOwnership(2);
 
         // Initialize the players
         leftPlayer.photonView.RPC("Initialize", RpcTarget.AllBuffered, PhotonNetwork.CurrentRoom.GetPlayer(1));
@@ -44,15 +43,18 @@ public class GameManager : MonoBehaviourPun
     [PunRPC]
     void SetNextTurn()
     {
+        // is this the first turn?
         if (curPlayer == null)
             curPlayer = leftPlayer;
         else
             curPlayer = curPlayer == leftPlayer ? rightPlayer : leftPlayer;
 
+        // if it's our turn - enable the end turn button
         if (curPlayer == PlayerController.me)
+        {
             PlayerController.me.BeginTurn();
-
-        // Toggle the end turn button
+        }
+        // toggle the end turn button
         GameUI.instance.ToggleEndTurnButton(curPlayer == PlayerController.me);
     }
 
