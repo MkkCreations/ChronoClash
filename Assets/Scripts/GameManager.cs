@@ -30,8 +30,9 @@ public class GameManager : MonoBehaviourPun
     void SetPlayers()
     {
         // Set the owners of the two player's photon views
-        leftPlayer.photonView.TransferOwnership(1);
-        rightPlayer.photonView.TransferOwnership(2);
+        
+        leftPlayer.photonView.TransferOwnership(3);
+        rightPlayer.photonView.TransferOwnership(4);
 
         // Initialize the players
         leftPlayer.photonView.RPC("Initialize", RpcTarget.AllBuffered, PhotonNetwork.CurrentRoom.GetPlayer(1));

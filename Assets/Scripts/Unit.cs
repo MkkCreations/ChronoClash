@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System.IO;
 
 public class Unit : MonoBehaviourPun
 {
@@ -27,6 +28,22 @@ public class Unit : MonoBehaviourPun
     public Sprite leftPlayerSprite;
     public Sprite rightPlayerSprite;
 
+    public OverlayTile standingOnTile;
+
+    public RangeFinder rangeFinder;
+    public List<OverlayTile> rangeFinderTiles;
+
+    private PathFinder pathFinder;
+    public List<OverlayTile> path;
+
+    private void Start()
+    {
+        rangeFinder = new RangeFinder();
+        rangeFinderTiles = new List<OverlayTile>();
+        pathFinder = new PathFinder();
+        path = new List<OverlayTile>();
+    }
+
     [PunRPC]
     void Initialize(bool isMaine)
     {
@@ -44,6 +61,15 @@ public class Unit : MonoBehaviourPun
         spriteVisual.transform.up = transform.position.x < 0 ? Vector3.left : Vector3.right;
     }
 
+    public void GetInRangeTiles()
+    {
+        rangeFinderTiles = rangeFinder.GetTilesInRange(standingOnTile.grid2DLocation, maxMoveDistance);
+
+        foreach (OverlayTile item in rangeFinderTiles)
+        {
+            item.ShowTile();
+        }
+    }
 
     public bool CanSelect()
     {
