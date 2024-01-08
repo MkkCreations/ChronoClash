@@ -43,15 +43,18 @@ public class GameManager : MonoBehaviourPun
     [PunRPC]
     void SetNextTurn()
     {
+        // is this the first turn?
         if (curPlayer == null)
             curPlayer = leftPlayer;
         else
             curPlayer = curPlayer == leftPlayer ? rightPlayer : leftPlayer;
 
+        // if it's our turn - enable the end turn button
         if (curPlayer == PlayerController.me)
+        {
             PlayerController.me.BeginTurn();
-
-        // Toggle the end turn button
+        }
+        // toggle the end turn button
         GameUI.instance.ToggleEndTurnButton(curPlayer == PlayerController.me);
     }
 
