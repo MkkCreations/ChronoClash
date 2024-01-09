@@ -6,9 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class MapManager: MonoBehaviour
 {
-    private static MapManager _instance;
-    public static MapManager Instance { get { return _instance; } }
-
+    public static MapManager instance;
 
     public GameObject overlayPrefab;
     public GameObject overlayContainer;
@@ -16,17 +14,19 @@ public class MapManager: MonoBehaviour
     public Dictionary<Vector2Int, OverlayTile> map;
     public bool ignoreBottomTiles;
 
+    public OverlayTile HoveredTile = null;
+
     // Awake is called before Start
     private void Awake()
     {
         // Singleton pattern
-        if (_instance != null && _instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            _instance = this;
+            instance = this;
         }
     }
 
@@ -42,6 +42,11 @@ public class MapManager: MonoBehaviour
         */
         map = new Dictionary<Vector2Int, OverlayTile>();
 
+        /*foreach (var t in overlayContainer.GetComponentsInChildren<OverlayTile>())
+        {
+            map.Add(new Vector2Int((int)t.gridLocation.x, (int)t.gridLocation.y), t);
+        }*/
+
         /*
             Loop through all tiles in the tilemap
             If the tile is not in the dictionary, instantiate an overlay tile
@@ -52,41 +57,33 @@ public class MapManager: MonoBehaviour
         {
             BoundsInt bounds = tm.cellBounds;
 
-            for (int z = bounds.max.z; z >= bounds.min.z; z--)
+            for (int y = bounds.min.y -1; y < bounds.max.y; y++)
             {
-                for (int y = bounds.min.y; y < bounds.max.y; y++)
+                for (int x = bounds.min.x -1; x < bounds.max.x; x++)
                 {
-                    for (int x = bounds.min.x; x < bounds.max.x; x++)
+                    // If the tile is not empty, instantiate an overlay tile
+                    if (!tm.HasTile(new Vector3Int(x, y, 0)))
                     {
-                        // If the tile is on the bottom layer and ignoreBottomTiles is true, skip the tile
-                        if (z == 0 && ignoreBottomTiles)
-                        {
-                            return;
-                        }
-
-                        // If the tile is not empty, instantiate an overlay tile
-                        if (!tm.HasTile(new Vector3Int(x, y, z)))
-                        {
-                            continue;
-                        }
-                        // If the tile is not in the dictionary, instantiate an overlay tile
-                        // Set the overlay tile's position to the tile's position
-                        if (!map.ContainsKey(new Vector2Int(x, y)))
-                        {
-
-                            var overlayTile = Instantiate(overlayPrefab, overlayContainer.transform);
-                            overlayTile.name = string.Format("Tile {0}{1}", x, y);
-                            var cellWorldPosition = tm.GetCellCenterWorld(new Vector3Int(x, y, z));
-                            overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z + 1);
-                            overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tm.GetComponent<TilemapRenderer>().sortingOrder;
-                            overlayTile.gameObject.GetComponent<OverlayTile>().gridLocation = new Vector3Int(x, y, z);
-                            map.Add(new Vector2Int(x, y), overlayTile.gameObject.GetComponent<OverlayTile>());
-                        }
-
+                        continue;
                     }
+                    // If the tile is not in the dictionary, instantiate an overlay tile
+                    // Set the overlay tile's position to the tile's position
+                    if (!map.ContainsKey(new Vector2Int(x, y)))
+                    {
+
+                        var overlayTile = Instantiate(overlayPrefab, overlayContainer.transform);
+                        overlayTile.name = string.Format("Tile {0}{1}", x, y);
+                        var cellWorldPosition = tm.GetCellCenterWorld(new Vector3Int(x, y, 0));
+                        overlayTile.transform.position = new Vector3(cellWorldPosition.x, cellWorldPosition.y, cellWorldPosition.z + 1);
+                        overlayTile.GetComponent<SpriteRenderer>().sortingOrder = tm.GetComponent<TilemapRenderer>().sortingOrder;
+                        overlayTile.gameObject.GetComponent<OverlayTile>().gridLocation = new Vector3Int(x, y, 0);
+                        map.Add(new Vector2Int(x, y), overlayTile.gameObject.GetComponent<OverlayTile>());
+                    }
+
                 }
             }
         }
+    
     }
 
     public List<OverlayTile> GetSurroundingTiles(Vector2Int originTile)
@@ -133,7 +130,8 @@ public class MapManager: MonoBehaviour
 
         if (hit.collider != null)
         {
-            return hit.collider.GetComponent<OverlayTile>();
+            HoveredTile = hit.collider.GetComponent<OverlayTile>();
+            return HoveredTile;
             // raycast hit this gameobject
         }
         return null;

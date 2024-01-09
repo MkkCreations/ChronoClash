@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using Unity.VisualScripting;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
@@ -11,7 +12,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        instance = this;
+        // Singleton pattern
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
         DontDestroyOnLoad(gameObject);
     }
 

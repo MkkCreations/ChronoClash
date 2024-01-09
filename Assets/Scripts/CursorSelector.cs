@@ -8,5 +8,7 @@ public class CursorSelector : MonoBehaviour
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y), 0);
+
+        MapManager.instance.HoveredTile = MapManager.instance.map[new Vector2Int((int)transform.position.x, (int)transform.position.y)];
     }
 }
