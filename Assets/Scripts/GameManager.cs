@@ -79,10 +79,10 @@ public class GameManager : MonoBehaviourPun
         Invoke("GoBackToMenu", postGameTime);
     }
 
-    // leave the room and go back to the menu
+    // leave the room and go back to the Home
     void GoBackToMenu()
     {
         PhotonNetwork.LeaveRoom();
-        NetworkManager.instance.ChangeScene("Menu");
+        NetworkManager.instance.ChangeScene("Home");
     }
 }

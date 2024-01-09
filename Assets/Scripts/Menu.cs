@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviourPunCallbacks
 {
+    public static Menu instance;
     [Header("Screens")]
     public GameObject mainScreen;
     public GameObject lobbyScreen;
@@ -21,6 +22,12 @@ public class Menu : MonoBehaviourPunCallbacks
     public TextMeshProUGUI player1NameText;
     public TextMeshProUGUI player2NameText;
     public TextMeshProUGUI gameStartingText;
+    public TextMeshProUGUI roomName;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -32,7 +39,9 @@ public class Menu : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         playButton.interactable = true;
-        PlayRandom();
+
+        if (User.instance.roomName != null) CreateRoom();
+        else PlayRandom();
     }
 
     public void SetScreen(GameObject screen)
@@ -57,6 +66,12 @@ public class Menu : MonoBehaviourPunCallbacks
         NetworkManager.instance.CreateOrJoinRoom();
     }
 
+    public void CreateRoom()
+    {
+        PhotonNetwork.NickName = User.instance.user.user.name;
+        NetworkManager.instance.CreateRoomGame(User.instance.roomName);
+    }
+
     public override void OnJoinedRoom()
     {
         SetScreen(lobbyScreen);
@@ -74,6 +89,7 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         player1NameText.text = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
         player2NameText.text = PhotonNetwork.PlayerList.Length == 2 ? PhotonNetwork.CurrentRoom.GetPlayer(2).NickName : "...";
+        roomName.text = User.instance.roomName != null ? string.Format("Room Name: {0}", User.instance.roomName) : "";
 
         // Set the game starting text
         if (PhotonNetwork.PlayerList.Length == 2)

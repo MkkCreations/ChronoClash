@@ -5867,6 +5867,7 @@ MonoBehaviour:
     accessToken: 
     refreshToken: 
   logedIn: 0
+  roomName: 
 --- !u!4 &884813657
 Transform:
   m_ObjectHideFlags: 0
@@ -8861,7 +8862,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 384635958}
         m_TargetAssemblyTypeName: CreateRoom, Assembly-CSharp
-        m_MethodName: CreateRoomGame
+        m_MethodName: OnCreateRoomGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10021,68 +10022,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &1584557224
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1584557227}
-  - component: {fileID: 1584557226}
-  - component: {fileID: 1584557225}
-  m_Layer: 0
-  m_Name: CreateAndJoin
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1584557225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584557224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf0f68ad6cca6e4eaee8da6aaa8dfb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1584557226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584557224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed6a55fb1fa2566438003322e1c1ede2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomName: {fileID: 1905679512}
-  dropdownMap: {fileID: 943670616}
-  dropdownColor: {fileID: 1051261059}
-  dropdownMode: {fileID: 2068690794}
-  togglePrivate: {fileID: 121040481}
---- !u!4 &1584557227
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584557224}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1026.2549, y: 608.60345, z: -11.572514}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589008944
 GameObject:
   m_ObjectHideFlags: 0
@@ -13292,4 +13231,3 @@ SceneRoots:
   - {fileID: 1416120632}
   - {fileID: 884813657}
   - {fileID: 1813217340}
-  - {fileID: 1584557227}

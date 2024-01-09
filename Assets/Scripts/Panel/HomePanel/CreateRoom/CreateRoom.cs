@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CreateRoom : MonoBehaviourPunCallbacks
 {
@@ -17,30 +18,16 @@ public class CreateRoom : MonoBehaviourPunCallbacks
 
     public void Start()
     {
-        // Désactiver Les dropdowns et le toggle
+        // Dï¿½sactiver Les dropdowns et le toggle
         dropdownMap.interactable = false;
         dropdownColor.interactable = false;
         dropdownMode.interactable = false;
         togglePrivate.interactable = false;
     }
 
-    public void CreateRoomGame()
+    public void OnCreateRoomGame()
     {
-        // Créer et rejoindre une room (max 2 joueurs)
-        RoomOptions roomOptions = new RoomOptions()
-        {
-            MaxPlayers = 2,
-            IsVisible = true,
-            IsOpen = true,
-            PublishUserId = true
-        };
-        PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOptions, TypedLobby.Default);
-
+        User.instance.roomName = roomName.text;
+        SceneManager.LoadScene("Menu");
     }
-
-    override public void OnJoinedRoom()
-    {
-        PhotonNetwork.LoadLevel("Menu");
-    }
-
 }
