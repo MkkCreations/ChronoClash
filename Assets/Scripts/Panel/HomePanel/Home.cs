@@ -10,6 +10,12 @@ public class Home : MonoBehaviour
     public static Home instance;
     public TMP_Text welcomeText;
 
+    public GameObject settingsWindow;
+
+    public GameObject listAllRoomsWindow;
+
+    public GameObject createRoom;
+
     private void Awake()
     {
         instance = this;
@@ -21,18 +27,32 @@ public class Home : MonoBehaviour
             welcomeText.text = string.Format("Welcome {0}", User.instance.user.user.name);
     }
 
-    public void OnListAllRooms()
-    {
+    // Rooms
+    public void OnListAllRoomsButton() { listAllRoomsWindow.SetActive(true); }
 
+    public void OnCloseListAllRoomsButton() { listAllRoomsWindow.SetActive(false); }
+
+    public void OnCreateRoom() { createRoom.SetActive(true); }
+
+    public void OnCloseCreateRoom() { createRoom.SetActive(false); }
+
+    public void OnRandomRoom() { SceneManager.LoadScene("Menu"); }
+    // End Rooms
+
+    // Settings
+    public void OnSettingsButton() 
+    { 
+        settingsWindow.SetActive(true);
     }
 
-    public void OnCreateRoom()
+    public void OnCloseSettingsButton()
     {
-
+        settingsWindow.SetActive(false);
     }
+    // End Settings
 
-    public void OnRandomRoom()
+    public void OnQuitApplication()
     {
-        SceneManager.LoadScene("Menu");
+        Application.Quit();
     }
 }
