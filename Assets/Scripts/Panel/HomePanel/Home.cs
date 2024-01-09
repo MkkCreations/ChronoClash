@@ -10,6 +10,8 @@ public class Home : MonoBehaviour
     public static Home instance;
     public TMP_Text welcomeText;
 
+    public GameObject settingsWindow;
+
     private void Awake()
     {
         instance = this;
@@ -34,5 +36,20 @@ public class Home : MonoBehaviour
     public void OnRandomRoom()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void OnSettingsButton() 
+    { 
+        settingsWindow.SetActive(true);
+    }
+
+    public void OnCloseSettingsButton()
+    {
+        settingsWindow.SetActive(false);
+    }
+
+    public void OnQuitApplication()
+    {
+        Application.Quit();
     }
 }
