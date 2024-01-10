@@ -35,7 +35,7 @@ public class PathFinder
         while (openList.Count > 0)
         {
             OverlayTile currentOverlayTile = openList.OrderBy(x => x.F).First();
-            Debug.Log(currentOverlayTile.name);
+
             openList.Remove(currentOverlayTile);
             closedList.Add(currentOverlayTile);
 

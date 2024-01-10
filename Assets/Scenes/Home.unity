@@ -2429,7 +2429,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1140859832}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetResolution
         m_Mode: 0
@@ -2993,7 +2993,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 384635954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed6a55fb1fa2566438003322e1c1ede2, type: 3}
+  m_Script: {fileID: 11500000, guid: b5d7d6535609b40d4b8c01ce5191e9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roomName: {fileID: 1905679512}
@@ -5320,7 +5320,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1140859832}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 0
@@ -5448,6 +5448,7 @@ MonoBehaviour:
     accessToken: 
     refreshToken: 
   logedIn: 0
+  roomName: 
 --- !u!4 &884813657
 Transform:
   m_ObjectHideFlags: 0
@@ -5866,7 +5867,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1140859832}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
         m_MethodName: setFullScreen
         m_Mode: 0
@@ -6689,7 +6690,6 @@ GameObject:
   - component: {fileID: 1140859829}
   - component: {fileID: 1140859831}
   - component: {fileID: 1140859830}
-  - component: {fileID: 1140859832}
   m_Layer: 5
   m_Name: SettingsWindow
   m_TagString: Untagged
@@ -6761,20 +6761,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140859828}
   m_CullTransparentMesh: 1
---- !u!114 &1140859832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140859828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f015e4c724c6981448ead56be7769ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainAudioMixer: {fileID: 24100000, guid: e6b1c8c4531ced54797bbf5e3201d201, type: 2}
-  resolutionDropdown: {fileID: 318807154}
 --- !u!1 &1176906099
 GameObject:
   m_ObjectHideFlags: 0
@@ -8183,6 +8169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   welcomeText: {fileID: 2146411031}
+  settingsWindow: {fileID: 0}
+  listAllRoomsWindow: {fileID: 0}
+  createRoom: {fileID: 0}
 --- !u!114 &1350080200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8565,7 +8554,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1390029389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7d1853f77eaa064981c2759a0d067f2, type: 3}
+  m_Script: {fileID: 11500000, guid: cfed8bc73b67e41b98a5c5c9852ffc8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1413847222
@@ -8872,12 +8861,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1478494601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 070921f0b0f4af94586cb827338e0c95, type: 3}
+  m_Script: {fileID: 11500000, guid: 982d14ed4cd50414bbdfdf6691c16857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RoomPrefab: {fileID: 6322853171115801431, guid: 3ada6fa4623c47d4fa955af7e5fb0652, type: 3}
-  allRooms:
-  - {fileID: 0}
+  RoomPrefab: {fileID: 6322853171115801431, guid: 82b7a9bb3522a4b68a5c54c3340852f8, type: 3}
+  allRooms: []
 --- !u!114 &1478494604
 MonoBehaviour:
   m_ObjectHideFlags: 0
