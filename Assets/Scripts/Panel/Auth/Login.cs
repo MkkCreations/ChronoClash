@@ -41,8 +41,6 @@ public class Login : MonoBehaviour
         data.username = usernameInput.text;
         data.password = passwordInput.text;
 
-        Debug.Log(JsonUtility.ToJson(data).ToString());
-
         using (UnityWebRequest request = UnityWebRequest.Post(URL, JsonUtility.ToJson(data), "application/json"))
         {
             yield return request.SendWebRequest();
@@ -54,7 +52,6 @@ public class Login : MonoBehaviour
             }
             else
             {
-                Debug.Log(request.downloadHandler.text);
                 User.UserData userResponse = JsonUtility.FromJson<User.UserData>(request.downloadHandler.text);
                 User.instance.user = userResponse;
                 User.instance.logedIn = true;

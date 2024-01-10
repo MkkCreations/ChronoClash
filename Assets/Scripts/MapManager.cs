@@ -47,8 +47,6 @@ public class MapManager: MonoBehaviour
             map.Add(t.grid2DLocation, t);
         }
 
-        Debug.Log(map.Count);
-
         /*
             Loop through all tiles in the tilemap
             If the tile is not in the dictionary, instantiate an overlay tile
