@@ -36,6 +36,7 @@ public class Unit : MonoBehaviourPun
 
     public RangeFinder rangeFinder;
     public List<OverlayTile> rangeFinderTiles;
+    public List<OverlayTile> attackRangTiles;
 
     private PathFinder pathFinder;
     public List<OverlayTile> path;
@@ -51,6 +52,7 @@ public class Unit : MonoBehaviourPun
         pathFinder = new PathFinder();
         path = new List<OverlayTile>();
         arrowTranslator = new ArrowTranslator();
+        attackRangTiles = new List<OverlayTile>();
     }
 
     private void Update()
@@ -58,6 +60,7 @@ public class Unit : MonoBehaviourPun
         if (selecting && !isMoving)
         {
             GetInRangeTiles();
+            GetAttackInRangeTiles();
             tileToMove = MapManager.instance.HoveredTile;
             if (rangeFinderTiles.Contains(tileToMove))
             {
@@ -135,6 +138,11 @@ public class Unit : MonoBehaviourPun
         }
     }
 
+    public void GetAttackInRangeTiles()
+    {
+        attackRangTiles = rangeFinder.GetTilesInRange(standingOnTile.grid2DLocation, maxAttackDistance);
+    }
+
     private void RemoveArrows()
     {
         foreach (var item in rangeFinderTiles)
@@ -167,9 +175,9 @@ public class Unit : MonoBehaviourPun
             return true;
     }
 
-    public bool CanAttack(Vector3 attackPos)
+    public bool CanAttack(Unit enemyUnit)
     {
-        if (Vector3.Distance(transform.position, attackPos) <= maxAttackDistance)
+        if (attackRangTiles.Contains(enemyUnit.standingOnTile))
             return true;
         else
             return false;

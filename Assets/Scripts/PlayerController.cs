@@ -63,8 +63,6 @@ public class PlayerController : MonoBehaviourPun
         // Are we selecting our unit?
         Unit unit = tile.inTileUnit;
 
-        Debug.Log(unit);
-
         if (unit != null)
         {
             SelectUnit(unit);
@@ -75,7 +73,9 @@ public class PlayerController : MonoBehaviourPun
             return;
 
         // Are we selecting an enemy unit?
-        Unit enemyUnit = enemy.units.Find(u => u = tile.inTileUnit);
+        Unit enemyUnit = enemy.units.Find(u => u.standingOnTile = tile);
+
+        Debug.Log(enemyUnit);
 
         if (enemyUnit != null)
         {
@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviourPun
 
     void TryAttack(Unit enemyUnit)
     {
-        if (selectedUnit.CanAttack(enemyUnit.transform.position))
+        if (selectedUnit.CanAttack(enemyUnit))
         {
             selectedUnit.Attack(enemyUnit);
             SelectNextAvailableUnit();
