@@ -15,7 +15,7 @@ public class PanelManager : MonoBehaviour
 
     private void Update()
     {
-        if (User.instance.logedIn)
+        if (GameObject.FindObjectOfType<User>().logedIn)
             GoHome();
     }
 
