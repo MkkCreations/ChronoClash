@@ -8,6 +8,7 @@ public class User : MonoBehaviour
     public static User instance;
     public UserData user;
     public bool logedIn = false;
+    public string roomName = null;
 
     [System.Serializable]
     public class UserData
