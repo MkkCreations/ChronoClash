@@ -81,8 +81,6 @@ public class PlayerController : MonoBehaviourPun
             TryAttack(enemyUnit);
             return;
         }
-
-        TryMove(selectPos);
     }
 
     void SelectUnit(Unit unitToSelect)
@@ -127,19 +125,6 @@ public class PlayerController : MonoBehaviourPun
         if (selectedUnit.CanAttack(enemyUnit.transform.position))
         {
             selectedUnit.Attack(enemyUnit);
-            SelectNextAvailableUnit();
-
-            // Update the UI
-            GameUI.instance.UpdateWaitingUnitsText(units.FindAll(u => u.CanSelect()).Count);
-        }
-    }
-
-    void TryMove(Vector3 movePos)
-    {
-        // Can we move to that pos
-        if (selectedUnit.CanMove(movePos))
-        {
-            selectedUnit.Move(movePos);
             SelectNextAvailableUnit();
 
             // Update the UI

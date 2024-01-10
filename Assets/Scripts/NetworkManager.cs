@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-<<<<<<< HEAD
-using Unity.VisualScripting;
-=======
 using TMPro;
->>>>>>> master
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {

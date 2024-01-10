@@ -59,7 +59,6 @@ public class Unit : MonoBehaviourPun
             OverlayTile tileToMove = MapManager.instance.HoveredTile;
             if (rangeFinderTiles.Contains(tileToMove))
             {
-                Debug.Log($"{standingOnTile.name} -- {tileToMove.name}");
                 path = pathFinder.FindPath(standingOnTile, tileToMove, rangeFinderTiles);
 
                 RemoveArrows();
@@ -164,14 +163,6 @@ public class Unit : MonoBehaviourPun
             return true;
     }
 
-    public bool CanMove(Vector3 movePos)
-    {
-        if (Vector3.Distance(transform.position, movePos) <= maxMoveDistance)
-            return true;
-        else
-            return false;
-    }
-
     public bool CanAttack(Vector3 attackPos)
     {
         if (Vector3.Distance(transform.position, attackPos) <= maxAttackDistance)
@@ -184,25 +175,6 @@ public class Unit : MonoBehaviourPun
     {
         selectedVisual.SetActive(selected);
         selecting = !selecting;
-    }
-
-    public void Move(Vector3 targetPos)
-    {
-        usedThisTurn = true;
-
-        Vector3 dir = (transform.position - targetPos).normalized;
-        spriteVisual.transform.up = dir;
-
-        StartCoroutine(MoveOverTime());
-
-        IEnumerator MoveOverTime()
-        {
-            while(transform.position != targetPos)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-                yield return null;
-            }
-        }
     }
 
     public void Attack(Unit unitToAttack)

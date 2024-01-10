@@ -96,7 +96,6 @@ public class OverlayTile : MonoBehaviour
         }
         else
         {
-            Debug.Log((int)d);
             sprite.color = new Color(1, 1, 1, 1);
             sprite.sprite = arrows[(int)d];
             sprite.sortingOrder = 1;
