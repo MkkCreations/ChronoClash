@@ -23,7 +23,7 @@ public class OverlayTile : MonoBehaviour
 
     public GameObject selector;
 
-    public Unit inTileUnit;
+    public Unit inTileUnit = null;
 
     public void Init()
     {
@@ -37,6 +37,7 @@ public class OverlayTile : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             HideTile();
+            SetSprite(0);
         }
     }
 
@@ -53,11 +54,6 @@ public class OverlayTile : MonoBehaviour
     public void SetUnit(Unit newUnit)
     {
         inTileUnit = newUnit;
-    }
-
-    private void OnMouseDown()
-    {
-        ShowTile();
     }
 
     void OnMouseEnter()

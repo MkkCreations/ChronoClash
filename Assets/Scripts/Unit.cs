@@ -40,6 +40,8 @@ public class Unit : MonoBehaviourPun
     private PathFinder pathFinder;
     public List<OverlayTile> path;
 
+    private OverlayTile tileToMove;
+
     public ArrowTranslator arrowTranslator;
 
     private void Start()
@@ -56,7 +58,7 @@ public class Unit : MonoBehaviourPun
         if (selecting && !isMoving)
         {
             GetInRangeTiles();
-            OverlayTile tileToMove = MapManager.instance.HoveredTile;
+            tileToMove = MapManager.instance.HoveredTile;
             if (rangeFinderTiles.Contains(tileToMove))
             {
                 path = pathFinder.FindPath(standingOnTile, tileToMove, rangeFinderTiles);
@@ -72,22 +74,7 @@ public class Unit : MonoBehaviourPun
                     path[i].SetSprite(arrow);
                 }
             }
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (!rangeFinderTiles.Contains(tileToMove) || standingOnTile == tileToMove)
-                {
-                    isMoving = false;
-                    GetInRangeTiles();
-                    return;
-                }
-                else
-                {
-                    isMoving = true;
-                    tileToMove.HideTile();
-                }
-            }
         }
-
 
         if (path.Count > 0 && isMoving)
         {
@@ -109,7 +96,6 @@ public class Unit : MonoBehaviourPun
 
         if (path.Count == 0)
         {
-            GetInRangeTiles();
             isMoving = false;
         }
     }
@@ -117,6 +103,8 @@ public class Unit : MonoBehaviourPun
     public void PositionCharacterOnLine(OverlayTile tile)
     {
         transform.position = new Vector2(tile.transform.position.x, tile.transform.position.y + 0.0001f);
+        standingOnTile = tile;
+        standingOnTile.inTileUnit = null;
         tile.SetUnit(this);
     }
 
@@ -153,6 +141,22 @@ public class Unit : MonoBehaviourPun
         {
             MapManager.instance.map[item.grid2DLocation].SetSprite(ArrowTranslator.ArrowDirection.None);
         }
+    }
+
+    public bool CanMove(OverlayTile tile)
+    {
+        tileToMove = tile;
+        if (!rangeFinderTiles.Contains(tileToMove) || standingOnTile == tileToMove)
+        {
+            isMoving = false;
+            GetInRangeTiles();
+        }
+        else
+        {
+            isMoving = true;
+            tileToMove.HideTile();
+        }
+        return isMoving;
     }
 
     public bool CanSelect()

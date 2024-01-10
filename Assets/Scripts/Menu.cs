@@ -40,7 +40,7 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         playButton.interactable = true;
 
-        if (User.instance.roomName != null) CreateRoom();
+        if (User.instance.roomName.Length != 0) CreateRoom();
         else PlayRandom();
     }
 

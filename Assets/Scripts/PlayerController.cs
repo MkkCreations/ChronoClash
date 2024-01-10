@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviourPun
 {
     public Player photonPlayer;
     public string[] unitsToSpawn;
-    public Transform[] spawnPoints;
     public OverlayTile[] spawnTiles;
 
     public List<Unit> units = new List<Unit>();
@@ -31,7 +30,6 @@ public class PlayerController : MonoBehaviourPun
         }
         else
             enemy = this;
-
         // Set the UI player text
         GameUI.instance.SetPlayerText(this);
     }
@@ -42,6 +40,7 @@ public class PlayerController : MonoBehaviourPun
         {
             GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(spawnTiles[x].transform.position.x, spawnTiles[x].transform.position.y), Quaternion.identity);
             unit.GetComponent<Unit>().standingOnTile = spawnTiles[x];
+            spawnTiles[x].SetUnit(unit.GetComponent<Unit>());
             unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
             unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
         }
@@ -54,15 +53,17 @@ public class PlayerController : MonoBehaviourPun
 
         if (Input.GetMouseButtonDown(0) && GameManager.instance.curPlayer == this)
         {
-            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            TrySelect(new Vector3(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y), 0));
+            OverlayTile tile = MapManager.instance.HoveredTile;
+            TrySelect(tile);
         }
     }
 
-    void TrySelect(Vector3 selectPos)
+    void TrySelect(OverlayTile tile)
     {
         // Are we selecting our unit?
-        Unit unit = units.Find(u => u.transform.position == selectPos);
+        Unit unit = tile.inTileUnit;
+
+        Debug.Log(unit);
 
         if (unit != null)
         {
@@ -74,13 +75,15 @@ public class PlayerController : MonoBehaviourPun
             return;
 
         // Are we selecting an enemy unit?
-        Unit enemyUnit = enemy.units.Find(u => u.transform.position == selectPos);
+        Unit enemyUnit = enemy.units.Find(u => u = tile.inTileUnit);
 
         if (enemyUnit != null)
         {
             TryAttack(enemyUnit);
             return;
         }
+
+        TryMove(tile);
     }
 
     void SelectUnit(Unit unitToSelect)
@@ -91,7 +94,7 @@ public class PlayerController : MonoBehaviourPun
 
         // un-select the current unit
         if (selectedUnit != null)
-            selectedUnit.ToggleSelect(false);
+            DeSelectUnit();
 
         // select the new unit
         selectedUnit = unitToSelect;
@@ -125,6 +128,19 @@ public class PlayerController : MonoBehaviourPun
         if (selectedUnit.CanAttack(enemyUnit.transform.position))
         {
             selectedUnit.Attack(enemyUnit);
+            SelectNextAvailableUnit();
+
+            // Update the UI
+            GameUI.instance.UpdateWaitingUnitsText(units.FindAll(u => u.CanSelect()).Count);
+        }
+    }
+
+    void TryMove(OverlayTile tile)
+    {
+        // Can we move to that pos
+        if (selectedUnit.CanMove(tile))
+        {
+            selectedUnit.usedThisTurn = true;
             SelectNextAvailableUnit();
 
             // Update the UI

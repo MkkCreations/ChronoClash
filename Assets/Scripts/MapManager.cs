@@ -42,10 +42,12 @@ public class MapManager: MonoBehaviour
         */
         map = new Dictionary<Vector2Int, OverlayTile>();
 
-        /*foreach (var t in overlayContainer.GetComponentsInChildren<OverlayTile>())
+        foreach (var t in overlayContainer.GetComponentsInChildren<OverlayTile>())
         {
             map.Add(t.grid2DLocation, t);
-        }*/
+        }
+
+        Debug.Log(map.Count);
 
         /*
             Loop through all tiles in the tilemap
@@ -53,7 +55,7 @@ public class MapManager: MonoBehaviour
             Set the overlay tile's position to the tile's position
             Add the tile to the dictionary
         */
-        foreach (var tm in tileMaps)
+        /*foreach (var tm in tileMaps)
         {
             BoundsInt bounds = tm.cellBounds;
             for (int z = bounds.max.z; z >= bounds.min.z; z--)
@@ -88,7 +90,7 @@ public class MapManager: MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     
     }
 
