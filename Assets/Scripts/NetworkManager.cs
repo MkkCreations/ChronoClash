@@ -12,7 +12,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        instance = this;
+        // Singleton pattern
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
         DontDestroyOnLoad(gameObject);
     }
 

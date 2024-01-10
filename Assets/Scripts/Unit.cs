@@ -19,6 +19,9 @@ public class Unit : MonoBehaviourPun
 
     public bool usedThisTurn;
 
+    public bool isMoving = false;
+    public bool selecting = false;
+
     public GameObject selectedVisual;
     public SpriteRenderer spriteVisual;
 
@@ -37,12 +40,72 @@ public class Unit : MonoBehaviourPun
     private PathFinder pathFinder;
     public List<OverlayTile> path;
 
+    private OverlayTile tileToMove;
+
+    public ArrowTranslator arrowTranslator;
+
     private void Start()
     {
         rangeFinder = new RangeFinder();
         rangeFinderTiles = new List<OverlayTile>();
         pathFinder = new PathFinder();
         path = new List<OverlayTile>();
+        arrowTranslator = new ArrowTranslator();
+    }
+
+    private void Update()
+    {
+        if (selecting && !isMoving)
+        {
+            GetInRangeTiles();
+            tileToMove = MapManager.instance.HoveredTile;
+            if (rangeFinderTiles.Contains(tileToMove))
+            {
+                path = pathFinder.FindPath(standingOnTile, tileToMove, rangeFinderTiles);
+
+                RemoveArrows();
+
+                for (int i = 0; i < path.Count; i++)
+                {
+                    var previousTile = i > 0 ? path[i - 1] : standingOnTile;
+                    var futureTile = i < path.Count - 1 ? path[i + 1] : null;
+
+                    var arrow = arrowTranslator.TranslateDirection(previousTile, path[i], futureTile);
+                    path[i].SetSprite(arrow);
+                }
+            }
+        }
+
+        if (path.Count > 0 && isMoving)
+        {
+            MoveAlongPath();
+        }
+    }
+
+    public void MoveAlongPath()
+    {
+        var step = moveSpeed * Time.deltaTime;
+
+        transform.position = Vector2.MoveTowards(transform.position, path[0].transform.position, step);
+
+        if (Vector2.Distance(transform.position, path[0].transform.position) < 0.00001f)
+        {
+            PositionCharacterOnLine(path[0]);
+            path.RemoveAt(0);
+        }
+
+        if (path.Count == 0)
+        {
+            isMoving = false;
+        }
+    }
+
+    public void PositionCharacterOnLine(OverlayTile tile)
+    {
+        transform.position = new Vector2(tile.transform.position.x, tile.transform.position.y + 0.0001f);
+        standingOnTile = tile;
+        standingOnTile.inTileUnit = null;
+        tile.SetUnit(this);
     }
 
     [PunRPC]
@@ -72,20 +135,36 @@ public class Unit : MonoBehaviourPun
         }
     }
 
+    private void RemoveArrows()
+    {
+        foreach (var item in rangeFinderTiles)
+        {
+            MapManager.instance.map[item.grid2DLocation].SetSprite(ArrowTranslator.ArrowDirection.None);
+        }
+    }
+
+    public bool CanMove(OverlayTile tile)
+    {
+        tileToMove = tile;
+        if (!rangeFinderTiles.Contains(tileToMove) || standingOnTile == tileToMove)
+        {
+            isMoving = false;
+            GetInRangeTiles();
+        }
+        else
+        {
+            isMoving = true;
+            tileToMove.HideTile();
+        }
+        return isMoving;
+    }
+
     public bool CanSelect()
     {
         if (usedThisTurn)
             return false;
         else
             return true;
-    }
-
-    public bool CanMove(Vector3 movePos)
-    {
-        if (Vector3.Distance(transform.position, movePos) <= maxMoveDistance)
-            return true;
-        else
-            return false;
     }
 
     public bool CanAttack(Vector3 attackPos)
@@ -99,25 +178,7 @@ public class Unit : MonoBehaviourPun
     public void ToggleSelect(bool selected)
     {
         selectedVisual.SetActive(selected);
-    }
-
-    public void Move(Vector3 targetPos)
-    {
-        usedThisTurn = true;
-
-        Vector3 dir = (transform.position - targetPos).normalized;
-        spriteVisual.transform.up = dir;
-
-        StartCoroutine(MoveOverTime());
-
-        IEnumerator MoveOverTime()
-        {
-            while(transform.position != targetPos)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-                yield return null;
-            }
-        }
+        selecting = !selecting;
     }
 
     public void Attack(Unit unitToAttack)

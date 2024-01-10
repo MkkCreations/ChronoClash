@@ -216,6 +216,8 @@ MonoBehaviour:
   maxMoveDistance: 3
   maxAttackDistance: 4
   usedThisTurn: 0
+  isMoving: 0
+  selecting: 0
   selectedVisual: {fileID: 1685560605435349397}
   spriteVisual: {fileID: 4867198494165051168}
   healthFillImage: {fileID: 6709083729799539474}
