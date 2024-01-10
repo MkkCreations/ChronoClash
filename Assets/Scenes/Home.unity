@@ -2226,7 +2226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c0d55e8e31ad7804590ab4918c14a285, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b45b9c50965564199a60f295872084cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8169,9 +8169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   welcomeText: {fileID: 2146411031}
-  settingsWindow: {fileID: 0}
-  listAllRoomsWindow: {fileID: 0}
-  createRoom: {fileID: 0}
+  settingsWindow: {fileID: 1140859828}
+  listAllRoomsWindow: {fileID: 1390029389}
+  createRoom: {fileID: 384635954}
 --- !u!114 &1350080200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9423,7 +9423,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 78.928, y: 0.0009528607}
-  m_SizeDelta: {x: -157.85675, y: 653.4496}
+  m_SizeDelta: {x: -1077.2051, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1552535688
 MonoBehaviour:
