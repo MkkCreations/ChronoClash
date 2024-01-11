@@ -11,6 +11,8 @@ public class User : MonoBehaviour
     public string roomName = null;
     public bool isForPrivateRoom = false;
 
+    public ExperienceBar experienceBar;
+
     [System.Serializable]
     public class UserData
     {
