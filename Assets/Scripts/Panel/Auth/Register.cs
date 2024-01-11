@@ -5,19 +5,24 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using TMPro;
 
-public class Login : MonoBehaviour
+public class Register : MonoBehaviour
 {
-    public static Login instance;
-    public TMP_InputField usernameInput;
+
+    public static Register instance;
+    public TMP_InputField nameInput;
     public TMP_InputField passwordInput;
+    public TMP_InputField usernameInput;
+    public TMP_InputField emailInput;
     public TMP_Text errorText;
     public string URL;
 
     [System.Serializable]
-    public class UserLogin
+    public class UserRegister
     {
+        public string name;
         public string username;
         public string password;
+        public string email;
     }
 
     private void Awake()
@@ -27,7 +32,7 @@ public class Login : MonoBehaviour
 
     private void Start()
     {
-        URL = "http://127.0.0.1:8081/api/auth/login";
+        URL = "http://127.0.0.1:8081/api/auth/signup";
     }
 
     public void GetData()
@@ -37,9 +42,13 @@ public class Login : MonoBehaviour
 
     public IEnumerator FetchData()
     {
-        UserLogin data = new UserLogin();
+        UserRegister data = new UserRegister();
         data.username = usernameInput.text;
         data.password = passwordInput.text;
+        data.name = nameInput.text;
+        data.email = emailInput.text;
+
+        Debug.Log(JsonUtility.ToJson(data).ToString());
 
         using (UnityWebRequest request = UnityWebRequest.Post(URL, JsonUtility.ToJson(data), "application/json"))
         {
@@ -52,6 +61,7 @@ public class Login : MonoBehaviour
             }
             else
             {
+                Debug.Log(request.downloadHandler.text);
                 User.UserData userResponse = JsonUtility.FromJson<User.UserData>(request.downloadHandler.text);
                 User.instance.user = userResponse;
                 User.instance.logedIn = true;
@@ -63,16 +73,11 @@ public class Login : MonoBehaviour
         }
     }
 
-    public void OnSignIn()
+    public void OnSignUp()
     {
-        if (usernameInput.text.Length == 0 && passwordInput.text.Length == 0) return;
+        if (usernameInput.text.Length == 0 && passwordInput.text.Length == 0) return; //verifier tout les champs
 
         GetData();
     }
-
-    public void ResetInputFields()
-    {
-        usernameInput.text = "";
-        passwordInput.text = "";
-    }
 }
+

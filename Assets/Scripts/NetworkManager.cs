@@ -55,6 +55,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     }
 
+    public void JoinPrivateRoom(string roomName)
+    {
+        PhotonNetwork.JoinRoom(roomName);
+    }
+
     // change the scene using Photon's system
     [PunRPC]
     public void ChangeScene(string sceneName)

@@ -39,8 +39,8 @@ public class Menu : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         playButton.interactable = true;
-
-        if (User.instance.roomName.Length != 0) CreateRoom();
+        if(User.instance.isForPrivateRoom) JoinPrivateRoom();
+        else if (User.instance.roomName.Length != 0) CreateRoom();
         else PlayRandom();
     }
 
@@ -72,6 +72,12 @@ public class Menu : MonoBehaviourPunCallbacks
         NetworkManager.instance.CreateRoomGame(User.instance.roomName);
     }
 
+    public void JoinPrivateRoom()
+    {
+        PhotonNetwork.NickName = User.instance.user.user.name;
+        NetworkManager.instance.JoinPrivateRoom(User.instance.roomName);
+    }
+
     public override void OnJoinedRoom()
     {
         SetScreen(lobbyScreen);
@@ -89,7 +95,11 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         player1NameText.text = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
         player2NameText.text = PhotonNetwork.PlayerList.Length == 2 ? PhotonNetwork.CurrentRoom.GetPlayer(2).NickName : "...";
-        roomName.text = User.instance.roomName != null ? string.Format("Room Name: {0}", User.instance.roomName) : "";
+        
+        if (isPrivateRoomName())
+            roomName.text = string.Format("Private Room Code: {0}", User.instance.roomName);
+        else
+            roomName.text = User.instance.roomName != null ? string.Format("Room Name: {0}", User.instance.roomName) : "";
 
         // Set the game starting text
         if (PhotonNetwork.PlayerList.Length == 2)
@@ -111,7 +121,25 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void OnLeaveButton()
     {
+        User.instance.roomName = "";
+        User.instance.isForPrivateRoom = false;
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("Home");
+    }
+
+    private bool isPrivateRoomName()
+    {
+        //Si le nom de la salle est non nulle et que c'est un nombre à 8 chiffres alors c'est une partie privée
+        if (User.instance.roomName != null && User.instance.roomName.Length == 8)
+        {
+            // Vérifie que le nom de la salle est bien un nombre avec un Int tryParse
+            int result;
+            if (int.TryParse(User.instance.roomName, out result))
+                return true;
+            else
+                return false;
+        }
+        else
+            return false;
     }
 }
