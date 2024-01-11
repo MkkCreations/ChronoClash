@@ -170,14 +170,13 @@ public class PlayerController : MonoBehaviourPun
     {
         GameDTO gameDTO = new GameDTO
         {
-            owner = User.instance.user,
+            owner = User.instance.user.user.id,
             enemy = enemy,
             win = win,
             xp = win ? 40 : 20
         };
 
         AddGame.instance.CreateGame(gameDTO);
-
     }
     
 }

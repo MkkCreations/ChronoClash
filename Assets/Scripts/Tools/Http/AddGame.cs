@@ -15,29 +15,25 @@ public class AddGame : MonoBehaviour
 
     public void CreateGame(GameDTO game)
     {
-        StartCoroutine(FetchData(game));
+        var request = UnityWebRequest.Post(URL, JsonUtility.ToJson(game), "application/json");
+        request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
+        StartCoroutine(FetchData(request));
     }
 
-    public IEnumerator FetchData(GameDTO game)
+    public IEnumerator FetchData(UnityWebRequest req)
     {
+        yield return req.SendWebRequest();
 
-        using (UnityWebRequest request = UnityWebRequest.Post(URL, JsonUtility.ToJson(game), "application/json"))
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
         {
-            request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
-            {
-                ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(request.downloadHandler.text);
-            }
-            else
-            {
-                User.UserData userResponse = JsonUtility.FromJson<User.UserData>(request.downloadHandler.text);
-                User.instance.user = userResponse;
-                User.instance.logedIn = true;
-
-                PanelManager.instance.GoHome();
-            }
+            ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
+            Debug.Log(error.error);
+        }
+        else
+        {
+            User.UserData userResponse = JsonUtility.FromJson<User.UserData>(req.downloadHandler.text);
+            User.instance.user = userResponse;
+            User.instance.logedIn = true;
         }
     }
 }
