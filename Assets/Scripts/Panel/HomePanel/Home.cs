@@ -8,7 +8,6 @@ using TMPro;
 public class Home : MonoBehaviour
 {
     public static Home instance;
-    public TMP_Text welcomeText;
 
     public GameObject loginPanel;
 
@@ -22,6 +21,8 @@ public class Home : MonoBehaviour
     public GameObject myAccountPlayerPanel;
     bool isMyAccountPlayerPanelActive = false;
 
+    public GameObject myAccountWindow;
+
     private void Awake()
     {
         instance = this;
@@ -30,12 +31,6 @@ public class Home : MonoBehaviour
     private void Start()
     {
         playerInfoPanel.SetActive(true);
-    }
-
-    private void Update()
-    {
-        if (isActiveAndEnabled)
-            welcomeText.text = string.Format("Welcome {0}", User.instance.user.user.name);
     }
 
     // Rooms
@@ -51,30 +46,30 @@ public class Home : MonoBehaviour
     // End Rooms
 
     // Settings
-    public void OnSettingsButton() 
-    { 
-        settingsWindow.SetActive(true);
-    }
+    public void OnSettingsButton() { settingsWindow.SetActive(true); }
 
-    public void OnCloseSettingsButton()
-    {
-        settingsWindow.SetActive(false);
-    }
+    public void OnCloseSettingsButton() { settingsWindow.SetActive(false); }
     // End Settings
 
     // Panel Info player
     public void OnPlayerAvatarButton()
     {
         if (isMyAccountPlayerPanelActive)
-        {
-            myAccountPlayerPanel.SetActive(false);
-            isMyAccountPlayerPanelActive = false;
-        }
+            this.HideAccountPlayerPanel();
         else
-        {
-            myAccountPlayerPanel.SetActive(true);
-            isMyAccountPlayerPanelActive = true;
-        }
+            this.ShowAccountPlayerPanel();
+    }
+
+    private void ShowAccountPlayerPanel()
+    {
+        myAccountPlayerPanel.SetActive(true);
+        isMyAccountPlayerPanelActive = true;
+    }
+
+    private void HideAccountPlayerPanel()
+    {
+        myAccountPlayerPanel.SetActive(false);
+        isMyAccountPlayerPanelActive = false;
     }
 
     public void OnDisconnectButton()
@@ -91,6 +86,17 @@ public class Home : MonoBehaviour
         this.gameObject.SetActive(false);
 
     }
+
+    // MyAccountWindow
+    public void OnMyAccountButton() { 
+        myAccountWindow.SetActive(true);
+        myAccountWindow.GetComponent<MyAccount>().LoadData();
+        this.HideAccountPlayerPanel();
+    }
+    
+    public void OnCloseMyAccountButton() { myAccountWindow.SetActive(false); }
+    // End MyAccountWindow
+    // End Panel Info player
 
     public void OnQuitApplication()
     {
