@@ -9,6 +9,7 @@ public class User : MonoBehaviour
     public UserData user;
     public bool logedIn = false;
     public string roomName = null;
+    public bool isForPrivateRoom = false;
 
     [System.Serializable]
     public class UserData
