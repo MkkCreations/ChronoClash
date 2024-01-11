@@ -14,7 +14,7 @@ public class Register : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField emailInput;
     public TMP_Text errorText;
-    public string URL = HttpConst.REGISTER.ToString();
+    private string URL = HttpConst.REGISTER.ToString();
 
     private void Awake()
     {
@@ -24,6 +24,7 @@ public class Register : MonoBehaviour
     public void GetData()
     {
         StartCoroutine(FetchData());
+        print(URL);
     }
 
     public IEnumerator FetchData()
