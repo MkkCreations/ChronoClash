@@ -76,6 +76,9 @@ public class GameManager : MonoBehaviourPun
     {
         PlayerController player = winner == 0 ? leftPlayer : rightPlayer;
 
+        if (player.photonPlayer.IsLocal)
+            PlayerController.me.AddGameToAPI(true, GetOtherPlayer(player).photonPlayer.NickName);
+
         GameUI.instance.SetWinText(player.photonPlayer.NickName);
 
         Invoke("GoBackToMenu", postGameTime);
