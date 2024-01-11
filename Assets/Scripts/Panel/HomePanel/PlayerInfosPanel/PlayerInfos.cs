@@ -17,8 +17,8 @@ public class PlayerInfos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TMP_Username.text = User.instance.user.user.name;
+        TMP_Username.text = GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.name;
         experienceBar.SetMaxExperience(MAX_EXPERIENCE);
-        experienceBar.SetExperience(User.instance.user.user.level.xp);
+        experienceBar.SetExperience(GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.level.xp);
     }
 }
