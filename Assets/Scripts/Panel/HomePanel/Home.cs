@@ -10,15 +10,26 @@ public class Home : MonoBehaviour
     public static Home instance;
     public TMP_Text welcomeText;
 
+    public GameObject loginPanel;
+
     public GameObject settingsWindow;
 
     public GameObject listAllRoomsWindow;
 
     public GameObject createRoom;
 
+    public GameObject playerInfoPanel;
+    public GameObject myAccountPlayerPanel;
+    bool isMyAccountPlayerPanelActive = false;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        playerInfoPanel.SetActive(true);
     }
 
     private void Update()
@@ -50,6 +61,36 @@ public class Home : MonoBehaviour
         settingsWindow.SetActive(false);
     }
     // End Settings
+
+    // Panel Info player
+    public void OnPlayerAvatarButton()
+    {
+        if (isMyAccountPlayerPanelActive)
+        {
+            myAccountPlayerPanel.SetActive(false);
+            isMyAccountPlayerPanelActive = false;
+        }
+        else
+        {
+            myAccountPlayerPanel.SetActive(true);
+            isMyAccountPlayerPanelActive = true;
+        }
+    }
+
+    public void OnDisconnectButton()
+    {
+        // Ferme tous les panels
+        settingsWindow.SetActive(false);
+        listAllRoomsWindow.SetActive(false);
+        createRoom.SetActive(false);
+        User.instance.Reset();
+        myAccountPlayerPanel.SetActive(false);
+        loginPanel.SetActive(true);
+        // Réinitialise les inputs de login
+        Login.instance.ResetInputFields();
+        this.gameObject.SetActive(false);
+
+    }
 
     public void OnQuitApplication()
     {
