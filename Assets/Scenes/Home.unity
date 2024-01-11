@@ -9518,7 +9518,6 @@ MonoBehaviour:
   usernameInput: {fileID: 202558230}
   passwordInput: {fileID: 10351340}
   errorText: {fileID: 1499597267}
-  URL: 
 --- !u!114 &922113295
 MonoBehaviour:
   m_ObjectHideFlags: 0

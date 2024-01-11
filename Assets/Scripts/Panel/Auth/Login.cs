@@ -11,23 +11,11 @@ public class Login : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
     public TMP_Text errorText;
-    public string URL;
-
-    [System.Serializable]
-    public class UserLogin
-    {
-        public string username;
-        public string password;
-    }
+    private string URL = HttpConst.LOGIN.ToString();
 
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Start()
-    {
-        URL = "http://127.0.0.1:8081/api/auth/login";
     }
 
     public void GetData()
@@ -37,7 +25,7 @@ public class Login : MonoBehaviour
 
     public IEnumerator FetchData()
     {
-        UserLogin data = new UserLogin();
+        UserLoginDTO data = new UserLoginDTO();
         data.username = usernameInput.text;
         data.password = passwordInput.text;
 

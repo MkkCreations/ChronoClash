@@ -18,7 +18,6 @@ public class PanelManager : MonoBehaviour
     {
         if (GameObject.FindObjectOfType<NetworkManager>())
         {
-            Debug.Log("Object");
             Destroy(GameObject.FindObjectOfType<NetworkManager>().gameObject);
         }
         if (GameObject.FindObjectOfType<User>().logedIn)

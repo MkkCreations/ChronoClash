@@ -165,5 +165,18 @@ public class PlayerController : MonoBehaviourPun
         // Update UI
         GameUI.instance.UpdateWaitingUnitsText(units.Count);
     }
+
+    public void AddGameToAPI(bool win, string enemy)
+    {
+        GameDTO gameDTO = new GameDTO
+        {
+            owner = User.instance.user.user.id,
+            enemy = enemy,
+            win = win,
+            xp = win ? 40 : 20
+        };
+
+        AddGame.instance.CreateGame(gameDTO);
+    }
     
 }

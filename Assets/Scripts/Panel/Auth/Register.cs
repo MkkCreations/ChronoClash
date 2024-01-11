@@ -14,25 +14,11 @@ public class Register : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField emailInput;
     public TMP_Text errorText;
-    public string URL;
-
-    [System.Serializable]
-    public class UserRegister
-    {
-        public string name;
-        public string username;
-        public string password;
-        public string email;
-    }
+    public string URL = HttpConst.REGISTER.ToString();
 
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Start()
-    {
-        URL = "http://127.0.0.1:8081/api/auth/signup";
     }
 
     public void GetData()
@@ -42,7 +28,7 @@ public class Register : MonoBehaviour
 
     public IEnumerator FetchData()
     {
-        UserRegister data = new UserRegister();
+        UserRegisterDTO data = new UserRegisterDTO();
         data.username = usernameInput.text;
         data.password = passwordInput.text;
         data.name = nameInput.text;
