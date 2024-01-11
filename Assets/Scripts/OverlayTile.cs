@@ -18,7 +18,18 @@ public class OverlayTile : MonoBehaviour
     public Vector3Int gridLocation;
     public Vector2Int grid2DLocation { get { return new Vector2Int(gridLocation.x, gridLocation.y); } }
 
+    private ArrowTranslator arrowTranslator;
     public List<Sprite> arrows;
+
+    public GameObject selector;
+
+    public Unit inTileUnit = null;
+
+    public void Init()
+    {
+        arrowTranslator = new ArrowTranslator();
+
+    }
 
     private void Update()
     {
@@ -26,6 +37,7 @@ public class OverlayTile : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             HideTile();
+            SetSprite(0);
         }
     }
 
@@ -37,6 +49,22 @@ public class OverlayTile : MonoBehaviour
     public void ShowTile()
     {
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.3f);
+    }
+
+    public void SetUnit(Unit newUnit)
+    {
+        inTileUnit = newUnit;
+    }
+
+    void OnMouseEnter()
+    {
+        selector.SetActive(true);
+        MapManager.instance.HoveredTile = this;
+    }
+
+    private void OnMouseExit()
+    {
+        selector.SetActive(false);
     }
 
     /// <summary>
@@ -55,7 +83,7 @@ public class OverlayTile : MonoBehaviour
     ///     <para>ArrowDirection</para>
     ///     This function sets the sprit in the tile in the rang by giving it the direction from the ArrowDirection enum. If the direction is None it turns the sprid color to 0
     /// </summary> 
-    /* public void SetSprite(ArrowTranslator.ArrowDirection d)
+    public void SetSprite(ArrowTranslator.ArrowDirection d)
     {
         SpriteRenderer sprite = GetComponentsInChildren<SpriteRenderer>()[1];
         if (d == ArrowTranslator.ArrowDirection.None)
@@ -68,6 +96,6 @@ public class OverlayTile : MonoBehaviour
             sprite.sprite = arrows[(int)d];
             sprite.sortingOrder = 1;
         }
-    } */
+    }
 }
 

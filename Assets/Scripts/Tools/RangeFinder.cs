@@ -7,7 +7,7 @@ public class RangeFinder
 {
     public List<OverlayTile> GetTilesInRange(Vector2Int location, int range)
     {
-        var startingTile = MapManager.Instance.map[location];
+        var startingTile = MapManager.instance.map[location];
         var inRangeTiles = new List<OverlayTile>();
         int stepCount = 0;
 
@@ -22,7 +22,7 @@ public class RangeFinder
 
             foreach (var item in tilesForPreviousStep)
             {
-                surroundingTiles.AddRange(MapManager.Instance.GetSurroundingTiles(new Vector2Int(item.gridLocation.x, item.gridLocation.y)));
+                surroundingTiles.AddRange(MapManager.instance.GetSurroundingTiles(new Vector2Int(item.gridLocation.x, item.gridLocation.y)));
             }
 
             inRangeTiles.AddRange(surroundingTiles);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
@@ -11,7 +12,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        instance = this;
+        // Singleton pattern
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
         DontDestroyOnLoad(gameObject);
     }
 
@@ -33,6 +42,22 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
             PhotonNetwork.CreateRoom(null, options);
         }
+    }
+
+    public void CreateRoomGame(string roomName)
+    {
+        // Cr�er et rejoindre une room (max 2 joueurs)
+        RoomOptions roomOptions = new RoomOptions()
+        {
+            MaxPlayers = 2,
+        };
+        PhotonNetwork.CreateRoom(roomName, roomOptions);
+
+    }
+
+    public void JoinPrivateRoom(string roomName)
+    {
+        PhotonNetwork.JoinRoom(roomName);
     }
 
     // change the scene using Photon's system
