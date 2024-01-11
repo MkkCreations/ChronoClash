@@ -28,19 +28,37 @@ public class User : MonoBehaviour
         public string email;
         public string image;
         public string role;
-        public List<UserLogsResponse> logs;
+        public Level level;
+        public List<Game> games;
+        public List<Logs> logs;
     }
 
     [System.Serializable]
-    public class UserLogsResponse
+    public class Level
+    {
+        public string id;
+        public int level;
+        public int xp;
+    }
+
+    [System.Serializable]
+    public class Game
+    {
+        public string id;
+        public string enemy;
+        public int win;
+    }
+
+    [System.Serializable]
+    public class Logs
     {
         public string id;
         public string name;
-        public List<UserLogsOperationResponse> operations;
+        public List<LogsOperation> operations;
     }
 
     [System.Serializable]
-    public class UserLogsOperationResponse
+    public class LogsOperation
     {
         public string id;
         public string type;

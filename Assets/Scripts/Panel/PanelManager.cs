@@ -16,6 +16,11 @@ public class PanelManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameObject.FindObjectOfType<NetworkManager>())
+        {
+            Debug.Log("Object");
+            Destroy(GameObject.FindObjectOfType<NetworkManager>().gameObject);
+        }
         if (GameObject.FindObjectOfType<User>().logedIn)
             GoHome();
     }

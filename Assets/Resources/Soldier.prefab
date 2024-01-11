@@ -225,6 +225,7 @@ MonoBehaviour:
   rightPlayerSprite: {fileID: 21300000, guid: 0a30d3f7b640146fca7a75577b56dbd1, type: 3}
   standingOnTile: {fileID: 0}
   rangeFinderTiles: []
+  attackRangTiles: []
   path: []
 --- !u!114 &1286782850536278976
 MonoBehaviour:

@@ -66,7 +66,9 @@ public class GameManager : MonoBehaviourPun
     public void CheckWinCondition()
     {
         if (PlayerController.me.units.Count == 0)
+        { 
             photonView.RPC("WinGame", RpcTarget.All, PlayerController.enemy == leftPlayer ? 0 : 1);
+        }
     }
 
     [PunRPC]
