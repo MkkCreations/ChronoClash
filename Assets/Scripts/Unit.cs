@@ -105,9 +105,9 @@ public class Unit : MonoBehaviourPun
 
     public void PositionCharacterOnLine(OverlayTile tile)
     {
-        transform.position = new Vector2(tile.transform.position.x, tile.transform.position.y + 0.0001f);
-        standingOnTile = tile;
+        transform.position = new Vector2(tile.transform.position.x, tile.transform.position.y);
         standingOnTile.inTileUnit = null;
+        standingOnTile = tile;
         tile.SetUnit(this);
     }
 
@@ -136,6 +136,7 @@ public class Unit : MonoBehaviourPun
         {
             if (item.inTileUnit && item.inTileUnit != this)
             {
+                item.HideTile();
                 continue;
             }
             rangeFinderTiles.Add(item);
@@ -182,7 +183,7 @@ public class Unit : MonoBehaviourPun
 
     public bool CanAttack(Unit enemyUnit)
     {
-        if (attackRangTiles.Exists(t => new Vector2(t.transform.position.x, t.transform.position.y) == new Vector2(enemyUnit.transform.position.x, enemyUnit.transform.position.y)))
+        if (attackRangTiles.Exists(t => new Vector2(Mathf.RoundToInt(t.transform.position.x), Mathf.RoundToInt(t.transform.position.y)) == new Vector2(Mathf.RoundToInt(enemyUnit.transform.position.x), Mathf.RoundToInt(enemyUnit.transform.position.y))))
             return true;
         else
             return false;
