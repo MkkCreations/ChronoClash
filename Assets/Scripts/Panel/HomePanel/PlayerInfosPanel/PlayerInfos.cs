@@ -10,15 +10,15 @@ public class PlayerInfos : MonoBehaviour
     public TMP_Text TMP_NiveauDynamique;
     public TMP_Text TextExperience;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        TMP_Username.text = User.instance.user.user.name;
-    }
+    
+    public ExperienceBar experienceBar;
+    private const int MAX_EXPERIENCE = 100;
 
     // Update is called once per frame
     void Update()
     {
-        
+        TMP_Username.text = User.instance.user.user.name;
+        experienceBar.SetMaxExperience(MAX_EXPERIENCE);
+        experienceBar.SetExperience(User.instance.user.user.level.xp);
     }
 }
