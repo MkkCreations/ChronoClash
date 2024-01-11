@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviourPun
 
         if (player.photonPlayer.IsLocal)
             PlayerController.me.AddGameToAPI(true, GetOtherPlayer(player).photonPlayer.NickName);
+        else
+            PlayerController.me.AddGameToAPI(false, player.photonPlayer.NickName);
 
         GameUI.instance.SetWinText(player.photonPlayer.NickName);
 
