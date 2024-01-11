@@ -68,4 +68,10 @@ public class Login : MonoBehaviour
 
         GetData();
     }
+
+    public void ResetInputFields()
+    {
+        usernameInput.text = "";
+        passwordInput.text = "";
+    }
 }

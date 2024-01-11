@@ -60,5 +60,13 @@ public class User : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
+    public void Reset()
+    {
+        user = null;
+        logedIn = false;
+        roomName = null;
+        isForPrivateRoom = false;
+    }
 }
 
