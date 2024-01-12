@@ -63,4 +63,9 @@ public class Login : MonoBehaviour
         usernameInput.text = "";
         passwordInput.text = "";
     }
+
+    public void OnExit()
+    {
+        Application.Quit();
+    }
 }
