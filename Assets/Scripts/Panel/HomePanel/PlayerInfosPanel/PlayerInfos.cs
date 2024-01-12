@@ -25,7 +25,7 @@ public class PlayerInfos : MonoBehaviour
 
         // (level.lvl * 100) + level.xp / (level.lvl + 1) * 100
         if (level == 1) TextExperience.text = xp.ToString() + "/" + ((level) * 100).ToString();
-        else TextExperience.text = ((level-1 * 100) + xp).ToString() + "/" + ((level) * 100).ToString();
+        else TextExperience.text = ((level * 100) + xp).ToString() + "/" + ((level) * 100).ToString();
 
         experienceBar.SetMaxExperience(MAX_EXPERIENCE);
         experienceBar.SetExperience(GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.level.xp);
