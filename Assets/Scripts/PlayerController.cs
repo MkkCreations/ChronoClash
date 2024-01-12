@@ -75,7 +75,6 @@ public class PlayerController : MonoBehaviourPun
         // Are we selecting an enemy unit?
         Unit enemyUnit = enemy.units.Find(u => new Vector2(Mathf.RoundToInt(u.transform.position.x), Mathf.RoundToInt(u.transform.position.y)) == new Vector2(Mathf.RoundToInt(tile.transform.position.x), Mathf.RoundToInt(tile.transform.position.y)));
         enemy.units.ForEach(u => print($"{u.transform.position} --- {tile.transform.position}"));
-        Debug.Log(enemyUnit);
 
         if (enemyUnit != null)
         {

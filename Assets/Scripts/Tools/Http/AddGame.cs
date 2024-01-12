@@ -32,7 +32,7 @@ public class AddGame : MonoBehaviour
         else
         {
             User.UserData userResponse = JsonUtility.FromJson<User.UserData>(req.downloadHandler.text);
-            GameObject.FindObjectOfType<User>().user = userResponse;
+            GameObject.FindObjectOfType<User>().user.user = userResponse.user;
             GameObject.FindObjectOfType<User>().logedIn = true;
         }
     }
