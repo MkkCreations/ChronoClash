@@ -19,10 +19,14 @@ public class PlayerInfos : MonoBehaviour
     {
         TMP_Username.text = GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.name;
         TMP_NiveauDynamique.text = GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.level.level.ToString();
-        // (level.lvl * 100) + level.xp / (level.lvl + 1) * 100
+
         int level = GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.level.level;
         int xp = GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.level.xp;
-        TextExperience.text = ((level * 100) + xp).ToString() + "/" + ((level + 1) * 100).ToString();
+
+        // (level.lvl * 100) + level.xp / (level.lvl + 1) * 100
+        if (level == 1) TextExperience.text = xp.ToString() + "/" + ((level + 1) * 100).ToString();
+        else TextExperience.text = ((level * 100) + xp).ToString() + "/" + ((level + 1) * 100).ToString();
+
         experienceBar.SetMaxExperience(MAX_EXPERIENCE);
         experienceBar.SetExperience(GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.level.xp);
     }
