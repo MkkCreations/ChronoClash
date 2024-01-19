@@ -6,10 +6,10 @@
 
 ### Jouer simplement
 
-*ChronoClash* est jouable simplement en téléchargeant et en exécutant le fichier "ChronoClash.exe".
+*ChronoClash* est jouable simplement en téléchargeant l'archive du jeu et en exécutant le fichier "ChronoClash.exe" qui se trouve dans ce dernier.
 
 > [!TIP]
-> Pour télécharger simplement l'exécutable sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash.exe ``` et faites ```"Download raw file"```.
+> Pour télécharger simplement le .ZIP sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash.zip ``` et faites ```"Download raw file"```.
 
 Aucune autre démarche n'est nécessaire. L'API ainsi que le serveur multijoueur sont externalisés. <br/><br/>
 Lancez le jeu, créez-vous un compte et **jouez** !
