@@ -2,14 +2,24 @@
 
 # ChronoClash
 
+## Configuration minimale
+
+- **Système d'exploitation** : Windows 7 64-bit / Windows 8 64-bit / Windows 10 64-bit
+- **Processeur** : Intel® Core™ i3-530 @ 2.93 GHz / AMD Phenom™ II X4 810 @ 2.80 GHz
+- **Mémoire vive** : 2 Go RAM
+- **Carte graphique** : NVIDIA® GeForce® GTS 450 @ 1 Go / ATI® Radeon™ HD 5870 @ 1 Go
+- **DirectX** : Version 11
+- **Réseau** : Connexion Internet obligatoire
+- **Disque dur** : 2 Go d'espace disponible
+
 ## Documentation d'installation
 
 ### Jouer simplement
 
-*ChronoClash* est jouable simplement en téléchargeant et en exécutant le fichier "ChronoClash.exe".
+*ChronoClash* est jouable simplement en téléchargeant l'archive du jeu et en exécutant le fichier "ChronoClash.exe" qui se trouve dans cette dernière.
 
 > [!TIP]
-> Pour télécharger simplement l'exécutable sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash.exe ``` et faites ```"Download raw file"```.
+> Pour télécharger simplement le .ZIP sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash.zip ``` et faites ```"Download raw file"```.
 
 Aucune autre démarche n'est nécessaire. L'API ainsi que le serveur multijoueur sont externalisés. <br/><br/>
 Lancez le jeu, créez-vous un compte et **jouez** !
