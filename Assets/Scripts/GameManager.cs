@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviourPun
     // leave the room and go back to the Home
     void GoBackToMenu()
     {
-        PhotonNetwork.LeaveRoom();
+        NetworkManager.instance.Leave();
         NetworkManager.instance.ChangeScene("Home");
     }
 }

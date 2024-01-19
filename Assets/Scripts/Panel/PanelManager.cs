@@ -20,7 +20,7 @@ public class PanelManager : MonoBehaviour
         {
             Destroy(GameObject.FindObjectOfType<NetworkManager>().gameObject);
         }
-        if (GameObject.FindObjectOfType<User>().logedIn)
+        if (User.instance.logedIn)
             GoHome();
     }
 

@@ -20,8 +20,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -67,4 +67,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(sceneName);
     }
 
+    public void Leave()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
+    }
 }

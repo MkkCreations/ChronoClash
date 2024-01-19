@@ -24,6 +24,8 @@ public class Menu : MonoBehaviourPunCallbacks
     public TextMeshProUGUI gameStartingText;
     public TextMeshProUGUI roomName;
 
+    private User user;
+
     private void Awake()
     {
         instance = this;
@@ -31,6 +33,7 @@ public class Menu : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        user = User.instance;
         playButton.interactable = false;
         gameStartingText.gameObject.SetActive(false);
         SetScreen(lobbyScreen);
@@ -39,8 +42,8 @@ public class Menu : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         playButton.interactable = true;
-        if(User.instance.isForPrivateRoom) JoinPrivateRoom();
-        else if (User.instance.roomName.Length != 0) CreateRoom();
+        if(user.isForPrivateRoom) JoinPrivateRoom();
+        else if (user.roomName.Length != 0) CreateRoom();
         else PlayRandom();
     }
 
@@ -56,26 +59,26 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void OnPlayButton()
     {
-        PhotonNetwork.NickName = User.instance.user.user.name;
+        PhotonNetwork.NickName = user.user.user.name;
         NetworkManager.instance.CreateOrJoinRoom();
     }
 
     public void PlayRandom()
     {
-        PhotonNetwork.NickName = User.instance.user.user.name;
+        PhotonNetwork.NickName = user.user.user.name;
         NetworkManager.instance.CreateOrJoinRoom();
     }
 
     public void CreateRoom()
     {
-        PhotonNetwork.NickName = User.instance.user.user.name;
-        NetworkManager.instance.CreateRoomGame(User.instance.roomName);
+        PhotonNetwork.NickName = user.user.user.name;
+        NetworkManager.instance.CreateRoomGame(user.roomName);
     }
 
     public void JoinPrivateRoom()
     {
-        PhotonNetwork.NickName = User.instance.user.user.name;
-        NetworkManager.instance.JoinPrivateRoom(User.instance.roomName);
+        PhotonNetwork.NickName = user.user.user.name;
+        NetworkManager.instance.JoinPrivateRoom(user.roomName);
     }
 
     public override void OnJoinedRoom()
@@ -97,9 +100,9 @@ public class Menu : MonoBehaviourPunCallbacks
         player2NameText.text = PhotonNetwork.PlayerList.Length == 2 ? PhotonNetwork.CurrentRoom.GetPlayer(2).NickName : "...";
         
         if (isPrivateRoomName())
-            roomName.text = string.Format("Private Room Code: {0}", User.instance.roomName);
+            roomName.text = string.Format("Private Room Code: {0}", user.roomName);
         else
-            roomName.text = User.instance.roomName != null ? string.Format("Room Name: {0}", User.instance.roomName) : "";
+            roomName.text = user.roomName != null ? string.Format("Room Name: {0}", user.roomName) : "";
 
         // Set the game starting text
         if (PhotonNetwork.PlayerList.Length == 2)
@@ -121,20 +124,20 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void OnLeaveButton()
     {
-        User.instance.roomName = "";
-        User.instance.isForPrivateRoom = false;
-        PhotonNetwork.LeaveRoom();
+        user.roomName = "";
+        user.isForPrivateRoom = false;
+        NetworkManager.instance.Leave();
         SceneManager.LoadScene("Home");
     }
 
     private bool isPrivateRoomName()
     {
-        //Si le nom de la salle est non nulle et que c'est un nombre à 8 chiffres alors c'est une partie privée
-        if (User.instance.roomName != null && User.instance.roomName.Length == 8)
+        //Si le nom de la salle est non nulle et que c'est un nombre ï¿½ 8 chiffres alors c'est une partie privï¿½e
+        if (user.roomName != null && user.roomName.Length == 8)
         {
-            // Vérifie que le nom de la salle est bien un nombre avec un Int tryParse
+            // Vï¿½rifie que le nom de la salle est bien un nombre avec un Int tryParse
             int result;
-            if (int.TryParse(User.instance.roomName, out result))
+            if (int.TryParse(user.roomName, out result))
                 return true;
             else
                 return false;

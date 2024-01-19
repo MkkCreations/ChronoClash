@@ -4,13 +4,12 @@
 
 ## Configuration minimale
 
-- **Système d'exploitation** : Windows 7 64-bit / Windows 8 64-bit / Windows 10 64-bit
-- **Processeur** : Intel® Core™ i3-530 @ 2.93 GHz / AMD Phenom™ II X4 810 @ 2.80 GHz
-- **Mémoire vive** : 2 Go RAM
-- **Carte graphique** : NVIDIA® GeForce® GTS 450 @ 1 Go / ATI® Radeon™ HD 5870 @ 1 Go
-- **DirectX** : Version 11
+- **Système d'exploitation** : Windows 7/8/10 64-bit | macOS >= Sonoma
+- **Processeur** : Minimum 2.5 GHz et 4 coeurs
+- **Mémoire vive** : Minimum 4 Go de RAM
+- **Carte graphique** : Minimum 1 Go de VRAM
 - **Réseau** : Connexion Internet obligatoire
-- **Disque dur** : 2 Go d'espace disponible
+- **Disque dur** : 400 Mo d'espace disponible
 
 ## Documentation d'installation
 
@@ -18,8 +17,13 @@
 
 *ChronoClash* est jouable simplement en téléchargeant l'archive du jeu et en exécutant le fichier "ChronoClash.exe" qui se trouve dans cette dernière.
 
+#### Windows
 > [!TIP]
-> Pour télécharger simplement le .ZIP sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash.zip ``` et faites ```"Download raw file"```.
+> Téléchargez simplement le .ZIP sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash.zip ``` et faites ```"Download raw file"```.
+
+#### macOS
+> [!TIP]
+> Pour macOS téléchargez ``` ChronoClash.app ``` et lancez le fichier.
 
 Aucune autre démarche n'est nécessaire. L'API ainsi que le serveur multijoueur sont externalisés. <br/><br/>
 Lancez le jeu, créez-vous un compte et **jouez** !
@@ -28,7 +32,7 @@ Lancez le jeu, créez-vous un compte et **jouez** !
 
 Si vous souhaitez exécuter le jeu via Unity, téléchargez ce dernier.
 
-Faites un ``` git clone git@github.com:MkkCreations/ChronoClash.git ``` pour récupérer le code source.
+Faites un ``` git clone https://github.com/MkkCreations/ChronoClash.git ``` pour récupérer le code source.
 
 > [!IMPORTANT]
 > La version de l'éditeur Unity utilisée pour développer le jeu est la version **2022.3.11f1**

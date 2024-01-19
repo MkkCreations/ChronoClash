@@ -70,15 +70,16 @@ public class User : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-        var users = FindObjectsOfType<User>();
-        if (users.Count() > 1)
+        // Singleton pattern
+        if (instance != null && instance != this)
         {
-            Destroy(gameObject);
-            return;
+            Destroy(this.gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void Reset()
