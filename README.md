@@ -23,7 +23,7 @@
 
 #### macOS
 > [!TIP]
-> Pour macOS téléchargez ``` ChronoClash.app ``` et lancez le fichier.
+> Téléchargez simplement le .ZIP sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash_macOS.zip ``` et faites ```"Download raw file"```, puis décompressez l'archive et lancez le fichier ``` ChronoClash_macOS.app ```.
 
 Aucune autre démarche n'est nécessaire. L'API ainsi que le serveur multijoueur sont externalisés. <br/><br/>
 Lancez le jeu, créez-vous un compte et **jouez** !
