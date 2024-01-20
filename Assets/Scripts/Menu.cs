@@ -83,6 +83,7 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        Notification.instance.ShowMessage($"{user.roomName} Room has been created", false);
         SetScreen(lobbyScreen);
         photonView.RPC("UpdateLobbyUI", RpcTarget.All);
     }
@@ -127,6 +128,7 @@ public class Menu : MonoBehaviourPunCallbacks
         user.roomName = "";
         user.isForPrivateRoom = false;
         NetworkManager.instance.Leave();
+        Notification.instance.ShowMessage($"You leaved the room {user.roomName}", false);
         SceneManager.LoadScene("Home");
     }
 

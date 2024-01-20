@@ -7,4 +7,3 @@ public class ErrorResponse
 	public int status;
 	public string error;
 }
-

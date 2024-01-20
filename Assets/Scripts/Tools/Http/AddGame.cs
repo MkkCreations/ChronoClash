@@ -17,24 +17,7 @@ public class AddGame : MonoBehaviour
     {
         var request = UnityWebRequest.Post(URL, JsonUtility.ToJson(game), "application/json");
         request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
-        StartCoroutine(FetchData(request));
-    }
-
-    public IEnumerator FetchData(UnityWebRequest req)
-    {
-        yield return req.SendWebRequest();
-
-        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
-        {
-            ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
-            Debug.Log(error.error);
-        }
-        else
-        {
-            User.UserData userResponse = JsonUtility.FromJson<User.UserData>(req.downloadHandler.text);
-            GameObject.FindObjectOfType<User>().user.user = userResponse.user;
-            GameObject.FindObjectOfType<User>().logedIn = true;
-        }
+        StartCoroutine(Requests.instance.AddGame(request));
     }
 }
 

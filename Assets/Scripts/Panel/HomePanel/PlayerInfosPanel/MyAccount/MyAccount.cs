@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
+using static User;
 
 public class MyAccount : MonoBehaviour
 {
@@ -12,14 +14,18 @@ public class MyAccount : MonoBehaviour
     public TMP_InputField newPassword;
     public TMP_InputField confirmNewPassword;
 
+    public TMP_Text errorText;
+
     public Button changeAvatarButton;
 
     public Button submitButton;
 
+    private string URL = HttpConst.CHANGE_PASSWORD.ToString();
+
     // Start is called before the first frame update
     void Start()
     {
-        //Désactiver les champs de saisie
+        //Dï¿½sactiver les champs de saisie
         username.interactable = false;
         email.interactable = false;
         //Remplir les champs de saisie
@@ -29,29 +35,42 @@ public class MyAccount : MonoBehaviour
         password.contentType = TMP_InputField.ContentType.Password;
         newPassword.contentType = TMP_InputField.ContentType.Password;
         confirmNewPassword.contentType = TMP_InputField.ContentType.Password;
-        // Désactiver button "change avatar"
+        // Dï¿½sactiver button "change avatar"
         changeAvatarButton.interactable = false;
     }
 
     public void OnSubmitButton() 
-    { 
+    {
+        errorText.text = "";
         // Si les 3 champs de mot de passe sont remplis alors l'utilisateur veut changer de mot de passe
+        if (isFormCorrect())
+        {
+            ChangePwdDTO data = new ChangePwdDTO()
+            {
+                actualPassword = password.text,
+                newPassword = newPassword.text,
+                confirmPassword = confirmNewPassword.text
+            };
+            var request = UnityWebRequest.Put(URL, JsonUtility.ToJson(data));
+            request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
+            request.SetRequestHeader("Content-Type", "application/json");
+            StartCoroutine(Requests.instance.ChangePassword(request, errorText));
+        }
+    }
+
+    private bool isFormCorrect()
+    {
         if (password.text != "" && newPassword.text != "" && confirmNewPassword.text != "")
         {
-            // Si le nouveau mot de passe et la confirmation sont identiques
-            if (newPassword.text == confirmNewPassword.text)
+            // Afficher un message d'erreur
+            if (newPassword.text != confirmNewPassword.text)
             {
-                // Si le mot de passe actuel est correct
-                if (false) { }
-                else { Debug.Log("Mot de passe actuel incorrect"); }
-            } else {
-                // Afficher un message d'erreur
-                Debug.Log("Les mots de passe ne correspondent pas");
+                errorText.text = "Les mots de passe ne correspondent pas";
+                return false;
             }
+            return true;
         }
-        this.Reset();
-        // ferme le panel
-        this.gameObject.SetActive(false);
+        return false;
     }
 
     private void Reset()
