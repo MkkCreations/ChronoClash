@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -32,7 +33,7 @@ public class User : MonoBehaviour
         public string role;
         public Level level;
         public List<Game> games;
-        public List<Logs> logs;
+        public List<Log> logs;
     }
 
     [System.Serializable]
@@ -49,10 +50,11 @@ public class User : MonoBehaviour
         public string id;
         public string enemy;
         public int win;
+        public string date;
     }
 
     [System.Serializable]
-    public class Logs
+    public class Log
     {
         public string id;
         public string name;

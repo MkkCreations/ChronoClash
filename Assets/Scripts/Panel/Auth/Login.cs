@@ -11,7 +11,7 @@ public class Login : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
     public TMP_Text errorText;
-    private string URL = HttpConst.LOGIN.ToString();
+    private string URL = HttpConst.LOGIN.Value;
 
     private void Awake()
     {

@@ -14,7 +14,7 @@ public class Register : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField emailInput;
     public TMP_Text errorText;
-    private string URL = HttpConst.REGISTER.ToString();
+    private string URL = HttpConst.REGISTER.Value;
 
     private void Awake()
     {

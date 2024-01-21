@@ -6,16 +6,18 @@ public class HttpConst
 
     public string Value { get; private set; }
 
-    private static string HOST = "https://chronoclashapi-production.up.railway.app/api";
+    private static string HOST = "http://localhost:8081/api";
     public static HttpConst LOGIN { get { return new HttpConst($"{HOST}/auth/login"); } }
     public static HttpConst REGISTER { get { return new HttpConst($"{HOST}/auth/signup"); } }
-    public static HttpConst CREATEGAME { get { return new HttpConst($"{HOST}/user/game"); } }
     public static HttpConst LOGOUT { get { return new HttpConst($"{HOST}/auth/logout"); } }
     public static HttpConst LOGOUT_ALL_DEVICES { get { return new HttpConst($"{HOST}/auth/logout-all"); } }
     public static HttpConst CHANGE_PASSWORD { get { return new HttpConst($"{HOST}/auth/change-password"); } }
     public static HttpConst REFRESH_TOKEN { get { return new HttpConst($"{HOST}/auth/refresh-token"); } }
-    public static HttpConst CONNECTIONS { get { return new HttpConst($"{HOST}/user/connections"); } }
+    public static HttpConst CREATEGAME { get { return new HttpConst($"{HOST}/user/game"); } }
+    public static HttpConst ME { get { return new HttpConst($"{HOST}/user/me"); } }
     public static HttpConst UPDATE_USER { get { return new HttpConst($"{HOST}/user/me"); } }
+    public static HttpConst CONNECTIONS { get { return new HttpConst($"{HOST}/network/connections"); } }
+    public static HttpConst DELETE_CONNECTION { get { return new HttpConst($"{HOST}/network/disconnect"); } }
 
     public override string ToString()
     {

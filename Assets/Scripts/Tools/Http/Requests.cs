@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
 using static User;
+using System;
 
 public class Requests : MonoBehaviour
 {
@@ -35,8 +36,7 @@ public class Requests : MonoBehaviour
         }
         else
         {
-            User.UserData userResponse = JsonUtility.FromJson<User.UserData>(req.downloadHandler.text);
-            User.instance.user = userResponse;
+            User.instance.user = JsonUtility.FromJson<User.UserData>(req.downloadHandler.text);
             User.instance.logedIn = true;
             Notification.instance.ShowMessage($"{User.instance.user.user.name} is loged in", false);
 
@@ -50,19 +50,34 @@ public class Requests : MonoBehaviour
 
         if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
         {
-            string error = req.downloadHandler.text;
-            errorText.text = error;
-            Notification.instance.ShowMessage(error, true);
+            ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
+            errorText.text = error.error;
+            Notification.instance.ShowMessage(error.error, true);
         }
         else
         {
-            User.UserData userResponse = JsonUtility.FromJson<User.UserData>(req.downloadHandler.text);
-            User.instance.user = userResponse;
+            User.instance.user = JsonUtility.FromJson<User.UserData>(req.downloadHandler.text);
             User.instance.logedIn = true;
 
             Notification.instance.ShowMessage($"{User.instance.user.user.name}, your account has been succesfuly created", false);
 
             PanelManager.instance.GoHome();
+        }
+    }
+
+    public IEnumerator Me(UnityWebRequest req)
+    {
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+        {
+            ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
+            Notification.instance.ShowMessage(error.error, true);
+        }
+        else
+        {
+            User.instance.user.user = JsonUtility.FromJson<User.UserResponse>(req.downloadHandler.text);
+            Notification.instance.ShowMessage("Info has been updated", false);
         }
     }
 
@@ -72,8 +87,9 @@ public class Requests : MonoBehaviour
 
         if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
         {
-            errorText.text = req.downloadHandler.text;
-            Notification.instance.ShowMessage(req.downloadHandler.text, true);
+            ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
+            errorText.text = error.error;
+            Notification.instance.ShowMessage(error.error, true);
         }
         else
         {
@@ -93,10 +109,36 @@ public class Requests : MonoBehaviour
         }
         else
         {
-            User.UserData userResponse = JsonUtility.FromJson<User.UserData>(req.downloadHandler.text);
-            GameObject.FindObjectOfType<User>().user.user = userResponse.user;
-            GameObject.FindObjectOfType<User>().logedIn = true;
+            User.instance.user.user = JsonUtility.FromJson<User.UserResponse>(req.downloadHandler.text);
+            User.instance.logedIn = true;
             Notification.instance.ShowMessage("The game has been added", false);
+        }
+    }
+
+    public IEnumerator GetConnections(UnityWebRequest req, Action showConnections)
+    {
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+        {
+            print(req.downloadHandler.text.ToString());
+            ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
+            Notification.instance.ShowMessage(error.error, true);
+        }
+        else
+        {
+            try
+            {
+                Connections.instance.list = JsonUtility.FromJson<Connections.ListConnections>(req.downloadHandler.text);
+            } catch
+            {
+                Debug.Log("Empty list");
+                Connections.instance.list = new Connections.ListConnections();
+            } finally
+            {
+                showConnections();
+                Notification.instance.ShowMessage("List of connections ready", false);
+            }
         }
     }
 }
