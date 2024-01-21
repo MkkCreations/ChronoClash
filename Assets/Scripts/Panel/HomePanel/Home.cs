@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using static User;
+using UnityEngine.Networking;
 
 public class Home : MonoBehaviour
 {
@@ -23,6 +25,10 @@ public class Home : MonoBehaviour
 
     public GameObject myAccountWindow;
 
+    public GameObject logsPanel;
+    public GameObject gamesPanel;
+    public GameObject connectionsPanel;
+
     private void Awake()
     {
         instance = this;
@@ -31,6 +37,10 @@ public class Home : MonoBehaviour
     private void Start()
     {
         playerInfoPanel.SetActive(true);
+
+        var request = UnityWebRequest.Get(HttpConst.ME.Value);
+        request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
+        StartCoroutine(Requests.instance.Me(request));
     }
 
     // Rooms
@@ -81,7 +91,7 @@ public class Home : MonoBehaviour
         User.instance.Reset();
         myAccountPlayerPanel.SetActive(false);
         loginPanel.SetActive(true);
-        // Réinitialise les inputs de login
+        // Rï¿½initialise les inputs de login
         Login.instance.ResetInputFields();
         this.gameObject.SetActive(false);
 
@@ -97,6 +107,15 @@ public class Home : MonoBehaviour
     public void OnCloseMyAccountButton() { myAccountWindow.SetActive(false); }
     // End MyAccountWindow
     // End Panel Info player
+
+    public void OnLogsPanelButton() { logsPanel.SetActive(true); }
+    public void OnCloseLogsPanelButton() { logsPanel.SetActive(false); }
+
+    public void OnGamesPanelButton() { gamesPanel.SetActive(true); }
+    public void OnCloseGamesPanelButton() { gamesPanel.SetActive(false); }
+
+    public void OnConnectionsPanelButton() { connectionsPanel.SetActive(true); }
+    public void OnCloseConnectionsPanelButton() { connectionsPanel.SetActive(false); }
 
     public void OnQuitApplication()
     {

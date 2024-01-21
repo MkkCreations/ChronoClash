@@ -11,51 +11,30 @@ public class Login : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
     public TMP_Text errorText;
-    private string URL = HttpConst.LOGIN.ToString();
+    private string URL = HttpConst.LOGIN.Value;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void GetData()
+    public void Fetch()
     {
-        StartCoroutine(FetchData());
-    }
-
-    public IEnumerator FetchData()
-    {
-        UserLoginDTO data = new UserLoginDTO();
-        data.username = usernameInput.text;
-        data.password = passwordInput.text;
-
-        using (UnityWebRequest request = UnityWebRequest.Post(URL, JsonUtility.ToJson(data), "application/json"))
+        UserLoginDTO data = new UserLoginDTO()
         {
-            yield return request.SendWebRequest();
+            username = usernameInput.text,
+            password = passwordInput.text
+        };
 
-            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
-            {
-                ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(request.downloadHandler.text);
-                errorText.text = error.error;
-            }
-            else
-            {
-                User.UserData userResponse = JsonUtility.FromJson<User.UserData>(request.downloadHandler.text);
-                User.instance.user = userResponse;
-                User.instance.logedIn = true;
-
-                PanelManager.instance.GoHome();
-            }
-
-;
-        }
+        UnityWebRequest request = UnityWebRequest.Post(URL, JsonUtility.ToJson(data), "application/json");
+        StartCoroutine(Requests.instance.Login(request, errorText));
     }
 
     public void OnSignIn()
     {
         if (usernameInput.text.Length == 0 && passwordInput.text.Length == 0) return;
 
-        GetData();
+        Fetch();
     }
 
     public void ResetInputFields()

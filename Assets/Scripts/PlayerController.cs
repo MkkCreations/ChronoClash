@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using static User;
+using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviourPun
 {
@@ -175,7 +177,9 @@ public class PlayerController : MonoBehaviourPun
             xp = win ? 40 : 20
         };
 
-        AddGame.instance.CreateGame(gameDTO);
+        var request = UnityWebRequest.Post(HttpConst.CREATEGAME.Value, JsonUtility.ToJson(gameDTO), "application/json");
+        request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
+        StartCoroutine(Requests.instance.AddGame(request));
     }
     
 }
