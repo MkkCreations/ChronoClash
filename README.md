@@ -17,16 +17,13 @@
 
 *ChronoClash* est jouable simplement en téléchargeant l'archive du jeu et en exécutant le fichier "ChronoClash.exe" qui se trouve dans cette dernière.
 
-#### Windows
-> [!TIP]
-> Téléchargez simplement le .ZIP sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash.zip ``` et faites ```"Download raw file"```.
-
-#### macOS
-> [!TIP]
-> Téléchargez simplement le .ZIP sans télécharger l'intégralité du dépôt, cliquez sur ``` ChronoClash_macOS.zip ``` et faites ```"Download raw file"```, puis décompressez l'archive et lancez le fichier ``` ChronoClash_macOS.app ```.
+#### Telechargement
+Allez sur la Landing Page <a href="https://landingpage-production-d729.up.railway.app/" >ChronoClash</a> et cliquez sur le bouton "Télécharger" la version correspondant à votre système d'exploitation.
 
 Aucune autre démarche n'est nécessaire. L'API ainsi que le serveur multijoueur sont externalisés. <br/><br/>
 Lancez le jeu, créez-vous un compte et **jouez** !
+
+---
 
 ### Lancer le jeu via Unity
 
