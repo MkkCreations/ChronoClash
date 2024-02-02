@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI waitingUnitsText;
     public Image unitInfo;
     public TextMeshProUGUI winText;
+    public Image quitVerification;
 
     // instance
     public static GameUI instance;
@@ -66,5 +67,17 @@ public class GameUI : MonoBehaviour
     {
         winText.gameObject.SetActive(true);
         winText.text = winnerName + " Wins";
+    }
+
+    public void OnVerificationQuiteGame()
+    {
+        quitVerification.gameObject.SetActive(!quitVerification.gameObject.activeSelf);
+    }
+
+    // quite game
+    public void OnQuitGame()
+    {
+        PlayerController.me.AddGameToAPI(false, GameManager.instance.GetOtherPlayer(PlayerController.me).photonPlayer.NickName);
+        NetworkManager.instance.Leave();
     }
 }

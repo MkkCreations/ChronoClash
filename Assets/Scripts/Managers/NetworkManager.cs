@@ -71,5 +71,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();
+        ChangeScene("Home");
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        PlayerController.me.AddGameToAPI(true, otherPlayer.NickName);
+        Leave();
     }
 }

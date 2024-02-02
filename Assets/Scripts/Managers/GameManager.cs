@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviourPun
     }
 
     [PunRPC]
-    void WinGame(int winner)
+    public void WinGame(int winner)
     {
         PlayerController player = winner == 0 ? leftPlayer : rightPlayer;
 
@@ -90,6 +90,5 @@ public class GameManager : MonoBehaviourPun
     void GoBackToMenu()
     {
         NetworkManager.instance.Leave();
-        NetworkManager.instance.ChangeScene("Home");
     }
 }
