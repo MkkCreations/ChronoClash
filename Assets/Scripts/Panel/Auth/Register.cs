@@ -14,7 +14,7 @@ public class Register : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField emailInput;
     public TMP_Text errorText;
-    private string URL = HttpConst.REGISTER.Value;
+    private readonly string URL = HttpConst.REGISTER.Value;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class Register : MonoBehaviour
 
     public void Fetch()
     {
-        UserRegisterDTO data = new UserRegisterDTO()
+        UserRegisterDTO data = new()
         {
             username = usernameInput.text,
             password = passwordInput.text,

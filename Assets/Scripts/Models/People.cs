@@ -4,24 +4,26 @@ using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
-public class Connections : MonoBehaviour
+public class People : MonoBehaviour
 {
-    public static Connections instance;
-    public ListConnections list;
+    public static People instance;
+    public ListPeople list;
 
     [System.Serializable]
-    public class ListConnections
+    public class ListPeople
     {
-        public List<Connection> connections = new();
+        public List<Person> users = new();
     }
 
     [System.Serializable]
-    public class Connection
+    public class Person
     {
         public string id;
-        public string requestIp;
-        public string requestUserAgent;
-        public string date;
+        public string username;
+        public string name;
+        public string email;
+        public string image;
+        public int level;
     }  
 
     private void Awake()

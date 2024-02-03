@@ -28,6 +28,7 @@ public class Home : MonoBehaviour
     public GameObject logsPanel;
     public GameObject gamesPanel;
     public GameObject connectionsPanel;
+    public GameObject peoplePanel;
 
     private void Awake()
     {
@@ -84,14 +85,16 @@ public class Home : MonoBehaviour
 
     public void OnDisconnectButton()
     {
+        StartCoroutine(Requests.instance.Logout());
+
         // Ferme tous les panels
         settingsWindow.SetActive(false);
         listAllRoomsWindow.SetActive(false);
         createRoom.SetActive(false);
         User.instance.Reset();
         myAccountPlayerPanel.SetActive(false);
-        loginPanel.SetActive(true);
         // R�initialise les inputs de login
+        loginPanel.SetActive(true);
         Login.instance.ResetInputFields();
         this.gameObject.SetActive(false);
 
@@ -117,8 +120,12 @@ public class Home : MonoBehaviour
     public void OnConnectionsPanelButton() { connectionsPanel.SetActive(true); }
     public void OnCloseConnectionsPanelButton() { connectionsPanel.SetActive(false); }
 
+    public void OnPeoplePanelButton() { peoplePanel.SetActive(true); }
+    public void OnClosePeoplePanelButton() { peoplePanel.SetActive(false); }
+
     public void OnQuitApplication()
     {
+        StartCoroutine(Requests.instance.Logout());
         Application.Quit();
     }
 }

@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviourPun
 
         GameUI.instance.SetWinText(player.photonPlayer.NickName);
 
-        Invoke("GoBackToMenu", postGameTime);
+        Invoke(nameof(GoBackToMenu), postGameTime);
     }
 
     // leave the room and go back to the Home

@@ -1,15 +1,16 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerInfos : MonoBehaviour
 {
     public TMP_Text TMP_Username;
     public TMP_Text TMP_NiveauDynamique;
     public TMP_Text TextExperience;
-
+    public RawImage avatar;
     
     public ExperienceBar experienceBar;
     private const int MAX_EXPERIENCE = 100;
@@ -29,5 +30,11 @@ public class PlayerInfos : MonoBehaviour
 
         experienceBar.SetMaxExperience(MAX_EXPERIENCE);
         experienceBar.SetExperience(GameObject.FindObjectOfType<User>().GetComponent<User>().user.user.level.xp);
+
+        // If exists img convert it from base64 to Texture2D
+        if (User.instance.user.user.image.Length != 0)
+        {
+            avatar.texture = ImageTools.CreateTextureFromString(User.instance.user.user.image);
+        }
     }
 }

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviourPun
     public string[] unitsToSpawn;
     public OverlayTile[] spawnTiles;
 
-    public List<Unit> units = new List<Unit>();
+    public List<Unit> units = new();
     public Unit selectedUnit;
 
     public static PlayerController me;
@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviourPun
 
     public void AddGameToAPI(bool win, string enemy)
     {
-        GameDTO gameDTO = new GameDTO
+        GameDTO gameDTO = new()
         {
             owner = User.instance.user.user.id,
             enemy = enemy,
