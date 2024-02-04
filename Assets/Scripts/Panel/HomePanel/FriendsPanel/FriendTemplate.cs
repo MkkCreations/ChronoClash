@@ -6,15 +6,14 @@ using TMPro;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class PersonTemplate : MonoBehaviour
+public class FriendTemplate : MonoBehaviour
 {
     private string id;
     public RawImage avatar;
     public TMP_Text username;
     public TMP_Text level;
-    private Action showPeople;
 
-    public void SetData(string id, string username, string avatar, int level, Action showPeople)
+    public void SetData(string id, string username, string avatar, int level)
     {
         this.id = id;
         if (avatar.Length != 0)
@@ -23,19 +22,12 @@ public class PersonTemplate : MonoBehaviour
         }
         this.username.text = username;
         this.level.text = level.ToString();
-        this.showPeople = showPeople;
     }
 
-    public void OnAddFriend()
+    public void OnAcceptFriend()
     {
-        FriendIdDTO data = new()
-        {
-            id = id,
-        };
-        UnityWebRequest request = UnityWebRequest.Post(HttpConst.ADD_FRIEND.Value, JsonUtility.ToJson(data), "application/json");
+        UnityWebRequest request = UnityWebRequest.Get($"{HttpConst.ACCEPT_FRIEND.Value}/{id}");
         request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
-        StartCoroutine(Requests.instance.AddFriend(request, showPeople));
-
-        Home.instance.GetUserData();
+        //StartCoroutine(Requests.instance.InviteToPrivateGame(request));
     }
 }

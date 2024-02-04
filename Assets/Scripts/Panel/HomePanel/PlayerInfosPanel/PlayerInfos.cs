@@ -35,6 +35,9 @@ public class PlayerInfos : MonoBehaviour
         if (User.instance.user.user.image.Length != 0)
         {
             avatar.texture = ImageTools.CreateTextureFromString(User.instance.user.user.image);
+        } else
+        {
+            avatar.texture = new Texture2D(1, 1);
         }
     }
 }

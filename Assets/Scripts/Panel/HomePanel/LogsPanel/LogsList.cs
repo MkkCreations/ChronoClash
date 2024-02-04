@@ -13,7 +13,7 @@ public class LogsList : MonoBehaviour
     {
         foreach (User.Log log in User.instance.user.user.logs)
         {
-            foreach (User.LogsOperation op in log.operations)
+            foreach (User.Log.LogsOperation op in log.operations)
             {
                 GameObject opInst = Instantiate(operationTamplate);
                 opInst.transform.SetParent(scrollView.transform);

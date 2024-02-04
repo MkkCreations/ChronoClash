@@ -65,20 +65,13 @@ public class Requests : MonoBehaviour
         }
     }
 
-    public IEnumerator Logout()
+    public IEnumerator Logout(UnityWebRequest req)
     {
-        LogoutDTO data = new()
-        {
-            refreshToken = User.instance.user.refreshToken
-        };
-        var request = UnityWebRequest.Post(HttpConst.LOGOUT.Value, JsonUtility.ToJson(data), "application/json");
-        request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
+        yield return req.SendWebRequest();
 
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
         {
-            ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(request.downloadHandler.text);
+            ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
             Notification.instance.ShowMessage(error.error, true);
         }
         else
@@ -193,6 +186,37 @@ public class Requests : MonoBehaviour
                 showPeople();
                 Notification.instance.ShowMessage("List of people ready", false);
             }
+        }
+    }
+
+    public IEnumerator AddFriend(UnityWebRequest req, Action ShowPeople)
+    {
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Notification.instance.ShowMessage(req.downloadHandler.text, true);
+        }
+        else
+        {
+            ShowPeople();
+            Notification.instance.ShowMessage(req.downloadHandler.text, false);
+        }
+    }
+
+    public IEnumerator GetFriendNotifs(UnityWebRequest req, Action ShowNotifs)
+    {
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Notification.instance.ShowMessage(req.downloadHandler.text, true);
+        }
+        else
+        {
+            FriendNotifications.instance.list = JsonUtility.FromJson<FriendNotifications.ListFriendNotif>(req.downloadHandler.text);
+            ShowNotifs();
+            Notification.instance.ShowMessage("Notifications list is ready", false);
         }
     }
 }

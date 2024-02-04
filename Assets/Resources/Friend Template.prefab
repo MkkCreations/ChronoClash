@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -367.4, y: 4.502}
-  m_SizeDelta: {x: 55, y: 60}
+  m_AnchoredPosition: {x: -240, y: 4.502}
+  m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4801487817503976757
 CanvasRenderer:
@@ -83,9 +83,9 @@ GameObject:
   - component: {fileID: 6446792373518556433}
   - component: {fileID: 46944565806211303}
   - component: {fileID: 2075481948173560968}
-  - component: {fileID: 4733212060934865653}
+  - component: {fileID: 3657439698279127450}
   m_Layer: 5
-  m_Name: Person Template
+  m_Name: Friend Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.3
---- !u!114 &4733212060934865653
+--- !u!114 &3657439698279127450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1677713987090797469}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ff0a1a981d9423eb07bd57286a5f5e, type: 3}
+  m_Script: {fileID: 11500000, guid: 388856be5e66045858c745cd92c7c35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   avatar: {fileID: 5840775925575879701}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Add
+  m_text: Invite
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -336,8 +336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -11.7944, y: 8.9582}
-  m_SizeDelta: {x: 855.6865, y: 1}
+  m_AnchoredPosition: {x: 2.5133, y: 8.9582}
+  m_SizeDelta: {x: 556.0285, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2984832112320767829
 CanvasRenderer:
@@ -411,8 +411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -205, y: 4.502}
-  m_SizeDelta: {x: 207.1467, y: 38.996}
+  m_AnchoredPosition: {x: -116, y: 4.502}
+  m_SizeDelta: {x: 163.1278, y: 38.996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2476663005855025234
 CanvasRenderer:
@@ -451,8 +451,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279440147
-  m_fontColor: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
+    rgba: 4294177779
+  m_fontColor: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 2016225910067876126}
   - component: {fileID: 4540298037200525759}
   m_Layer: 5
-  m_Name: Add
+  m_Name: Invite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 318.4, y: 4.502}
+  m_AnchoredPosition: {x: 184, y: 4.502}
   m_SizeDelta: {x: 71.6611, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2935904819267962435
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.26383942, g: 0.5326002, b: 0.7264151, a: 1}
+  m_Color: {r: 0.1981577, g: 0.5754717, b: 0.23192756, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -632,7 +632,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4733212060934865653}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PersonTemplate, Assembly-CSharp
         m_MethodName: OnAddFriend
         m_Mode: 1
@@ -678,8 +678,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 45.9, y: 4.502}
-  m_SizeDelta: {x: 232.9231, y: 38.996}
+  m_AnchoredPosition: {x: 26, y: 4.502}
+  m_SizeDelta: {x: 100.8666, y: 38.996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9223049802059207681
 CanvasRenderer:
@@ -718,8 +718,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279440147
-  m_fontColor: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
+    rgba: 4293519849
+  m_fontColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

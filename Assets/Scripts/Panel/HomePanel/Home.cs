@@ -29,6 +29,8 @@ public class Home : MonoBehaviour
     public GameObject gamesPanel;
     public GameObject connectionsPanel;
     public GameObject peoplePanel;
+    public GameObject notificationPanel;
+    public GameObject friendsPanel;
 
     private void Awake()
     {
@@ -38,7 +40,13 @@ public class Home : MonoBehaviour
     private void Start()
     {
         playerInfoPanel.SetActive(true);
+        friendsPanel.SetActive(true);
 
+        GetUserData();
+    }
+
+    public void GetUserData()
+    {
         var request = UnityWebRequest.Get(HttpConst.ME.Value);
         request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
         StartCoroutine(Requests.instance.Me(request));
@@ -85,19 +93,22 @@ public class Home : MonoBehaviour
 
     public void OnDisconnectButton()
     {
-        StartCoroutine(Requests.instance.Logout());
+        Logout();
 
         // Ferme tous les panels
         settingsWindow.SetActive(false);
         listAllRoomsWindow.SetActive(false);
         createRoom.SetActive(false);
+        friendsPanel.SetActive(false);
         User.instance.Reset();
         myAccountPlayerPanel.SetActive(false);
         // R�initialise les inputs de login
         loginPanel.SetActive(true);
         Login.instance.ResetInputFields();
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
 
+        Connections.instance.list.connections = new();
+        FriendNotifications.instance.list.notifications = new();
     }
 
     // MyAccountWindow
@@ -123,9 +134,23 @@ public class Home : MonoBehaviour
     public void OnPeoplePanelButton() { peoplePanel.SetActive(true); }
     public void OnClosePeoplePanelButton() { peoplePanel.SetActive(false); }
 
+    public void OnNotifPanelButton() { notificationPanel.SetActive(true); }
+    public void OnCloseNotifPanelButton() { notificationPanel.SetActive(false); }
+
     public void OnQuitApplication()
     {
-        StartCoroutine(Requests.instance.Logout());
+        Logout();
         Application.Quit();
+    }
+
+    private void Logout()
+    {
+        LogoutDTO data = new()
+        {
+            refreshToken = User.instance.user.refreshToken
+        };
+        var request = UnityWebRequest.Post(HttpConst.LOGOUT.Value, JsonUtility.ToJson(data), "application/json");
+        request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
+        StartCoroutine(Requests.instance.Logout(request));
     }
 }
