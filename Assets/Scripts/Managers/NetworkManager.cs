@@ -37,9 +37,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             PhotonNetwork.JoinRandomRoom();
         else
         {
-            RoomOptions options = new RoomOptions();
-            options.MaxPlayers = 2;
-
+            RoomOptions options = new()
+            {
+                MaxPlayers = 2
+            };
             PhotonNetwork.CreateRoom(null, options);
         }
     }
@@ -47,7 +48,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void CreateRoomGame(string roomName)
     {
         // Cr�er et rejoindre une room (max 2 joueurs)
-        RoomOptions roomOptions = new RoomOptions()
+        RoomOptions roomOptions = new()
         {
             MaxPlayers = 2,
         };
@@ -71,5 +72,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.Disconnect();
+        ChangeScene("Home");
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        PlayerController.me.AddGameToAPI(true, otherPlayer.NickName);
+        Leave();
     }
 }

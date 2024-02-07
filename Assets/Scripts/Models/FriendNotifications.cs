@@ -2,27 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static User;
 
 [System.Serializable]
-public class Connections : MonoBehaviour
+public class FriendNotifications : MonoBehaviour
 {
-    public static Connections instance;
-    public ListConnections list;
+    public static FriendNotifications instance;
+    public ListFriendNotif list;
 
     [System.Serializable]
-    public class ListConnections
+    public class ListFriendNotif
     {
-        public List<Connection> connections = new();
+        public List<FriendNotif> notifications = new();
     }
 
     [System.Serializable]
-    public class Connection
+    public class FriendNotif
     {
         public string id;
-        public string requestIp;
-        public string requestUserAgent;
+        public string username;
+        public string name;
+        public string image;
+        public Level level;
         public string date;
-    }  
+    }
 
     private void Awake()
     {

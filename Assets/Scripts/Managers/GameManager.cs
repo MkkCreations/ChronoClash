@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviourPun
     }
 
     [PunRPC]
-    void WinGame(int winner)
+    public void WinGame(int winner)
     {
         PlayerController player = winner == 0 ? leftPlayer : rightPlayer;
 
@@ -83,13 +83,12 @@ public class GameManager : MonoBehaviourPun
 
         GameUI.instance.SetWinText(player.photonPlayer.NickName);
 
-        Invoke("GoBackToMenu", postGameTime);
+        Invoke(nameof(GoBackToMenu), postGameTime);
     }
 
     // leave the room and go back to the Home
     void GoBackToMenu()
     {
         NetworkManager.instance.Leave();
-        NetworkManager.instance.ChangeScene("Home");
     }
 }

@@ -34,6 +34,8 @@ public class User : MonoBehaviour
         public Level level;
         public List<Game> games;
         public List<Log> logs;
+        public List<Friend> friends;
+
     }
 
     [System.Serializable]
@@ -59,15 +61,37 @@ public class User : MonoBehaviour
         public string id;
         public string name;
         public List<LogsOperation> operations;
+
+        [System.Serializable]
+        public class LogsOperation
+        {
+            public string id;
+            public string type;
+            public string description;
+            public string date;
+        }
     }
 
     [System.Serializable]
-    public class LogsOperation
+    public class Friend
     {
         public string id;
-        public string type;
-        public string description;
+        public FriendChild friend;
+        public bool accepted;
+        public bool blocked;
         public string date;
+
+        [System.Serializable]
+        public class FriendChild
+        {
+            public string id;
+            public string name;
+            public string username;
+            public string email;
+            public string image;
+            public Level level;
+            public List<Game> games;
+        }
     }
 
     private void Awake()
@@ -86,10 +110,10 @@ public class User : MonoBehaviour
 
     public void Reset()
     {
-        user = null;
-        logedIn = false;
-        roomName = null;
-        isForPrivateRoom = false;
+        instance.user = null;
+        instance.logedIn = false;
+        instance.roomName = null;
+        instance.isForPrivateRoom = false;
     }
 }
 

@@ -65,7 +65,7 @@ public class Requests : MonoBehaviour
         }
     }
 
-    public IEnumerator Me(UnityWebRequest req)
+    public IEnumerator Logout(UnityWebRequest req)
     {
         yield return req.SendWebRequest();
 
@@ -73,6 +73,27 @@ public class Requests : MonoBehaviour
         {
             ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
             Notification.instance.ShowMessage(error.error, true);
+        }
+        else
+        {
+            Notification.instance.ShowMessage("You logged out", false);
+        }
+    }
+
+    public IEnumerator Me(UnityWebRequest req)
+    {
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+        {
+            ErrorResponse error = new();
+            try
+            {
+                error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
+            } finally
+            {
+                Notification.instance.ShowMessage(error.error ?? req.downloadHandler.text, true);
+            }
         }
         else
         {
@@ -121,7 +142,6 @@ public class Requests : MonoBehaviour
 
         if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
         {
-            print(req.downloadHandler.text.ToString());
             ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
             Notification.instance.ShowMessage(error.error, true);
         }
@@ -139,6 +159,64 @@ public class Requests : MonoBehaviour
                 showConnections();
                 Notification.instance.ShowMessage("List of connections ready", false);
             }
+        }
+    }
+
+    public IEnumerator GetUsers(UnityWebRequest req, Action showPeople)
+    {
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Notification.instance.ShowMessage(req.downloadHandler.text, true);
+        }
+        else
+        {
+            try
+            {
+                People.instance.list = JsonUtility.FromJson<People.ListPeople>(req.downloadHandler.text);
+            }
+            catch
+            {
+                Debug.Log("Empty list");
+                People.instance.list = new People.ListPeople();
+            }
+            finally
+            {
+                showPeople();
+                Notification.instance.ShowMessage("List of people ready", false);
+            }
+        }
+    }
+
+    public IEnumerator AddFriend(UnityWebRequest req, Action ShowPeople)
+    {
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Notification.instance.ShowMessage(req.downloadHandler.text, true);
+        }
+        else
+        {
+            ShowPeople();
+            Notification.instance.ShowMessage(req.downloadHandler.text, false);
+        }
+    }
+
+    public IEnumerator GetFriendNotifs(UnityWebRequest req, Action ShowNotifs)
+    {
+        yield return req.SendWebRequest();
+
+        if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Notification.instance.ShowMessage(req.downloadHandler.text, true);
+        }
+        else
+        {
+            FriendNotifications.instance.list = JsonUtility.FromJson<FriendNotifications.ListFriendNotif>(req.downloadHandler.text);
+            ShowNotifs();
+            Notification.instance.ShowMessage("Notifications list is ready", false);
         }
     }
 }

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 using static User;
 
 public class MyAccount : MonoBehaviour
@@ -13,6 +15,7 @@ public class MyAccount : MonoBehaviour
     public TMP_InputField password;
     public TMP_InputField newPassword;
     public TMP_InputField confirmNewPassword;
+    public RawImage avatar;
 
     public TMP_Text errorText;
 
@@ -20,7 +23,6 @@ public class MyAccount : MonoBehaviour
 
     public Button submitButton;
 
-    private string URL = HttpConst.CHANGE_PASSWORD.ToString();
 
     // Start is called before the first frame update
     void Start()
@@ -35,30 +37,59 @@ public class MyAccount : MonoBehaviour
         password.contentType = TMP_InputField.ContentType.Password;
         newPassword.contentType = TMP_InputField.ContentType.Password;
         confirmNewPassword.contentType = TMP_InputField.ContentType.Password;
-        // D�sactiver button "change avatar"
-        changeAvatarButton.interactable = false;
+
+        // If exists img convert it from base64 to Texture2D
+        if (User.instance.user.user.image.Length != 0)
+        {
+            avatar.texture = ImageTools.CreateTextureFromString(User.instance.user.user.image);
+        }
+    }
+
+    public void OnChangeAvanatr()
+    {
+        // Open file window to import files from system
+        ImageTools.OpenFileExplorer();
+        if (ImageTools.path != null)
+        {
+            StartCoroutine(ImageTools.GetTexture(UpdateImage));
+        }
+    }
+
+    public void UpdateImage()
+    {
+        // Convert img from Texture2D to base64
+        User.instance.user.user.image = Convert.ToBase64String(ImageTools.texture);
+
+        // Show the imported img to the box
+        avatar.texture = ImageTools.CreateTextureFromString(Convert.ToBase64String(ImageTools.texture));
+
+        // Update the user in DB
+        var request = UnityWebRequest.Put(HttpConst.UPDATE_USER.Value, JsonUtility.ToJson(User.instance.user.user));
+        request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
+        request.SetRequestHeader("Content-Type", "application/json");
+        StartCoroutine(Requests.instance.Me(request));
     }
 
     public void OnSubmitButton() 
     {
         errorText.text = "";
         // Si les 3 champs de mot de passe sont remplis alors l'utilisateur veut changer de mot de passe
-        if (isFormCorrect())
+        if (IsFormCorrect())
         {
-            ChangePwdDTO data = new ChangePwdDTO()
+            ChangePwdDTO data = new()
             {
                 actualPassword = password.text,
                 newPassword = newPassword.text,
                 confirmPassword = confirmNewPassword.text
             };
-            var request = UnityWebRequest.Put(URL, JsonUtility.ToJson(data));
+            var request = UnityWebRequest.Put(HttpConst.CHANGE_PASSWORD.Value, JsonUtility.ToJson(data));
             request.SetRequestHeader("Authorization", $"Bearer {User.instance.user.accessToken}");
             request.SetRequestHeader("Content-Type", "application/json");
             StartCoroutine(Requests.instance.ChangePassword(request, errorText));
         }
     }
 
-    private bool isFormCorrect()
+    private bool IsFormCorrect()
     {
         if (password.text != "" && newPassword.text != "" && confirmNewPassword.text != "")
         {

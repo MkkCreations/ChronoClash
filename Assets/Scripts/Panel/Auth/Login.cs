@@ -11,7 +11,7 @@ public class Login : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
     public TMP_Text errorText;
-    private string URL = HttpConst.LOGIN.Value;
+    private readonly string URL = HttpConst.LOGIN.Value;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class Login : MonoBehaviour
 
     public void Fetch()
     {
-        UserLoginDTO data = new UserLoginDTO()
+        UserLoginDTO data = new()
         {
             username = usernameInput.text,
             password = passwordInput.text

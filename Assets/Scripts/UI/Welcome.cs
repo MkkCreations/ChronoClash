@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class Welcome : MonoBehaviour
 {
     private void Start()
-    {   
+    {
+        Screen.fullScreen = true;
         Invoke("ChangeScene", 3f);
     }
 
