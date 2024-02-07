@@ -216,6 +216,8 @@ MonoBehaviour:
   maxMoveDistance: 3
   maxAttackDistance: 4
   usedThisTurn: 0
+  isMoving: 0
+  selecting: 0
   selectedVisual: {fileID: 1685560605435349397}
   spriteVisual: {fileID: 4867198494165051168}
   healthFillImage: {fileID: 6709083729799539474}
@@ -223,6 +225,7 @@ MonoBehaviour:
   rightPlayerSprite: {fileID: 21300000, guid: 0a30d3f7b640146fca7a75577b56dbd1, type: 3}
   standingOnTile: {fileID: 0}
   rangeFinderTiles: []
+  attackRangTiles: []
   path: []
 --- !u!114 &1286782850536278976
 MonoBehaviour:

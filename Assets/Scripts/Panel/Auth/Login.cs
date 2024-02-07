@@ -11,64 +11,40 @@ public class Login : MonoBehaviour
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
     public TMP_Text errorText;
-    public string URL;
-
-    [System.Serializable]
-    public class UserLogin
-    {
-        public string username;
-        public string password;
-    }
+    private readonly string URL = HttpConst.LOGIN.Value;
 
     private void Awake()
     {
         instance = this;
     }
 
-    private void Start()
+    public void Fetch()
     {
-        URL = "http://127.0.0.1:8081/api/auth/login";
-    }
-
-    public void GetData()
-    {
-        StartCoroutine(FetchData());
-    }
-
-    public IEnumerator FetchData()
-    {
-        UserLogin data = new UserLogin();
-        data.username = usernameInput.text;
-        data.password = passwordInput.text;
-
-        Debug.Log(JsonUtility.ToJson(data).ToString());
-
-        using (UnityWebRequest request = UnityWebRequest.Post(URL, JsonUtility.ToJson(data), "application/json"))
+        UserLoginDTO data = new()
         {
-            yield return request.SendWebRequest();
+            username = usernameInput.text,
+            password = passwordInput.text
+        };
 
-            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
-            {
-                ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(request.downloadHandler.text);
-                errorText.text = error.error;
-            }
-            else
-            {
-                Debug.Log(request.downloadHandler.text);
-                User.UserData userResponse = JsonUtility.FromJson<User.UserData>(request.downloadHandler.text);
-                User.instance.user = userResponse;
-                User.instance.logedIn = true;
-
-                PanelManager.instance.GoHome();
-            }
-             
-;        }
+        UnityWebRequest request = UnityWebRequest.Post(URL, JsonUtility.ToJson(data), "application/json");
+        StartCoroutine(Requests.instance.Login(request, errorText));
     }
 
     public void OnSignIn()
     {
         if (usernameInput.text.Length == 0 && passwordInput.text.Length == 0) return;
 
-        GetData();
+        Fetch();
+    }
+
+    public void ResetInputFields()
+    {
+        usernameInput.text = "";
+        passwordInput.text = "";
+    }
+
+    public void OnExit()
+    {
+        Application.Quit();
     }
 }
