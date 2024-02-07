@@ -28,7 +28,7 @@ public class PeopleList : MonoBehaviour
         }
     }
 
-    private void ResetList()
+    public void ResetList()
     {
         foreach (PersonTemplate person in scrollView.transform.GetComponentsInChildren<PersonTemplate>())
             Destroy(person.gameObject);

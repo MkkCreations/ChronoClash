@@ -31,6 +31,7 @@ public class Home : MonoBehaviour
     public GameObject peoplePanel;
     public GameObject notificationPanel;
     public GameObject friendsPanel;
+    public GameObject rankPanel;
 
     private void Awake()
     {
@@ -136,6 +137,9 @@ public class Home : MonoBehaviour
 
     public void OnNotifPanelButton() { notificationPanel.SetActive(true); }
     public void OnCloseNotifPanelButton() { notificationPanel.SetActive(false); }
+
+    public void OnRankPanelButton() { rankPanel.SetActive(true); }
+    public void OnCloseRankPanelButton() { rankPanel.SetActive(false); }
 
     public void OnQuitApplication()
     {
