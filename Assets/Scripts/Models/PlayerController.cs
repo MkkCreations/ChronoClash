@@ -10,10 +10,15 @@ public class PlayerController : MonoBehaviourPun
 {
     public Player photonPlayer;
     public string[] unitsToSpawn;
-    public OverlayTile[] spawnTiles;
+    public string[] buildingsToSpawn;
+    public OverlayTile[] spawnTilesUnits;
+    public OverlayTile[] spawnTilesBuildings;
 
     public List<Unit> units = new();
     public Unit selectedUnit;
+
+    public List<Building> buildings = new();
+    public Building selectedBuilding;
 
     public static PlayerController me;
     public static PlayerController enemy;
@@ -30,6 +35,7 @@ public class PlayerController : MonoBehaviourPun
         if (player.IsLocal)
         {
             me = this;
+            SpawnBuildings();
             SpawnUnits();
         }
         else
@@ -42,11 +48,23 @@ public class PlayerController : MonoBehaviourPun
     {
         for (int x = 0; x < unitsToSpawn.Length; ++x)
         {
-            GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(spawnTiles[x].transform.position.x, spawnTiles[x].transform.position.y), Quaternion.identity);
-            unit.GetComponent<Unit>().standingOnTile = spawnTiles[x];
-            spawnTiles[x].SetUnit(unit.GetComponent<Unit>());
+            GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(spawnTilesUnits[x].transform.position.x, spawnTilesUnits[x].transform.position.y), Quaternion.identity);
+            unit.GetComponent<Unit>().standingOnTile = spawnTilesUnits[x];
+            spawnTilesUnits[x].SetUnit(unit.GetComponent<Unit>());
             unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
             unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
+        }
+    }
+
+    void SpawnBuildings()
+    {
+        for (int x = 0; x < buildingsToSpawn.Length; ++x)
+        {
+            GameObject building = PhotonNetwork.Instantiate(buildingsToSpawn[x], new Vector3(spawnTilesBuildings[x].transform.position.x, spawnTilesBuildings[x].transform.position.y), Quaternion.identity);
+            building.GetComponent<Building>().standingOnTile = spawnTilesBuildings[x];
+            spawnTilesBuildings[x].SetBuilding(building.GetComponent<Building>());
+            building.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
+            building.GetPhotonView().RPC("Initialize", photonPlayer, true);
         }
     }
 
@@ -66,6 +84,7 @@ public class PlayerController : MonoBehaviourPun
     {
         // Are we selecting our unit?
         Unit unit = tile.inTileUnit;
+        Building building = tile.inTileBuilding;
 
         if (unit != null)
         {
@@ -73,7 +92,13 @@ public class PlayerController : MonoBehaviourPun
             return;
         }
 
-        if (!selectedUnit)
+        if (building != null)
+        {
+            SelectBuilding(building);
+            return;
+        }
+
+        if (!selectedUnit && !selectedBuilding)
             return;
 
         // Are we selecting an enemy unit?
@@ -114,6 +139,19 @@ public class PlayerController : MonoBehaviourPun
 
         // Disable the unit info text
         GameUI.instance.unitInfo.gameObject.SetActive(false);
+    }
+
+    void SelectBuilding(Building building)
+    {
+        if (selectedBuilding != null)
+            DeSelectBuilding();
+
+        selectedBuilding = building;    
+    }
+
+    void DeSelectBuilding()
+    {
+        selectedBuilding = null;
     }
 
     void SelectNextAvailableUnit()

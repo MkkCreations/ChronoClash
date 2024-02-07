@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using System.IO;
 using System.ComponentModel;
+using Enums.TypeEntite;
 
 public class Unit : MonoBehaviourPun
 {
@@ -44,6 +45,8 @@ public class Unit : MonoBehaviourPun
     private OverlayTile tileToMove;
 
     public ArrowTranslator arrowTranslator;
+
+    public TypeEntite typeEntite;
 
     private void Start()
     {

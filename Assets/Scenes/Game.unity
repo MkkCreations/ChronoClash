@@ -405,6 +405,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1879099114}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &20227454
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -568,6 +569,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1248026250}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &20302726
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1235,6 +1237,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 787315375}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &45276237
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1482,6 +1485,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1473202127}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &55251662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1618,37 +1622,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &62101073
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 62101074}
-  m_Layer: 0
-  m_Name: SpawnPoint (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &62101074
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62101073}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.96, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1394739753}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &62737665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +1733,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1747000203}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &62737669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2511,6 +2485,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 134414740}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &93382313
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2758,6 +2733,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 420286398}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &96407869
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3005,6 +2981,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 817046888}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &107775785
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3582,6 +3559,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 971457730}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &127155521
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3829,6 +3807,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1724267244}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &129353691
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4244,6 +4223,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1914107587}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &136042877
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4659,6 +4639,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 419411886}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &149613796
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4822,6 +4803,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1700069204}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &151878918
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5153,6 +5135,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1147017047}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &155345365
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5316,6 +5299,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 835937089}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &160486435
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5479,6 +5463,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1327607861}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &161134550
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5642,6 +5627,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2095708857}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &163105944
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5805,6 +5791,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 877992289}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &168151251
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6304,6 +6291,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 670252362}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &185689466
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6719,6 +6707,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1243082648}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &197497169
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7134,6 +7123,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 929111019}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &204307282
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7297,6 +7287,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 438852979}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &204656049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7544,6 +7535,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1944881614}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &210485055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7707,6 +7699,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 682489643}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &217179500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7870,6 +7863,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1868574996}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &227233318
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8117,6 +8111,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1505102877}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &246131986
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8280,6 +8275,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 968635817}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &246317190
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8611,6 +8607,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 419130935}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &255383735
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8858,6 +8855,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1925103618}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &265474880
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9021,6 +9019,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1788706153}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &267730464
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9184,6 +9183,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1951270288}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &275044798
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9347,6 +9347,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1700554162}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &278466455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9510,6 +9511,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 876304275}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &281947371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9673,6 +9675,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 543179957}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &282583617
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9836,6 +9839,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 933816518}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &283232318
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10251,6 +10255,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 638285291}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &292664980
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10414,6 +10419,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 703666436}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &315949985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10745,6 +10751,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1142200981}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &327722051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10908,6 +10915,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1298095700}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &329033676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11071,6 +11079,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1952159153}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &334770061
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11402,6 +11411,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2025567139}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &354216956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12473,6 +12483,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1366959733}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &395764475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13140,6 +13151,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1650198653}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &419509780
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13471,6 +13483,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1305301428}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &440505083
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13718,6 +13731,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1195995082}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &447366753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14217,6 +14231,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2104283139}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &480382065
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14632,6 +14647,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1775956124}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &502426354
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15047,6 +15063,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 127689851}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &529946460
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15210,6 +15227,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 750122427}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &530539219
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15541,6 +15559,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 681693024}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &543778883
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16729,6 +16748,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 184143619}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &563896144
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16976,6 +16996,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1489386845}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &565159130
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17139,6 +17160,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1697669206}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &569845569
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17470,6 +17492,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1051931357}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &572836788
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17606,37 +17629,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &586251309
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 586251310}
-  m_Layer: 0
-  m_Name: SpawnPoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &586251310
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586251309}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1540373356}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &587724709
 GameObject:
   m_ObjectHideFlags: 0
@@ -17748,6 +17740,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1094565820}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &587724713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18129,6 +18122,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 43288739}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &592383231
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18292,6 +18286,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 557059538}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &596412308
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18841,6 +18836,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2113318648}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &605909713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19004,6 +19000,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 803713344}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &606005207
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19167,6 +19164,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1561211126}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &608119331
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19666,6 +19664,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 561547122}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &615813152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19913,6 +19912,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 380861664}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &622896664
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20160,6 +20160,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 180296305}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &629203614
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20464,6 +20465,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1159471919}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &638127071
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20795,6 +20797,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1618010942}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &648788750
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20958,6 +20961,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 599372056}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &651825607
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21121,6 +21125,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 869960942}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &655836603
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21368,6 +21373,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 172523151}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &667668201
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23849,6 +23855,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 556153539}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &679023468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24516,6 +24523,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1818810967}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &685326464
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25015,6 +25023,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1379104215}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &695008044
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25430,6 +25439,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 408748885}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &706893589
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26433,6 +26443,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 971648374}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &744876147
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26596,6 +26607,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 402555542}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &746249706
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26843,6 +26855,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 285679738}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &754166729
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27006,6 +27019,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1721383902}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &756916059
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27169,6 +27183,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1120294146}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &758110583
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27668,6 +27683,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2058627878}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &760783815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27999,6 +28015,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 488853423}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &768758228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28246,6 +28263,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1231659465}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &775740744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28409,6 +28427,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1860904609}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &783040593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28763,37 +28782,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &800576588
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 800576589}
-  m_Layer: 0
-  m_Name: SpawnPoint (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &800576589
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800576588}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1394739753}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802650871
 GameObject:
   m_ObjectHideFlags: 0
@@ -28905,6 +28893,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1941409864}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &802650875
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29152,6 +29141,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1863766494}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &808549407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29315,6 +29305,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2028091690}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &811000558
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29814,6 +29805,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1568927656}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &836379913
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29977,6 +29969,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 34651209}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &839495823
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30140,6 +30133,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2109493542}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &839594108
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30387,6 +30381,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1239131927}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &854362656
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30550,6 +30545,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 703565560}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &856105825
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30797,6 +30793,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1724647351}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &859303925
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31044,6 +31041,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2029484390}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &864565593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31627,6 +31625,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1478465381}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &882599829
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32002,6 +32001,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 951622761}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &904920643
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32165,6 +32165,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 762548296}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &908572224
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32412,6 +32413,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 687059524}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &913542511
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32659,6 +32661,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1466601780}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &914571086
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32906,6 +32909,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2004101872}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &920825192
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -33321,6 +33325,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 290481076}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &937764179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -33988,6 +33993,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 974060382}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &961198410
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -34559,6 +34565,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1590138174}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &970822353
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35142,6 +35149,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1613023989}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &983486827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35389,6 +35397,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1689829125}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &990177277
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35636,6 +35645,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 123030402}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &994674270
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35856,37 +35866,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1004393456
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1004393457}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1004393457
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004393456}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 1.98, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1394739753}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1005809296
 GameObject:
   m_ObjectHideFlags: 0
@@ -36250,6 +36229,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 389612659}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1013717785
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36967,6 +36947,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1738969462}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1033679849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37348,6 +37329,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1404847347}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1036312820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37679,6 +37661,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1005809296}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1048012537
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37842,6 +37825,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 979333196}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1050722575
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38257,6 +38241,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1303753715}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1058583492
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38588,6 +38573,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 62743372}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1066218868
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38751,6 +38737,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 534691836}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1068463572
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39047,6 +39034,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 623462914}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1076116774
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39210,6 +39198,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1975516337}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1078035540
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39373,6 +39362,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1624407728}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1081094835
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39872,6 +39862,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1907995974}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1099398587
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40035,6 +40026,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 679464938}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1099439790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40366,6 +40358,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 825939495}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1118825260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40781,6 +40774,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 380926960}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1123479966
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41196,6 +41190,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 769244470}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1130608877
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41443,6 +41438,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1006152409}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1134475940
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42194,6 +42190,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1468718331}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1159091027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42441,6 +42438,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 679819582}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1159597135
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42604,6 +42602,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2000863512}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1181013944
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42767,6 +42766,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1232817207}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1182645501
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42930,6 +42930,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1330614135}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1194612165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43177,6 +43178,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 875000050}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1200343390
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43592,6 +43594,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1550205834}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1219104449
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43755,6 +43758,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 101344370}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1221725465
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43918,6 +43922,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1398470113}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1231373304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -44249,6 +44254,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 996056888}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1234301127
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -44664,6 +44670,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1866463171}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1243119523
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45163,6 +45170,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 758933769}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1265610772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45578,6 +45586,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1756354774}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1280886226
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45741,6 +45750,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2146782949}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1281704644
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -45904,6 +45914,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2060981050}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1283320103
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46067,6 +46078,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 30633415}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1284590756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46230,6 +46242,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 913876268}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1288615623
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46393,6 +46406,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 572884508}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1289030125
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47060,6 +47074,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1592049304}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1308171371
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47307,6 +47322,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1325115410}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1326308460
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47722,6 +47738,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1624663067}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1338309033
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48221,6 +48238,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1507157973}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1355090476
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48544,6 +48562,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 375344768}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1359684649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48791,6 +48810,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1208596696}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1362950161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -49568,10 +49588,7 @@ Transform:
   m_LocalPosition: {x: -8.1, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1004393457}
-  - {fileID: 800576589}
-  - {fileID: 62101074}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1394739754
@@ -49588,14 +49605,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsToSpawn:
   - Soldier
-  - Soldier
-  - Tank
-  spawnTiles:
-  - {fileID: 2102083748}
-  - {fileID: 45276236}
-  - {fileID: 1099439789}
+  buildingsToSpawn:
+  - HQ
+  - Barrack
+  - Barrack
+  spawnTilesUnits:
+  - {fileID: 2058023712}
+  spawnTilesBuildings:
+  - {fileID: 136042876}
+  - {fileID: 1872897785}
+  - {fileID: 1326308459}
   units: []
   selectedUnit: {fileID: 0}
+  buildings: []
+  selectedBuilding: {fileID: 0}
   coin: 3000
 --- !u!1 &1395282664
 GameObject:
@@ -50358,6 +50381,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1640561385}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1423603756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -50521,6 +50545,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1827836586}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1427896465
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -50861,6 +50886,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 320617228}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1438927549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -51108,6 +51134,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1967526538}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1453317844
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -51943,6 +51970,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 939707576}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1472659802
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -52190,6 +52218,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1603498480}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1476483873
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -52353,6 +52382,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1136142861}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1476818377
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53272,6 +53302,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1088987993}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1519574103
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53603,6 +53634,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 464709418}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1536029127
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53771,14 +53803,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitsToSpawn:
   - Soldier
-  - Soldier
-  - Tank
-  spawnTiles:
-  - {fileID: 96407868}
-  - {fileID: 395764474}
-  - {fileID: 836379912}
+  buildingsToSpawn:
+  - HQ
+  - Barrack
+  - Barrack
+  spawnTilesUnits:
+  - {fileID: 655836602}
+  spawnTilesBuildings:
+  - {fileID: 994674269}
+  - {fileID: 1476818376}
+  - {fileID: 419509779}
   units: []
   selectedUnit: {fileID: 0}
+  buildings: []
+  selectedBuilding: {fileID: 0}
   coin: 3000
 --- !u!114 &1540373355
 MonoBehaviour:
@@ -53815,10 +53853,7 @@ Transform:
   m_LocalPosition: {x: 6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1663170218}
-  - {fileID: 586251310}
-  - {fileID: 1595106966}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1542657171
@@ -53932,6 +53967,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 259065021}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1542657175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -54095,6 +54131,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 151959629}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1545155987
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -54258,6 +54295,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 193423816}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1546982176
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -54722,6 +54760,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1499633925}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1553142507
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55137,6 +55176,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2132713667}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1570585384
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55300,6 +55340,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2111870552}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1570594824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55799,6 +55840,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1853542204}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1594619168
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55851,37 +55893,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1595106965
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1595106966}
-  m_Layer: 0
-  m_Name: SpawnPoint (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1595106966
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595106965}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1540373356}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1598397271
 GameObject:
   m_ObjectHideFlags: 0
@@ -55993,6 +56004,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1702462796}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1598397275
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -56240,6 +56252,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 484608059}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1611573767
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57125,6 +57138,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1718600499}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1638028400
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57288,6 +57302,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1964966076}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1639947755
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57809,37 +57824,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662643681}
   m_CullTransparentMesh: 1
---- !u!1 &1663170217
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1663170218}
-  m_Layer: 0
-  m_Name: SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1663170218
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663170217}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1540373356}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1666029010
 GameObject:
   m_ObjectHideFlags: 0
@@ -58119,6 +58103,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1877503457}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1677572427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58282,6 +58267,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1000364303}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1689501629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58529,6 +58515,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1864926353}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1690583244
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58692,6 +58679,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1363315718}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1692046706
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -58855,6 +58843,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1985099304}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1696262026
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -59690,6 +59679,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 198323493}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1706110544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60357,6 +60347,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1729012992}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1728166228
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60856,6 +60847,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2017386597}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1736859559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61103,6 +61095,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 146670333}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1740447269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61434,6 +61427,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2003344426}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1753582820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61597,6 +61591,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 47167607}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1753720010
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61760,6 +61755,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 722850913}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1754970394
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -62645,6 +62641,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 135568977}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1789767749
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -62808,6 +62805,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 121769510}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1789921309
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63315,6 +63313,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 178679686}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1806201217
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63898,6 +63897,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 570461181}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1829383630
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -64061,6 +64061,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 338508566}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1834142767
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -64224,6 +64225,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 111711820}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1843445928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -64555,6 +64557,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1806131033}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1852845449
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -64802,6 +64805,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1045538023}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1854148612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65217,6 +65221,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2006124856}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1864020820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65766,6 +65771,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1404486723}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1868817307
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65929,6 +65935,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 944480474}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1870940386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66092,6 +66099,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 386581017}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1872897786
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -66591,6 +66599,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1650872350}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1889998996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67258,6 +67267,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1704415393}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1915527976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67421,6 +67431,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1387174139}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1922433889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67584,6 +67595,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1464015954}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1923293906
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -67831,6 +67843,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1054234277}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1925530541
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -68162,6 +68175,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1884165686}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1934826404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -68577,6 +68591,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1255187455}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1944553286
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -68992,6 +69007,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1819519250}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1957343860
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -69407,6 +69423,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1351499429}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1968009663
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -69822,6 +69839,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1035935129}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1995068055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -69985,6 +70003,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1939798101}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &1998201443
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70232,6 +70251,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1290996206}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2001150657
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -70815,6 +70835,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1327134130}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2019531948
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -71062,6 +71083,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1506292543}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2024880427
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72296,6 +72318,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2068751189}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2058023713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72459,6 +72482,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 761399359}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2058599616
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72958,6 +72982,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1618414774}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2087808839
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73373,6 +73398,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 1153622902}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2100825830
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73536,6 +73562,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 565048621}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2102083749
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74371,6 +74398,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 459171140}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2124301162
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74835,6 +74863,7 @@ MonoBehaviour:
   - {fileID: -187562450, guid: 579b35606ae01409bb5e9377eae5043f, type: 3}
   selector: {fileID: 2019826193}
   inTileUnit: {fileID: 0}
+  inTileBuilding: {fileID: 0}
 --- !u!212 &2146383564
 SpriteRenderer:
   m_ObjectHideFlags: 0
