@@ -7,7 +7,7 @@ public class HttpConst
     public string Value { get; private set; }
 
     // private static readonly string HOST = "https://chronoclashapi-production.up.railway.app/api";
-    private static readonly string HOST = "http://localhost:8081/api";
+    private static readonly string HOST = "http://localhost:8082/api";
     public static HttpConst LOGIN { get { return new HttpConst($"{HOST}/auth/login"); } }
     public static HttpConst REGISTER { get { return new HttpConst($"{HOST}/auth/signup"); } }
     public static HttpConst LOGOUT { get { return new HttpConst($"{HOST}/auth/logout"); } }
