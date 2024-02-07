@@ -222,11 +222,14 @@ public class Unit : MonoBehaviourPun
     [PunRPC]
     void Die()
     {
-        if (!photonView.IsMine)
+        if (!photonView.IsMine) {
             PlayerController.enemy.units.Remove(this);
+            PlayerController.me.addCoin(500);
+        }
         else
         {
             PlayerController.me.units.Remove(this);
+            PlayerController.enemy.addCoin(500);
 
             // check the win condition
             GameManager.instance.CheckWinCondition();

@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviourPun
     public static PlayerController me;
     public static PlayerController enemy;
 
+    public int coin = 3000;
+
     [PunRPC]
     void Initialize(Player player)
     {
@@ -154,6 +156,8 @@ public class PlayerController : MonoBehaviourPun
         if (selectedUnit != null)
             DeSelectUnit();
 
+        // Add 1500 coins to the player
+        addCoin(1500);
         // Start the next turn
         GameManager.instance.photonView.RPC("SetNextTurn", RpcTarget.All);
     }
@@ -182,4 +186,21 @@ public class PlayerController : MonoBehaviourPun
         StartCoroutine(Requests.instance.AddGame(request));
     }
     
+    public int getCoin()
+    {
+        return this.coin;
+    }
+
+    public void addCoin(int coin)
+    {
+        this.coin += coin;
+    }
+
+    public void useCoin(int coin)
+    {
+        this.coin -= coin;
+        if(this.coin < 0)
+            this.coin = 0;
+    }
+
 }

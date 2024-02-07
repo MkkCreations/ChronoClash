@@ -13,6 +13,7 @@ public class GameUI : MonoBehaviour
     public Image unitInfo;
     public TextMeshProUGUI winText;
     public Image quitVerification;
+    public TextMeshProUGUI numberCoinText;
 
     // instance
     public static GameUI instance;
@@ -47,6 +48,11 @@ public class GameUI : MonoBehaviour
     {
         TextMeshProUGUI text = player == GameManager.instance.leftPlayer ? leftPlayerText : rightPlayerText;
         text.text = player.photonPlayer.NickName;
+    }
+
+    public void UpdateCoinText(int coin)
+    {
+        numberCoinText.text = coin.ToString();
     }
 
     // sets the unit info text
