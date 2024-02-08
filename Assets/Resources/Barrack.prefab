@@ -59,6 +59,7 @@ MonoBehaviour:
   rightPlayerSprite: {fileID: 21300000, guid: 73e8508775478294c92e7f60f9ffd8bb, type: 3}
   standingOnTile: {fileID: 0}
   deploymentUnitRangeTiles: []
+  unitDeployed: 0
   typeEntite: 0
 --- !u!114 &6656514256696402486
 MonoBehaviour:

@@ -6,6 +6,7 @@ using Photon.Pun;
 using System.IO;
 using System.ComponentModel;
 using Enums.TypeEntite;
+using UnityEditor.Search;
 
 public class Building : MonoBehaviourPun
 {
@@ -29,7 +30,7 @@ public class Building : MonoBehaviourPun
 
     public RangeFinder rangeFinder;
     public List<OverlayTile> deploymentUnitRangeTiles;
-
+    public bool unitDeployed = false;
 
     public TypeEntite typeEntite;
 
@@ -41,10 +42,10 @@ public class Building : MonoBehaviourPun
 
     private void Update()
     {
-        if (selecting)
+        /*if (selecting)
         {
             GetInRangeTiles();
-        }
+        }*/
     }
 
     public void PositionCharacterOnLine(OverlayTile tile)
@@ -73,7 +74,7 @@ public class Building : MonoBehaviourPun
         deploymentUnitRangeTiles = new List<OverlayTile>();
         foreach (OverlayTile item in allRange)
         {
-            if (item.inTileUnit && item.inTileUnit != this)
+            if (item.inTileBuilding && item.inTileBuilding != this)
             {
                 item.HideTile();
                 continue;
@@ -91,20 +92,37 @@ public class Building : MonoBehaviourPun
             return true;
     }
 
+    public bool CanDeploy(OverlayTile tile)
+    {
+        if (!deploymentUnitRangeTiles.Contains(tile)) {
+            GetInRangeTiles();
+            unitDeployed = false;
+        } else {
+            tile.HideTile();
+            unitDeployed = true;
+        }
+        return unitDeployed;
+    }
+
+    public void ToggleSelect(bool selected)
+    {
+        selectedVisual.SetActive(selected);
+        selecting = !selecting;
+    }
 
     [PunRPC]
     void Die()
     {
         if (!photonView.IsMine)
         {
-            changeSprite(true);
+            ChangeSprite(true);
             PlayerController.me.buildings.Add(this);
             PlayerController.enemy.buildings.Remove(this);
             PlayerController.me.addCoin(500);
         }
         else
         {
-            changeSprite(false);
+            ChangeSprite(false);
             PlayerController.enemy.buildings.Add(this);
             PlayerController.me.buildings.Remove(this);
             PlayerController.enemy.addCoin(500);
@@ -114,7 +132,7 @@ public class Building : MonoBehaviourPun
         }
     }
 
-    private void changeSprite(bool sens = true)
+    private void ChangeSprite(bool sens = true)
     {
         if (sens)
         {
@@ -128,5 +146,16 @@ public class Building : MonoBehaviourPun
             rightPlayerSprite = leftPlayerSprite;
             leftPlayerSprite = temp;
         }
+    }
+
+    public void ShowPanelShop()
+    {
+        if (typeEntite != TypeEntite.HQ)
+            GameUI.instance.OnOpenShop(typeEntite);
+    }
+
+    public void HidePanelShop()
+    {
+        GameUI.instance.OnCloseShop();
     }
 }

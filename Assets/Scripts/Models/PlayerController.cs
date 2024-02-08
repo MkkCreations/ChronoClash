@@ -5,6 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using static User;
 using UnityEngine.Networking;
+using System;
 
 public class PlayerController : MonoBehaviourPun
 {
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviourPun
     public static PlayerController enemy;
 
     public int coin = 3000;
+
+    public GameObject itemTobuy;
 
     [PunRPC]
     void Initialize(Player player)
@@ -105,13 +108,22 @@ public class PlayerController : MonoBehaviourPun
         Unit enemyUnit = enemy.units.Find(u => new Vector2(Mathf.RoundToInt(u.transform.position.x), Mathf.RoundToInt(u.transform.position.y)) == new Vector2(Mathf.RoundToInt(tile.transform.position.x), Mathf.RoundToInt(tile.transform.position.y)));
         enemy.units.ForEach(u => print($"{u.transform.position} --- {tile.transform.position}"));
 
-        if (enemyUnit != null)
+        if (enemyUnit != null && selectedUnit != null)
         {
             TryAttack(enemyUnit);
             return;
         }
 
-        TryMove(tile);
+        if(selectedUnit != null)
+            TryMove(tile);
+
+        if (selectedBuilding != null && itemTobuy != null)
+        {
+            selectedBuilding.GetInRangeTiles();
+            if (selectedBuilding.deploymentUnitRangeTiles.Contains(tile))
+                if (selectedBuilding.CanDeploy(tile))
+                    DeployUnit(tile);
+        }
     }
 
     void SelectUnit(Unit unitToSelect)
@@ -123,6 +135,10 @@ public class PlayerController : MonoBehaviourPun
         // un-select the current unit
         if (selectedUnit != null)
             DeSelectUnit();
+
+        // un-select the current building
+        if (selectedBuilding != null)
+            DeSelectBuilding();
 
         // select the new unit
         selectedUnit = unitToSelect;
@@ -143,14 +159,24 @@ public class PlayerController : MonoBehaviourPun
 
     void SelectBuilding(Building building)
     {
+        if(!building.CanSelect())
+            return;
+
         if (selectedBuilding != null)
             DeSelectBuilding();
 
-        selectedBuilding = building;    
+        if(selectedUnit != null)
+            DeSelectUnit();
+
+        selectedBuilding = building;
+        selectedBuilding.ToggleSelect(true);
+        building.ShowPanelShop();
     }
 
     void DeSelectBuilding()
     {
+        selectedBuilding.ToggleSelect(false);
+        selectedBuilding.HidePanelShop();
         selectedBuilding = null;
     }
 
@@ -240,5 +266,34 @@ public class PlayerController : MonoBehaviourPun
         if(this.coin < 0)
             this.coin = 0;
     }
+
+    public bool BuyItem(GameObject item)
+    {
+        if (item.GetComponent<Unit>().cost > coin)
+            return false;
+
+        itemTobuy = item;
+        return true;
+    }
+
+    public void DeployUnit(OverlayTile tile)
+    {
+        GameObject unit = PhotonNetwork.Instantiate(itemTobuy.name, new Vector3(tile.transform.position.x, tile.transform.position.y), Quaternion.identity);
+        unit.GetComponent<Unit>().standingOnTile = tile;
+        tile.SetUnit(unit.GetComponent<Unit>());
+        unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
+        unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
+        // Ajoute l'unité à la liste des unités du joueur
+        units.Add(unit.GetComponent<Unit>());
+        useCoin(itemTobuy.GetComponent<Unit>().cost);
+        itemTobuy = null;
+        // Bloque le batiment pour le tour
+        selectedBuilding.usedThisTurn = true;
+        // Bloque la nouvelle unité pour le tour 
+        unit.GetComponent<Unit>().usedThisTurn = true;
+        // Update the UI
+        GameUI.instance.UpdateWaitingUnitsText(units.FindAll(u => u.CanSelect()).Count);
+    }
+
 
 }

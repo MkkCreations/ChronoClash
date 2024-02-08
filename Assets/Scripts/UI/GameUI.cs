@@ -1,3 +1,4 @@
+using Enums.TypeEntite;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,6 +15,8 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI winText;
     public Image quitVerification;
     public TextMeshProUGUI numberCoinText;
+    // Panel for items shop 
+    public GameObject shopPanel;
 
     // instance
     public static GameUI instance;
@@ -85,5 +88,16 @@ public class GameUI : MonoBehaviour
     {
         PlayerController.me.AddGameToAPI(false, GameManager.instance.GetOtherPlayer(PlayerController.me).photonPlayer.NickName);
         NetworkManager.instance.Leave();
+    }
+
+    public void OnOpenShop(TypeEntite typeBuildingShop)
+    {
+        shopPanel.SetActive(true);
+        ShopListPanel.instance.UpdateList();
+    }
+
+    public void OnCloseShop()
+    {
+        shopPanel.SetActive(false);
     }
 }

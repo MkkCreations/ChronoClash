@@ -48,6 +48,8 @@ public class Unit : MonoBehaviourPun
 
     public TypeEntite typeEntite;
 
+    public int cost;
+
     private void Start()
     {
         rangeFinder = new RangeFinder();
