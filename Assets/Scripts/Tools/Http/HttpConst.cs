@@ -15,6 +15,8 @@ public class HttpConst
     public static HttpConst CHANGE_PASSWORD { get { return new HttpConst($"{HOST}/auth/change-password"); } }
     public static HttpConst REFRESH_TOKEN { get { return new HttpConst($"{HOST}/auth/refresh-token"); } }
 
+    public static HttpConst SSE { get { return new HttpConst($"{HOST}/sse"); } }
+
     public static HttpConst CREATEGAME { get { return new HttpConst($"{HOST}/user/game"); } }
 
     public static HttpConst ME { get { return new HttpConst($"{HOST}/user/me"); } }
