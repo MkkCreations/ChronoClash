@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using static User;
 using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviourPun
@@ -43,7 +41,7 @@ public class PlayerController : MonoBehaviourPun
             GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(spawnTiles[x].transform.position.x, spawnTiles[x].transform.position.y), Quaternion.identity);
             unit.GetComponent<Unit>().standingOnTile = spawnTiles[x];
             spawnTiles[x].SetUnit(unit.GetComponent<Unit>());
-            unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
+            unit.GetPhotonView().RPC("Initialize", RpcTarget.Others, false);
             unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
         }
     }
