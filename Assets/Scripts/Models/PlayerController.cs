@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviourPun
 
         if (selectedBuilding != null && itemTobuy != null)
         {
+            print(selectedBuilding);
             selectedBuilding.GetInRangeTiles();
             if (selectedBuilding.deploymentUnitRangeTiles.Contains(tile))
                 if (selectedBuilding.CanDeploy(tile))
@@ -231,6 +232,9 @@ public class PlayerController : MonoBehaviourPun
         foreach (Unit unit in units)
             unit.usedThisTurn = false;
 
+        foreach (Building building in buildings)
+            building.usedThisTurn = false;
+
         // Update UI
         GameUI.instance.UpdateWaitingUnitsText(units.Count);
     }
@@ -269,7 +273,7 @@ public class PlayerController : MonoBehaviourPun
 
     public bool BuyItem(GameObject item)
     {
-        if (item.GetComponent<Unit>().cost > coin)
+        if (item.GetComponent<Unit>().cost > this.coin)
             return false;
 
         itemTobuy = item;
@@ -283,14 +287,19 @@ public class PlayerController : MonoBehaviourPun
         tile.SetUnit(unit.GetComponent<Unit>());
         unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
         unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
+
         // Ajoute l'unité à la liste des unités du joueur
         units.Add(unit.GetComponent<Unit>());
-        useCoin(itemTobuy.GetComponent<Unit>().cost);
+
+        this.useCoin(itemTobuy.GetComponent<Unit>().cost);
         itemTobuy = null;
+
         // Bloque le batiment pour le tour
         selectedBuilding.usedThisTurn = true;
+
         // Bloque la nouvelle unité pour le tour 
         unit.GetComponent<Unit>().usedThisTurn = true;
+
         // Update the UI
         GameUI.instance.UpdateWaitingUnitsText(units.FindAll(u => u.CanSelect()).Count);
     }

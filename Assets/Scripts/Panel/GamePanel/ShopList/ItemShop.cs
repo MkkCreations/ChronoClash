@@ -9,6 +9,7 @@ public class ItemShop : MonoBehaviour
 {
     public Image itemImage;
     public Text itemDescriptionText;
+    public Text itemPriceText;
     public Button recruitButton;
     public GameObject prefabUnit;
 
@@ -30,7 +31,8 @@ public class ItemShop : MonoBehaviour
     {
         this.prefabUnit = prefabUnit;
         itemImage.sprite = prefabUnit.GetComponent<Unit>().spriteVisual.sprite;
-        itemDescriptionText.text = string.Format("{0}", prefabUnit.GetComponent<Unit>().typeEntite);
+        itemDescriptionText.text = string.Format("{0}", prefabUnit.name);
+        itemPriceText.text = string.Format("{0}", prefabUnit.GetComponent<Unit>().cost);
     }
 }
 

@@ -6,7 +6,6 @@ using Photon.Pun;
 using System.IO;
 using System.ComponentModel;
 using Enums.TypeEntite;
-using UnityEditor.Search;
 
 public class Building : MonoBehaviourPun
 {
