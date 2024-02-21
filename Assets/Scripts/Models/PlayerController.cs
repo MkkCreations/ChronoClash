@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using static User;
 using UnityEngine.Networking;
 using System;
 
@@ -55,6 +53,10 @@ public class PlayerController : MonoBehaviourPun
             unit.GetComponent<Unit>().standingOnTile = spawnTilesUnits[x];
             spawnTilesUnits[x].SetUnit(unit.GetComponent<Unit>());
             unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
+            GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(spawnTiles[x].transform.position.x, spawnTiles[x].transform.position.y), Quaternion.identity);
+            unit.GetComponent<Unit>().standingOnTile = spawnTiles[x];
+            spawnTiles[x].SetUnit(unit.GetComponent<Unit>());
+            unit.GetPhotonView().RPC("Initialize", RpcTarget.Others, false);
             unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
         }
     }
@@ -288,7 +290,7 @@ public class PlayerController : MonoBehaviourPun
         unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
         unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
 
-        // Ajoute l'unité à la liste des unités du joueur
+        // Ajoute l'unitï¿½ ï¿½ la liste des unitï¿½s du joueur
         units.Add(unit.GetComponent<Unit>());
 
         this.useCoin(itemTobuy.GetComponent<Unit>().cost);
@@ -297,7 +299,7 @@ public class PlayerController : MonoBehaviourPun
         // Bloque le batiment pour le tour
         selectedBuilding.usedThisTurn = true;
 
-        // Bloque la nouvelle unité pour le tour 
+        // Bloque la nouvelle unitï¿½ pour le tour 
         unit.GetComponent<Unit>().usedThisTurn = true;
 
         // Update the UI
