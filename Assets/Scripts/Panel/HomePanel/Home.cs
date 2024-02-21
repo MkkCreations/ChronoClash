@@ -29,6 +29,7 @@ public class Home : MonoBehaviour
     public GameObject gamesPanel;
     public GameObject connectionsPanel;
     public GameObject peoplePanel;
+    public GameObject rankPanel;
     public GameObject notificationPanel;
     public GameObject friendsPanel;
 
@@ -132,6 +133,10 @@ public class Home : MonoBehaviour
     public void OnCloseConnectionsPanelButton() { connectionsPanel.SetActive(false); }
 
     public void OnPeoplePanelButton() { peoplePanel.SetActive(true); }
+
+    public void OnRankPanelButton() { rankPanel.SetActive(true); }
+
+    public void OnCloseRankPanelButton() { rankPanel.SetActive(false); }
     public void OnClosePeoplePanelButton() { peoplePanel.SetActive(false); }
 
     public void OnNotifPanelButton() { notificationPanel.SetActive(true); }
