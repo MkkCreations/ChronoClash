@@ -1,10 +1,6 @@
-using System.Collections;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Networking;
-using static User;
 
 public class NotificationList : MonoBehaviour
 {

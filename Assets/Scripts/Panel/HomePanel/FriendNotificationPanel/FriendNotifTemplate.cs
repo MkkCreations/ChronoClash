@@ -1,6 +1,4 @@
-using System.Collections;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Networking;
@@ -35,5 +33,6 @@ public class FriendNotifTemplate : MonoBehaviour
         StartCoroutine(Requests.instance.AddFriend(request, showNotifications));
 
         Home.instance.GetUserData();
+        showNotifications();
     }
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class OverlayTile : MonoBehaviour
@@ -25,10 +24,11 @@ public class OverlayTile : MonoBehaviour
 
     public Unit inTileUnit = null;
 
+    public Building inTileBuilding = null;
+
     public void Init()
     {
         arrowTranslator = new ArrowTranslator();
-
     }
 
     private void Update()
@@ -54,6 +54,11 @@ public class OverlayTile : MonoBehaviour
     public void SetUnit(Unit newUnit)
     {
         inTileUnit = newUnit;
+    }
+
+    public void SetBuilding(Building newBuilding)
+    {
+        inTileBuilding = newBuilding;
     }
 
     void OnMouseEnter()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +13,7 @@ public class ExperienceBar : MonoBehaviour
         slider.maxValue = experience;
         slider.value = experience;
 
-        fil.color = gradient.Evaluate(1f); // Si on a 100 d'xp, on a la couleur la plus à droite du gradient
+        fil.color = gradient.Evaluate(1f); // Si on a 100 d'xp, on a la couleur la plus ï¿½ droite du gradient
     }
 
     public void SetExperience(int experience)

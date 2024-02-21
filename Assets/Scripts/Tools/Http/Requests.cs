@@ -1,9 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
-using static User;
 using System;
 
 public class Requests : MonoBehaviour

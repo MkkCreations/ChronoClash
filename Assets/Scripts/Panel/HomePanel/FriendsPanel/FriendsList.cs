@@ -1,9 +1,4 @@
-using System.Collections;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Networking;
 
 public class FriendsList : MonoBehaviour
 {
@@ -17,11 +12,18 @@ public class FriendsList : MonoBehaviour
 
     public void ShowFriends()
     {
+        ResetList();
         foreach (User.Friend friend in User.instance.user.user.friends)
         {
             GameObject friendInst = Instantiate(FriendTamplate);
             friendInst.transform.SetParent(scrollView.transform);
             friendInst.GetComponent<FriendTemplate>().SetData(friend.id, friend.friend.username, friend.friend.image, friend.friend.level.level);
         }
+    }
+
+    private void ResetList()
+    {
+        foreach (FriendTemplate friend in scrollView.transform.GetComponentsInChildren<FriendTemplate>())
+            Destroy(friend.gameObject);
     }
 }
