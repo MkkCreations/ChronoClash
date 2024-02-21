@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using System.IO;
+using System.ComponentModel;
+using Enums.TypeEntite;
 
 public class Unit : MonoBehaviourPun
 {
@@ -41,6 +44,10 @@ public class Unit : MonoBehaviourPun
     private OverlayTile tileToMove;
 
     public ArrowTranslator arrowTranslator;
+
+    public TypeEntite typeEntite;
+
+    public int cost;
 
     private void Start()
     {
@@ -219,11 +226,14 @@ public class Unit : MonoBehaviourPun
     [PunRPC]
     void Die()
     {
-        if (!photonView.IsMine)
+        if (!photonView.IsMine) {
             PlayerController.enemy.units.Remove(this);
+            PlayerController.me.addCoin(500);
+        }
         else
         {
             PlayerController.me.units.Remove(this);
+            PlayerController.enemy.addCoin(500);
 
             // check the win condition
             GameManager.instance.CheckWinCondition();

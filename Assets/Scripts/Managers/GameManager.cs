@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviourPun
             SetPlayers();
     }
 
+    public void Update()
+    {
+        // show player coin
+        if (PlayerController.me != null)
+            GameUI.instance.UpdateCoinText(PlayerController.me.getCoin());
+    }
+
     void SetPlayers()
     {
         // Set the owners of the two player's photon views

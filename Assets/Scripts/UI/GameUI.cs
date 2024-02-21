@@ -1,3 +1,6 @@
+using Enums.TypeEntite;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +14,9 @@ public class GameUI : MonoBehaviour
     public Image unitInfo;
     public TextMeshProUGUI winText;
     public Image quitVerification;
+    public TextMeshProUGUI numberCoinText;
+    // Panel for items shop 
+    public GameObject shopPanel;
 
     // instance
     public static GameUI instance;
@@ -47,6 +53,11 @@ public class GameUI : MonoBehaviour
         text.text = player.photonPlayer.NickName;
     }
 
+    public void UpdateCoinText(int coin)
+    {
+        numberCoinText.text = coin.ToString();
+    }
+
     // sets the unit info text
     public void SetUnitInfoText(Unit unit)
     {
@@ -77,5 +88,16 @@ public class GameUI : MonoBehaviour
     {
         PlayerController.me.AddGameToAPI(false, GameManager.instance.GetOtherPlayer(PlayerController.me).photonPlayer.NickName);
         NetworkManager.instance.Leave();
+    }
+
+    public void OnOpenShop(TypeEntite typeBuildingShop)
+    {
+        shopPanel.SetActive(true);
+        ShopListPanel.instance.UpdateList();
+    }
+
+    public void OnCloseShop()
+    {
+        shopPanel.SetActive(false);
     }
 }
