@@ -83,6 +83,14 @@ public class Building : MonoBehaviourPun
         }
     }
 
+    public void HideRangeTiles()
+    {
+        foreach (OverlayTile item in deploymentUnitRangeTiles)
+        {
+            item.HideTile();
+        }
+    }
+
     public bool CanSelect()
     {
         if (usedThisTurn)

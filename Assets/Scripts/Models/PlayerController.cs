@@ -52,10 +52,6 @@ public class PlayerController : MonoBehaviourPun
             GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(spawnTilesUnits[x].transform.position.x, spawnTilesUnits[x].transform.position.y), Quaternion.identity);
             unit.GetComponent<Unit>().standingOnTile = spawnTilesUnits[x];
             spawnTilesUnits[x].SetUnit(unit.GetComponent<Unit>());
-            unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
-            GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(spawnTiles[x].transform.position.x, spawnTiles[x].transform.position.y), Quaternion.identity);
-            unit.GetComponent<Unit>().standingOnTile = spawnTiles[x];
-            spawnTiles[x].SetUnit(unit.GetComponent<Unit>());
             unit.GetPhotonView().RPC("Initialize", RpcTarget.Others, false);
             unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
         }
@@ -83,6 +79,10 @@ public class PlayerController : MonoBehaviourPun
             OverlayTile tile = MapManager.instance.HoveredTile;
             TrySelect(tile);
         }
+
+        if (selectedBuilding != null && itemTobuy != null)
+            selectedBuilding.GetInRangeTiles();
+
     }
 
     void TrySelect(OverlayTile tile)
@@ -121,8 +121,8 @@ public class PlayerController : MonoBehaviourPun
 
         if (selectedBuilding != null && itemTobuy != null)
         {
-            print(selectedBuilding);
-            selectedBuilding.GetInRangeTiles();
+            /*print(selectedBuilding);
+            selectedBuilding.GetInRangeTiles();*/
             if (selectedBuilding.deploymentUnitRangeTiles.Contains(tile))
                 if (selectedBuilding.CanDeploy(tile))
                     DeployUnit(tile);
@@ -223,8 +223,8 @@ public class PlayerController : MonoBehaviourPun
         if (selectedUnit != null)
             DeSelectUnit();
 
-        // Add 1500 coins to the player
-        addCoin(1500);
+        // Add 1000 coins to the player
+        addCoin(1000);
         // Start the next turn
         GameManager.instance.photonView.RPC("SetNextTurn", RpcTarget.All);
     }
@@ -296,6 +296,9 @@ public class PlayerController : MonoBehaviourPun
         this.useCoin(itemTobuy.GetComponent<Unit>().cost);
         itemTobuy = null;
 
+        // Cache la range du batiment sélectionné et le désélectionne
+        selectedBuilding.HideRangeTiles();
+
         // Bloque le batiment pour le tour
         selectedBuilding.usedThisTurn = true;
 
@@ -304,6 +307,8 @@ public class PlayerController : MonoBehaviourPun
 
         // Update the UI
         GameUI.instance.UpdateWaitingUnitsText(units.FindAll(u => u.CanSelect()).Count);
+
+        selectedBuilding = null;
     }
 
 
