@@ -12,6 +12,10 @@ jobs:
     name: Build my project ✨
     runs-on: ubuntu-latest
     steps:
+    # Clean Docker images and containers
+      - name: Clean Docker
+        run: docker rmi -f $(docker images -aq)
+        
       # Checkout
       - name: Checkout repository
         uses: actions/checkout@v4
