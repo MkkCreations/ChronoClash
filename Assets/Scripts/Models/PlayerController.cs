@@ -287,8 +287,6 @@ public class PlayerController : MonoBehaviourPun
         GameObject unit = PhotonNetwork.Instantiate(itemTobuy.name, new Vector3(tile.transform.position.x, tile.transform.position.y), Quaternion.identity);
         unit.GetComponent<Unit>().standingOnTile = tile;
         tile.SetUnit(unit.GetComponent<Unit>());
-        unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
-        unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
 
         // Ajoute l'unit� � la liste des unit�s du joueur
         units.Add(unit.GetComponent<Unit>());
