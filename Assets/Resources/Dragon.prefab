@@ -331,7 +331,7 @@ MonoBehaviour:
   attackRangTiles: []
   path: []
   typeEntite: 1
-  cost: 1000
+  cost: 10000
 --- !u!114 &3637321489940634116
 MonoBehaviour:
   m_ObjectHideFlags: 0
