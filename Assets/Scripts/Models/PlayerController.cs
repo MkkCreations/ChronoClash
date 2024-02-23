@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviourPun
             GameObject unit = PhotonNetwork.Instantiate(unitsToSpawn[x], new Vector3(spawnTilesUnits[x].transform.position.x, spawnTilesUnits[x].transform.position.y), Quaternion.identity);
             unit.GetComponent<Unit>().standingOnTile = spawnTilesUnits[x];
             spawnTilesUnits[x].SetUnit(unit.GetComponent<Unit>());
-            unit.GetPhotonView().RPC("Initialize", RpcTarget.Others, false);
+            unit.GetPhotonView().RPC("Initialize", RpcTarget.OthersBuffered, false);
             unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
         }
     }
