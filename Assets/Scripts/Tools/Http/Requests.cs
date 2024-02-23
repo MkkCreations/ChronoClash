@@ -70,7 +70,7 @@ public class Requests : MonoBehaviour
         if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
         {
             ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
-            Notification.instance.ShowMessage(error.error, true);
+            Notification.instance.ShowMessage(error.error ?? req.downloadHandler.text, true);
         }
         else
         {
@@ -108,7 +108,7 @@ public class Requests : MonoBehaviour
         {
             ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
             errorText.text = error.error;
-            Notification.instance.ShowMessage(error.error, true);
+            Notification.instance.ShowMessage(error.error ?? req.downloadHandler.text, true);
         }
         else
         {
@@ -141,7 +141,7 @@ public class Requests : MonoBehaviour
         if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
         {
             ErrorResponse error = JsonUtility.FromJson<ErrorResponse>(req.downloadHandler.text);
-            Notification.instance.ShowMessage(error.error, true);
+            Notification.instance.ShowMessage(error.error ?? req.downloadHandler.text, true);
         }
         else
         {
