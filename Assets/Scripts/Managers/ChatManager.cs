@@ -18,6 +18,11 @@ public class ChatManager : MonoBehaviourPun
         messages = new();
     }
 
+    private void Start()
+    {
+        OnCloseChat();
+    }
+
     public void OnShowChat()
     {
         chatPanel.SetActive(true);
