@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
-using static User;
 
 public class MyAccount : MonoBehaviour
 {

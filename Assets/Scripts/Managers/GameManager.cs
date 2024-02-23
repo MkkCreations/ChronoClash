@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class GameManager : MonoBehaviourPun
 {
@@ -25,6 +21,13 @@ public class GameManager : MonoBehaviourPun
         // the master client will set the players
         if (PhotonNetwork.IsMasterClient)
             SetPlayers();
+    }
+
+    public void Update()
+    {
+        // show player coin
+        if (PlayerController.me != null)
+            GameUI.instance.UpdateCoinText(PlayerController.me.getCoin());
     }
 
     void SetPlayers()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
-using UnityEditor;
+using SFB;
+//using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -11,7 +12,14 @@ public class ImageTools : MonoBehaviour
 
     public static void OpenFileExplorer()
     {
-        path = EditorUtility.OpenFilePanel("Show all images", "", "png");
+        //path = EditorUtility.OpenFilePanel("Show all images", "", "png");
+
+        // Open file with filter
+        var extensions = new[] {
+            new ExtensionFilter("Image Files", "png", "jpg", "jpeg" )
+        };
+        path = StandaloneFileBrowser.OpenFilePanel("Open File", "", extensions, false)[0];
+
     }
 
     // Read file from path
