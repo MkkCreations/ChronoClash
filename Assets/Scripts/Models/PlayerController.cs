@@ -78,11 +78,9 @@ public class PlayerController : MonoBehaviourPun
         {
             OverlayTile tile = MapManager.instance.HoveredTile;
             TrySelect(tile);
+            if (selectedBuilding != null && itemTobuy != null)
+                selectedBuilding.GetInRangeTiles();
         }
-
-        if (selectedBuilding != null && itemTobuy != null)
-            selectedBuilding.GetInRangeTiles();
-
     }
 
     void TrySelect(OverlayTile tile)
@@ -285,11 +283,10 @@ public class PlayerController : MonoBehaviourPun
     public void DeployUnit(OverlayTile tile)
     {
         GameObject unit = PhotonNetwork.Instantiate(itemTobuy.name, new Vector3(tile.transform.position.x, tile.transform.position.y), Quaternion.identity);
+        unit.GetPhotonView().RPC("Initialize", RpcTarget.Others, false);
+        unit.GetPhotonView().RPC("Initialize", photonPlayer, true);
         unit.GetComponent<Unit>().standingOnTile = tile;
         tile.SetUnit(unit.GetComponent<Unit>());
-
-        // Ajoute l'unit� � la liste des unit�s du joueur
-        units.Add(unit.GetComponent<Unit>());
 
         this.useCoin(itemTobuy.GetComponent<Unit>().cost);
         itemTobuy = null;
